@@ -1,0 +1,64 @@
+// Курсор на популярных товарах
+.cursor {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999;
+	display: block;
+	pointer-events: none;
+
+	@media (max-width: 992px) {
+		display: none;
+	}
+
+	&__point-zero {
+		position: relative;
+		width: 0;
+		height: 0;
+	}
+
+	&__circle {
+		display: flex;
+		overflow: hidden;
+		width: 0px;
+		height: 0px;
+		opacity: 0;
+		justify-content: center;
+		align-items: center;
+		border-radius: 100%;
+		background-color: var(--primary-color);
+		opacity: 1;
+		transition: opacity 0.3s ease-in-out, height 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656),
+			width 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656);
+	}
+
+	&__arrow {
+		margin: 0 13px;
+		transition: margin 0.4s cubic-bezier(0.339, -0.18, 0.228, 1.656);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&::before {
+			font-size: 24px;
+			color: #fff;
+		}
+	}
+
+	&.cursor__active .cursor__circle {
+		width: 100px;
+		height: 100px;
+		opacity: 1;
+	}
+
+	&.cursor__active .cursor__circle.cursor__circle__drag {
+		width: 80px;
+		height: 80px;
+	}
+
+	&.cursor__active .cursor__circle.cursor__circle__drag .cursor__arrow {
+		margin: 0 7.5px;
+	}
+}

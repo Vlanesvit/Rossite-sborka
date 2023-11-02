@@ -1,0 +1,142 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	box-sizing: border-box;
+	scrollbar-color: var(--primary-color) var(--bg-color);
+	scrollbar-width: thin;
+
+	// outline: 1px solid red !important;
+
+	// &::selection {
+	// 	background: var(--primary-color);
+	// 	color: var(--primary-color);
+	// }
+
+	&::-webkit-scrollbar {
+		cursor: pointer;
+		width: 6px;
+		background: transparent;
+		border-radius: 3px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		cursor: pointer;
+		background: var(--primary-color);
+		transition: 0.2s ease-in-out;
+		border-radius: 3px;
+	}
+
+	&::before,
+	&::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		scrollbar-color: var(--primary-color) var(--primary-color);
+		scrollbar-width: thin;
+
+		// &::selection {
+		// 	background: var(--primary-color);
+		// 	color: var(--primary-color);
+		// }
+
+		&::-webkit-scrollbar {
+			cursor: pointer;
+			width: 6px;
+			background: var(--bg-color);
+			border-radius: 3px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			cursor: pointer;
+			background: transparent;
+			-webkit-transition: 0.2s ease-in-out;
+			-o-transition: 0.2s ease-in-out;
+			transition: 0.2s ease-in-out;
+			border-radius: 0px;
+		}
+	}
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 100px;
+}
+
+html,
+body {
+	min-width: $minWidth;
+	// max-width: $maxWidth;
+	width: 100%;
+	margin: 0 auto;
+	height: 100%;
+}
+
+body {
+	color: var(--font-color);
+	line-height: 1;
+	font-family: $fontFamily;
+	font-size: $fontSize;
+	background: var(--bg-color);
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+input,
+button,
+textarea {
+	outline: none;
+	font-family: $fontFamily;
+	font-size: inherit;
+}
+button {
+	cursor: pointer;
+	color: inherit;
+	background: transparent;
+}
+button:active,
+button:focus {
+	outline: none !important;
+}
+button::-moz-focus-inner {
+	border: 0 !important;
+}
+a {
+	cursor: pointer;
+	color: inherit;
+}
+a:link,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	display: inline-block;
+	max-width: 100%;
+	border: 0;
+	vertical-align: middle;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}

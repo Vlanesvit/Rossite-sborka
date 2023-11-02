@@ -1,0 +1,49 @@
+.datepicker {
+	font-size: 12px;
+
+	@media (max-width: 767.98px) {
+		top: calc(100% + 5px) !important;
+		left: -10px !important;
+	}
+
+	@media (min-width: 767.98px) {
+		font-size: 14px;
+	}
+}
+.datepicker-cell.selected,
+.datepicker-cell.selected:hover {
+	background-color: $accentColor !important;
+	color: $fontColor !important;
+}
+
+.datepicker-controls .button {
+	font-size: 14px;
+
+	@media (min-width: 767.98px) {
+		font-size: 1rem;
+	}
+}
+
+.datepicker-footer .datepicker-controls .button {
+	font-size: 12px;
+
+	@media (min-width: 767.98px) {
+		font-size: 0.75rem;
+	}
+}
+
+.datepicker .dow {
+	font-size: 12px;
+
+	@media (min-width: 767.98px) {
+		font-size: 0.875rem;
+	}
+}
+
+.datepicker .week {
+	font-size: 12px;
+
+	@media (min-width: 767.98px) {
+		font-size: 0.75rem;
+	}
+}

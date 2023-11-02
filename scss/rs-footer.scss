@@ -1,0 +1,240 @@
+.rs-footer {
+	// .rs-footer__container
+	&__container {
+	}
+
+	// .rs-footer__wrapper
+	&__wrapper {
+		padding: 60px 0px 68px;
+
+		@media (max-width: 1569.98px) {
+			padding: 45px 0px 45px;
+		}
+
+		@media (max-width: 1169.98px) {
+			padding: 30px 0px 20px;
+		}
+	}
+
+	// .rs-footer__spollers
+	&__spollers {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-end;
+
+		@media (max-width: 767.98px) {
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+
+		&._spoller-init {
+			.rs-footer__spollers_title {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				&::after {
+					content: "";
+					display: block;
+					width: 9px;
+					height: 5px;
+					background-image: url("../img/icons/caret-arrow-down.svg");
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: contain;
+					transition: all 0.3s ease 0s;
+				}
+
+				&._spoller-active {
+					&::after {
+						transform: rotate(-180deg);
+					}
+				}
+			}
+		}
+
+		// .rs-footer__spollers_item
+		&_item {
+			width: 100%;
+			max-width: 300px;
+
+			@media (max-width: 1569.98px) {
+				max-width: 250px;
+			}
+
+			@media (max-width: 1169.98px) {
+				max-width: 200px;
+			}
+
+			@media (max-width: 767.98px) {
+				max-width: 100%;
+			}
+
+			&:not(:last-child) {
+				margin-right: 60px;
+
+				@media (max-width: 1569.98px) {
+					margin-right: 40px;
+				}
+
+				@media (max-width: 1169.98px) {
+					margin-right: 20px;
+				}
+
+				@media (max-width: 767.98px) {
+					margin-right: 0px;
+					margin-bottom: 15px;
+				}
+			}
+
+			&:first-child {
+				margin: 0px auto 0px 0px;
+				padding-right: 20px;
+				max-width: 377px;
+
+				@media (max-width: 767.98px) {
+					max-width: 100%;
+					margin-bottom: 15px;
+					padding-right: 0px;
+				}
+			}
+		}
+
+		// .rs-footer__spollers_title
+		&_title {
+			width: 100%;
+			text-align: left;
+			cursor: pointer;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 28.08px; /* 175.5% */
+			letter-spacing: 0.16px;
+
+			@media (max-width: 1569.98px) {
+				font-size: 14px;
+			}
+
+			@media (max-width: 1169.98px) {
+				font-size: 13px;
+			}
+		}
+
+		// .rs-footer__spollers_body
+		&_body {
+			margin-top: 10px;
+		}
+	}
+
+	.menu {
+		// .menu__body
+		&__body {
+		}
+
+		// .menu__list
+		&__list {
+			li {
+				display: flex;
+				align-items: flex-start;
+				color: var(--text-color);
+				font-size: 16px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 160%; /* 25.6px */
+
+				@media (max-width: 1569.98px) {
+					font-size: 14px;
+				}
+
+				@media (max-width: 1169.98px) {
+					font-size: 13px;
+				}
+
+				img {
+					min-width: 20px;
+					max-width: 20px;
+					height: 20px;
+					margin-right: 5px;
+				}
+				&:not(:last-child) {
+					margin-bottom: 12px;
+				}
+
+				a {
+					transition: all 0.3s ease 0s;
+					
+					@media (any-hover: hover){
+						&:hover{
+							color: var(--primary-color);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__social {
+		margin-top: 20px;
+		background-color: transparent;
+		padding: 0;
+
+		@media (max-width: 767.98px) {
+			display: none;
+		}
+
+		ul {
+			li {
+				&:not(:last-child) {
+					margin-right: 11px;
+				}
+
+				a {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					min-width: 46px;
+					max-width: 46px;
+					height: 46px;
+					border-radius: 50%;
+					background-color: #f2f4f9;
+				}
+			}
+		}
+	}
+
+	// .rs-footer__bottom
+	&__bottom {
+		padding: 24px 0px;
+		color: var(--text-color);
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 160%; /* 22.4px */
+		background-color: #f3f6ff;
+
+		@media (max-width: 1569.98px) {
+			font-size: 13px;
+			padding: 15px 0px;
+		}
+
+		.rs-footer__container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			@media (max-width: 539.98px) {
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+			}
+		}
+	}
+
+	// .rs-footer__copyright
+	&__copyright {
+	}
+
+	// .rs-footer__develop
+	&__develop {
+	}
+}
