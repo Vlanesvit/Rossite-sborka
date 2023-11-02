@@ -43,6 +43,7 @@
 }
 .rs-slider__slider {
   height: 100%;
+  overflow: visible;
 }
 .rs-slider__swiper {
   height: 100%;
@@ -57,6 +58,30 @@
 .rs-slider__slide.swiper-slide-active {
   opacity: 1 !important;
   visibility: visible !important;
+}
+.rs-slider__slide.swiper-slide-active .rs-slider__body h1 {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+.rs-slider__slide.swiper-slide-active .rs-slider__body p {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+.rs-slider__slide.swiper-slide-active .rs-slider__body ul {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
+}
+.rs-slider__slide.swiper-slide-active .rs-slider__buttons {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px);
 }
 @media (max-width: 991.98px) {
   .rs-slider__pagination {
@@ -144,6 +169,12 @@
   font-weight: 500;
   line-height: 110%; /* 44px */
   margin-bottom: 20px;
+  -webkit-transition: all 0.3s ease 0.5s;
+  transition: all 0.3s ease 0.5s;
+  opacity: 0;
+  -webkit-transform: translateX(-50px);
+      -ms-transform: translateX(-50px);
+          transform: translateX(-50px);
 }
 @media (max-width: 1569.98px) {
   .rs-slider__body h1 {
@@ -158,9 +189,21 @@
 }
 .rs-slider__body p {
   margin: 10px 0px;
+  -webkit-transition: all 0.3s ease 0.75s;
+  transition: all 0.3s ease 0.75s;
+  opacity: 0;
+  -webkit-transform: translateX(-50px);
+      -ms-transform: translateX(-50px);
+          transform: translateX(-50px);
 }
 .rs-slider__body ul {
   margin: 10px 0px;
+  -webkit-transition: all 0.3s ease 0.75s;
+  transition: all 0.3s ease 0.75s;
+  opacity: 0;
+  -webkit-transform: translateX(-50px);
+      -ms-transform: translateX(-50px);
+          transform: translateX(-50px);
 }
 .rs-slider__body ul li {
   display: -webkit-inline-box;
@@ -200,6 +243,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: all 0.3s ease 1s;
+  transition: all 0.3s ease 1s;
+  opacity: 0;
+  -webkit-transform: translateX(-50px);
+      -ms-transform: translateX(-50px);
+          transform: translateX(-50px);
 }
 @media (max-width: 991.98px) {
   .rs-slider__buttons {

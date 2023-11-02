@@ -5,15 +5,15 @@ function initMainSliders() {
 	// Перечень слайдеров
 	if (document.querySelector('.rs-slider__slider')) {
 		const swiperMain = new Swiper('.rs-slider__slider', {
-			// // Автопрокрутка
-			// autoplay: {
-			// 	// Пауза между прокруткой
-			// 	delay: 10000,
-			// 	// Закончить на последнем слайде
-			// 	stopOnLastSlide: false,
-			// 	// Отключить после ручного переключения
-			// 	disableOnInteraction: false,
-			// },
+			// Автопрокрутка
+			autoplay: {
+				// Пауза между прокруткой
+				delay: 10000,
+				// Закончить на последнем слайде
+				stopOnLastSlide: false,
+				// Отключить после ручного переключения
+				disableOnInteraction: false,
+			},
 
 			// Кол-во показываемых слайдов
 			slidesPerView: 1,
