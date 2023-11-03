@@ -942,6 +942,24 @@
   -o-object-fit: contain;
      object-fit: contain;
 }
+.social__list li svg.vk-icon path {
+  fill: var(--icon-vk, var(--icons-color));
+}
+.social__list li svg.telegram-icon path {
+  fill: var(--icon-tg, var(--icons-color));
+}
+.social__list li svg.whatsapp-icon path {
+  fill: var(--icon-wt, var(--icons-color));
+}
+.social__list li svg.ok-icon path {
+  fill: var(--icon-ok, var(--icons-color));
+}
+.social__list li svg.youtube-icon path {
+  fill: var(--icon-yt, var(--icons-color));
+}
+.social__list li svg.inst-icon path {
+  fill: var(--icon-inst, var(--icons-color));
+}
 .social__list li a {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;

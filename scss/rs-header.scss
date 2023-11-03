@@ -794,8 +794,6 @@
 
 		@media (max-width: 1169.98px) {
 			padding: 16px 16px;
-			// border-bottom: 1px solid #d6dbe0;
-			// border-top: 1px solid #d6dbe0;
 		}
 
 		li {
@@ -883,6 +881,27 @@
 				width: 24px;
 				height: 24px;
 				object-fit: contain;
+			}
+
+			svg {
+				&.vk-icon path {
+					fill: var(--icon-vk, var(--icons-color));
+				}
+				&.telegram-icon path {
+					fill: var(--icon-tg, var(--icons-color));
+				}
+				&.whatsapp-icon path {
+					fill: var(--icon-wt, var(--icons-color));
+				}
+				&.ok-icon path {
+					fill: var(--icon-ok, var(--icons-color));
+				}
+				&.youtube-icon path {
+					fill: var(--icon-yt, var(--icons-color));
+				}
+				&.inst-icon path {
+					fill: var(--icon-inst, var(--icons-color));
+				}
 			}
 
 			a {

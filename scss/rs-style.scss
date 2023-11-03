@@ -20,7 +20,7 @@ $fontSize: 14px;
 	--font-color: #0b0f19;
 	--text-color: #383b56;
 	--title-color: #0b0f19;
-	
+
 	--primary-color: #6366f1;
 	--primary-opacity-color: rgba($color: #6366f1, $alpha: 0.2);
 	--gray-color: #e2e5f1;
@@ -28,9 +28,16 @@ $fontSize: 14px;
 
 	--icons-color: #0b0f19;
 	--icons-opacity-color: rgba($color: #0b0f19, $alpha: 0.2);
-	--icons-footer-color: #CCCDF1;
+	--icons-footer-color: #cccdf1;
 	--icons-button-white: #fff;
-	--icons-button-opacity-white: rgba($color: #fff, $alpha: 0.2)
+	--icons-button-opacity-white: rgba($color: #fff, $alpha: 0.2);
+
+	--icon-vk: #4c75a3;
+	--icon-tg: #0088cc;
+	--icon-wt: #25d366;
+	--icon-inst: #833ab4;
+	--icon-ok: #f97400;
+	--icon-yt: #ff0000;
 }
 
 // Минимальная ширина страницы
