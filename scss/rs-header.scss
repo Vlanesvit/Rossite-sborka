@@ -46,10 +46,6 @@
 		@media (max-width: 1169.98px) {
 			display: none;
 		}
-
-		.rs-header__container {
-			justify-content: space-between;
-		}
 	}
 
 	// .rs-header__location
@@ -776,6 +772,11 @@
 		@media (min-width: 1169.98px) {
 			display: none;
 		}
+	}
+
+	&__contact {
+		margin-left: auto;
+		margin-right: calc(156px / 6 * 6);
 	}
 }
 

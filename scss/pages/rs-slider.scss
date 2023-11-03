@@ -194,10 +194,14 @@
 				margin-bottom: 5px;
 			}
 
-			svg, img {
+			&::before {
 				content: "";
 				position: relative;
 				display: block;
+				background-image: url("../img/icons/check.svg");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
 				min-width: 17px;
 				max-width: 17px;
 				height: 17px;

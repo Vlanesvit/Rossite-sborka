@@ -232,36 +232,6 @@ function headerFixed() {
 headerFixed()
 
 /* ====================================
-Мини-модальное для адреса 
-(если оно слишком большое)
-==================================== */
-const modalAddress = () => {
-	const locationBlock = document.querySelector('.rs-header__location');
-	if (locationBlock) {
-		const locationBlockText = locationBlock.querySelector('.rs-header__location_text');
-		const locationBlockTextContent = locationBlockText.textContent.length;
-		const locationBlockTextQuantity = locationBlockText.dataset.quantitySymbol;
-
-		if (locationBlockTextContent >= locationBlockTextQuantity) {
-			// Если блок превыщает допустимую ширину, то даем ему класс скрытия текста с добавлением многоточия
-			locationBlockText.classList.add('_hide-text');
-
-			// Создаем модальное окно и копируем полностью текст
-			const locationBlockModal = document.createElement('div');
-			locationBlockModal.classList.add('rs-header__location_modal')
-			locationBlockModal.textContent = locationBlockText.textContent;
-			locationBlock.append(locationBlockModal);
-		}
-	}
-}
-window.addEventListener('load', modalAddress())
-window.addEventListener('resize', function () {
-	if (window.innerWidth > 1169.98) {
-		modalAddress()
-	}
-})
-
-/* ====================================
 Поиск
 ==================================== */
 function search() {
@@ -384,7 +354,6 @@ const modalMainMenu = () => {
 
 	// Если элементов больше 8 и декстопная ширина экрана
 	if (menuItem.length > 8 && window.innerWidth > 1169.98) {
-
 		// Создаем доп. пункт с многоточием
 		const menuMore = document.createElement('li');
 		const menuMoreLink = document.createElement('a');
@@ -424,12 +393,6 @@ const modalMainMenu = () => {
 	}
 }
 window.addEventListener('load', modalMainMenu())
-window.addEventListener('resize', function () {
-	if (window.innerWidth > 1169.98) {
-		modalMainMenu()
-	}
-})
-
 
 /* ====================================
 Смена стилей для верхнего колонтитула 
@@ -437,12 +400,7 @@ window.addEventListener('resize', function () {
 const changeStylesTopHeader = () => {
 	const headerSocialLi = document.querySelectorAll('.rs-header__top .rs-header__social ul li');
 	const headerContact = document.querySelector('.rs-header__top .rs-header__contact');
-	const headerTopContainer = document.querySelector('.rs-header__top .rs-header__container');
+	headerContact.style.marginRight = 156 / 6 * headerSocialLi.length + 'px';
 
-	if (headerSocialLi.length <= 3) {
-		headerContact.style.marginLeft = "auto";
-		headerContact.style.marginRight = "20px";
-		headerTopContainer.style.justifyContent = "flex-start";
-	}
 }
-window.addEventListener('load', changeStylesTopHeader())
+changeStylesTopHeader()

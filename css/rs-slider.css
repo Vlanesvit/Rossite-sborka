@@ -216,10 +216,14 @@
 .rs-slider__body ul li:not(:last-child) {
   margin-bottom: 5px;
 }
-.rs-slider__body ul li svg, .rs-slider__body ul li img {
+.rs-slider__body ul li::before {
   content: "";
   position: relative;
   display: block;
+  background-image: url("../img/icons/check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   min-width: 17px;
   max-width: 17px;
   height: 17px;
@@ -227,7 +231,7 @@
   margin-right: 10px;
 }
 @media (max-width: 1169.98px) {
-  .rs-slider__body ul li svg, .rs-slider__body ul li img {
+  .rs-slider__body ul li::before {
     margin-top: 2px;
   }
 }

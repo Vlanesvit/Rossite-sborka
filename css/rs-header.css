@@ -56,11 +56,6 @@
     display: none;
   }
 }
-.rs-header__top .rs-header__container {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
 .rs-header__location {
   position: relative;
   display: inline-block;
@@ -817,6 +812,10 @@
   .rs-header__phone {
     display: none;
   }
+}
+.rs-header__contact {
+  margin-left: auto;
+  margin-right: 156px;
 }
 
 @media (max-width: 1169.98px) {

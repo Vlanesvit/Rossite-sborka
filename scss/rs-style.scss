@@ -18,12 +18,14 @@ $fontSize: 14px;
 :root {
 	--bg-color: #fff;
 	--font-color: #0b0f19;
+	--text-color: #383b56;
+	--title-color: #0b0f19;
+	
 	--primary-color: #6366f1;
 	--primary-opacity-color: rgba($color: #6366f1, $alpha: 0.2);
 	--gray-color: #e2e5f1;
 	--gray-opacity-color: rgba($color: #e2e5f1, $alpha: 0.2);
-	--text-color: #383b56;
-	--title-color: #0b0f19;
+
 	--icons-color: #0b0f19;
 	--icons-opacity-color: rgba($color: #0b0f19, $alpha: 0.2);
 	--icons-footer-color: #CCCDF1;
