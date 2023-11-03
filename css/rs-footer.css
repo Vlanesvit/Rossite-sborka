@@ -114,7 +114,6 @@
 .rs-footer__spollers_title {
   width: 100%;
   text-align: left;
-  cursor: pointer;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -157,10 +156,10 @@
     font-size: 13px;
   }
 }
-.rs-footer .menu__list li img {
+.rs-footer .menu__list li svg {
   min-width: 20px;
   max-width: 20px;
-  height: 20px;
+  height: 26px;
   margin-right: 5px;
 }
 .rs-footer .menu__list li:not(:last-child) {
@@ -169,6 +168,12 @@
 .rs-footer .menu__list li a {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 @media (any-hover: hover) {
   .rs-footer .menu__list li a:hover {

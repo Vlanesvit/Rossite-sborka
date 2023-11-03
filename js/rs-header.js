@@ -239,8 +239,10 @@ const modalAddress = () => {
 	const locationBlock = document.querySelector('.rs-header__location');
 	if (locationBlock) {
 		const locationBlockText = locationBlock.querySelector('.rs-header__location_text');
+		const locationBlockTextContent = locationBlockText.textContent.length;
+		const locationBlockTextQuantity = locationBlockText.dataset.quantitySymbol;
 
-		if (locationBlock.offsetWidth >= 410) {
+		if (locationBlockTextContent >= locationBlockTextQuantity) {
 			// Если блок превыщает допустимую ширину, то даем ему класс скрытия текста с добавлением многоточия
 			locationBlockText.classList.add('_hide-text');
 
@@ -328,15 +330,15 @@ function search() {
 	}
 	// Функции открытия/закрытия поиска с блокировкой скролла
 	function searchOpen() {
-		bodyLock();
+		// bodyLock();
 		document.documentElement.classList.add("search-open");
 	}
 	function searchClose() {
-		bodyUnlock();
+		// bodyUnlock();
 		document.documentElement.classList.remove("search-open");
 	}
 	function searchToggle() {
-		bodyLockToggle();
+		// bodyLockToggle();
 		document.documentElement.classList.toggle("search-open");
 	}
 }
@@ -427,3 +429,20 @@ window.addEventListener('resize', function () {
 		modalMainMenu()
 	}
 })
+
+
+/* ====================================
+Смена стилей для верхнего колонтитула 
+==================================== */
+const changeStylesTopHeader = () => {
+	const headerSocialLi = document.querySelectorAll('.rs-header__top .rs-header__social ul li');
+	const headerContact = document.querySelector('.rs-header__top .rs-header__contact');
+	const headerTopContainer = document.querySelector('.rs-header__top .rs-header__container');
+
+	if (headerSocialLi.length <= 3) {
+		headerContact.style.marginLeft = "auto";
+		headerContact.style.marginRight = "20px";
+		headerTopContainer.style.justifyContent = "flex-start";
+	}
+}
+window.addEventListener('load', changeStylesTopHeader())

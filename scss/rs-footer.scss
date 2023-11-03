@@ -104,7 +104,6 @@
 		&_title {
 			width: 100%;
 			text-align: left;
-			cursor: pointer;
 			font-size: 16px;
 			font-style: normal;
 			font-weight: 600;
@@ -150,10 +149,10 @@
 					font-size: 13px;
 				}
 
-				img {
+				svg {
 					min-width: 20px;
 					max-width: 20px;
-					height: 20px;
+					height: 26px;
 					margin-right: 5px;
 				}
 				&:not(:last-child) {
@@ -162,9 +161,11 @@
 
 				a {
 					transition: all 0.3s ease 0s;
-					
-					@media (any-hover: hover){
-						&:hover{
+					display: flex;
+					align-items: flex-start;
+
+					@media (any-hover: hover) {
+						&:hover {
 							color: var(--primary-color);
 						}
 					}

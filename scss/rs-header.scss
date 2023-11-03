@@ -518,7 +518,7 @@
 		max-width: 46px;
 		height: 46px;
 		border-radius: 50%;
-		background-color: #f2f4f9;
+		// background-color: #f2f4f9;
 		transition: all 0.3s ease 0s;
 
 		@media (any-hover: hover) {
@@ -563,6 +563,11 @@
 			align-items: center;
 			justify-content: center;
 			margin-right: 0px;
+			font-variant-numeric: lining-nums proportional-nums;
+			font-size: 13px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 160%; /* 20.8px */
 		}
 
 		// .rs-header__language_body
@@ -745,6 +750,11 @@
 			background-color: #fff;
 			margin-left: 15px;
 
+			svg,
+			img {
+				pointer-events: none;
+			}
+
 			@media (max-width: 1569.98px) {
 				min-width: 42px;
 				max-width: 42px;
@@ -813,7 +823,7 @@
 				}
 			}
 
-			img {
+			svg {
 				margin-right: 5px;
 				min-width: 20px;
 				max-width: 20px;
@@ -827,7 +837,8 @@
 
 			a {
 				transition: all 0.3s ease 0s;
-				display: block;
+				display: flex;
+				align-items: center;
 
 				@media (any-hover: hover) {
 					&:hover {
@@ -866,9 +877,18 @@
 				}
 			}
 
+			svg,
+			img {
+				width: 24px;
+				height: 24px;
+				object-fit: contain;
+			}
+
 			a {
 				transition: all 0.3s ease 0s;
 				display: block;
+				width: 24px;
+				height: 24px;
 
 				@media (any-hover: hover) {
 					&:hover {
