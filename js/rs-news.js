@@ -1,18 +1,18 @@
 /* ====================================
-Инициализация слайдера в блоке rs-slider
+Инициализация слайдера в блоке rs-news
 ==================================== */
-function initMainSliders() {
+function initNewsSliders() {
 	// Перечень слайдеров
-	if (document.querySelector('.rs-slider__slider')) {
-		const sliderBlocks = document.querySelectorAll('.rs-slider');
+	if (document.querySelector('.rs-news__slider')) {
+		const sliderBlocks = document.querySelectorAll('.rs-news');
 
 		sliderBlocks.forEach(sliderBlock => {
-			const sliders = sliderBlock.querySelectorAll('.rs-slider__slider');
+			const sliders = sliderBlock.querySelectorAll('.rs-news__slider');
 
 			sliders.forEach(slider => {
-				const arrowPrev = sliderBlock.querySelector('.rs-slider__button-prev');
-				const arrowNext = sliderBlock.querySelector('.rs-slider__button-next');
-				const pagination = sliderBlock.querySelector('.rs-slider__pagination');
+				const arrowPrev = sliderBlock.querySelector('.rs-news__button-prev');
+				const arrowNext = sliderBlock.querySelector('.rs-news__button-next');
+				const pagination = sliderBlock.querySelector('.rs-news__pagination');
 
 				const swiperMain = new Swiper(slider, {
 					// // Автопрокрутка
@@ -24,9 +24,6 @@ function initMainSliders() {
 					// 	// Отключить после ручного переключения
 					// 	disableOnInteraction: false,
 					// },
-
-					// Кол-во показываемых слайдов
-					slidesPerView: 1,
 
 					// Обновить свайпер
 					// при изменении элементов слайдера
@@ -49,7 +46,7 @@ function initMainSliders() {
 					touchAngle: 45,
 
 					// Цикличность слайдера
-					loop: true,
+					// loop: true,
 
 					// Анимация переключения
 					// effect: 'fade',
@@ -68,16 +65,9 @@ function initMainSliders() {
 						el: pagination,
 						clickable: true,
 					},
-				});
 
-				// Нужно повесить класс rs-slider__dark-theme на слайд, чтобы поменять цвета на темные (если фон картинка светлая)
-				swiperMain.on('slideChangeTransitionStart', function () {
-					const activeSlide = slider.querySelector('.swiper-slide-active');
-					if (activeSlide.classList.contains('rs-slider__dark-theme')) {
-						document.documentElement.classList.add("_dark-theme");
-					} else {
-						document.documentElement.classList.remove("_dark-theme");
-					}
+					slidesPerView: 4,
+					spaceBetween: 30,
 				});
 			});
 
@@ -86,5 +76,5 @@ function initMainSliders() {
 }
 window.addEventListener("load", function (e) {
 	// Запуск инициализации слайдеров
-	initMainSliders();
+	initNewsSliders();
 });

@@ -22,15 +22,19 @@ $fontSize: 14px;
 	--title-color: #0b0f19;
 
 	--primary-color: #6366f1;
-	--primary-opacity-color: rgba($color: #6366f1, $alpha: 0.2);
+	--primary-opacity-color: rgba(99, 102, 241, 0.2);
+	--primary-hover: #4f51c0;
 	--gray-color: #e2e5f1;
-	--gray-opacity-color: rgba($color: #e2e5f1, $alpha: 0.2);
+	--gray-opacity-color: rgba(255, 255, 255, 0.2);
+	--light-color: #f2f4f9;
+	--light-color-opacity: rgba(226, 229, 241, 0.2);
 
-	--icons-color: #0b0f19;
-	--icons-opacity-color: rgba($color: #0b0f19, $alpha: 0.2);
-	--icons-footer-color: #cccdf1;
+	--icons-color-dark: #0b0f19;
+	--icons-color-light: #fff;
+	--icons-opacity-color: rgba(11, 15, 25, 0.2);
+	--icons-menu-color: #cccdf1;
 	--icons-button-white: #fff;
-	--icons-button-opacity-white: rgba($color: #fff, $alpha: 0.2);
+	--icons-button-opacity-white: rgba(255, 255, 255, 0.2);
 
 	--icon-vk: #4c75a3;
 	--icon-tg: #0088cc;
@@ -38,6 +42,8 @@ $fontSize: 14px;
 	--icon-inst: #833ab4;
 	--icon-ok: #f97400;
 	--icon-yt: #ff0000;
+
+	--box-shadow: 9px 11px 29px 0px rgba(125, 138, 152, 0.15);
 }
 
 // Минимальная ширина страницы
@@ -45,7 +51,8 @@ $minWidth: 320px;
 // Ширина макета
 $maxWidth: 1920px;
 // Ширина ограничивающего контейнера (ширина контейнера по макету + раддинги)
-$maxWidthContainer: calc(1520px + calc(15px * 2));
+$paddingContainer: 36px;
+$maxWidthContainer: calc(1530px + ($paddingContainer * 2));
 
 // Брейк-поинты
 $pc: 1169.98px; // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
@@ -93,8 +100,8 @@ body {
 	margin: 0 auto;
 	width: 100%;
 	max-width: $maxWidthContainer;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: $paddingContainer;
+	padding-right: $paddingContainer;
 
 	@media (max-width: 991.98px) {
 		max-width: 768px;
@@ -102,6 +109,8 @@ body {
 
 	@media (max-width: 767.98px) {
 		max-width: 100%;
+		padding-left: 16px;
+		padding-right: 16px;
 	}
 }
 

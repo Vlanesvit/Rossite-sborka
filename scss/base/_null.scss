@@ -3,28 +3,24 @@
 	margin: 0px;
 	border: 0px;
 	box-sizing: border-box;
-	scrollbar-color: var(--primary-color) var(--bg-color);
-	scrollbar-width: thin;
 
-	// outline: 1px solid red !important;
-
-	// &::selection {
-	// 	background: var(--primary-color);
-	// 	color: var(--primary-color);
-	// }
-
+	/* Non-Standard, But More Styling-Capable Properties */
 	&::-webkit-scrollbar {
 		cursor: pointer;
-		width: 6px;
-		background: transparent;
-		border-radius: 3px;
+		width: 5px;
+		background: #f5f5f5;
 	}
 
 	&::-webkit-scrollbar-thumb {
 		cursor: pointer;
 		background: var(--primary-color);
 		transition: 0.2s ease-in-out;
-		border-radius: 3px;
+	}
+
+	/* Standardized Properties */
+	@supports not selector(::-webkit-scrollbar) {
+		scrollbar-color: var(--primary-color) var(--bg-color);
+		scrollbar-width: thin;
 	}
 
 	&::before,
@@ -32,29 +28,6 @@
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
-		scrollbar-color: var(--primary-color) var(--primary-color);
-		scrollbar-width: thin;
-
-		// &::selection {
-		// 	background: var(--primary-color);
-		// 	color: var(--primary-color);
-		// }
-
-		&::-webkit-scrollbar {
-			cursor: pointer;
-			width: 6px;
-			background: var(--bg-color);
-			border-radius: 3px;
-		}
-
-		&::-webkit-scrollbar-thumb {
-			cursor: pointer;
-			background: transparent;
-			-webkit-transition: 0.2s ease-in-out;
-			-o-transition: 0.2s ease-in-out;
-			transition: 0.2s ease-in-out;
-			border-radius: 0px;
-		}
 	}
 }
 

@@ -1,6 +1,8 @@
 .rs-slider {
 	height: 100vh;
+	max-height: 760px;
 	padding-top: 112px;
+	margin-top: 0px;
 	border-radius: 0px 0px 30px 30px;
 	overflow: hidden;
 
@@ -25,16 +27,23 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-		}
 
-		@media (max-width: 991.98px) {
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
+			&.rs-slider__bg--tablet {
+				@media (min-width: 991.98px), (max-width: 767.98px) {
+					display: none;
+				}
+			}
+
+			&.rs-slider__bg--desk {
+				@media (max-width: 991.98px) {
+					display: none;
+				}
+			}
+
+			&.rs-slider__bg--mob {
+				@media (min-width: 767.98px) {
+					display: none;
+				}
 			}
 		}
 	}
@@ -44,10 +53,16 @@
 		height: 100%;
 	}
 
+	&__wrapper {
+		height: 100%;
+		position: relative;
+	}
+
 	// .rs-slider__slider
 	&__slider {
 		height: 100%;
-		overflow: visible;
+		max-width: 645px;
+		margin: 0;
 	}
 
 	// .rs-slider__swiper
@@ -61,6 +76,41 @@
 		opacity: 0 !important;
 		visibility: hidden !important;
 		transition: all 0.3s ease 0s;
+
+		.rs-slider {
+			&__body h1 {
+				opacity: 0;
+				transform: translateX(50px);
+				transition:
+					transform 0.5s ease 0.15s,
+					opacity 0.5s ease 0.15s;
+			}
+
+			&__body p {
+				opacity: 0;
+				transform: translateX(50px);
+				transition:
+					transform 0.5s ease 0.3s,
+					opacity 0.5s ease 0.3s;
+			}
+
+			&__body ul {
+				opacity: 0;
+				transform: translateX(50px);
+				transition:
+					transform 0.5s ease 0.45s,
+					opacity 0.5s ease 0.45s;
+			}
+
+			// .rs-slider__buttons
+			&__buttons {
+				opacity: 0;
+				transform: translateX(30px);
+				transition:
+					transform 0.8s ease 0.6s,
+					opacity 0.8s ease 0.6s;
+			}
+		}
 
 		&.swiper-slide-active {
 			opacity: 1 !important;
@@ -91,18 +141,12 @@
 		}
 	}
 
-	&__pagination {
-		@media (max-width: 991.98px) {
-			display: none;
-		}
-	}
-
 	&__content {
 		height: 100%;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		padding: 50px 0px;
+		// justify-content: center;
+		padding: 168px 0px;
 
 		@media (max-width: 1569.98px) {
 			padding: 40px 0px;
@@ -121,10 +165,12 @@
 			text-align: left;
 			align-items: flex-start;
 		}
+
 		&._text-center {
 			text-align: center;
 			align-items: center;
 		}
+
 		&._text-right {
 			align-items: flex-end;
 			text-align: right;
@@ -133,20 +179,6 @@
 
 	&__body {
 		width: 100%;
-		max-width: 645px;
-		color: var(--text-color);
-		font-size: 18px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 160%; /* 28.8px */
-
-		@media (max-width: 1569.98px) {
-			font-size: 15px;
-		}
-
-		@media (max-width: 1169.98px) {
-			font-size: 13px;
-		}
 
 		@media (max-width: 991.98px) {
 			max-width: 100%;
@@ -155,41 +187,46 @@
 
 	&__body h1 {
 		color: var(--title-color);
-		font-size: 40px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 110%; /* 44px */
-		margin-bottom: 20px;
-		transition: all 0.3s ease 0.5s;
-		opacity: 0;
-		transform: translateX(-50px);
+		margin-bottom: 16px;
 
-		@media (max-width: 1569.98px) {
-			font-size: 30px;
+		._white-block & {
+			color: #fff;
 		}
 
 		@media (max-width: 1169.98px) {
-			font-size: 20px;
 			margin-bottom: 10px;
 		}
 	}
 
 	&__body p {
 		margin: 10px 0px;
-		transition: all 0.3s ease 0.75s;
-		opacity: 0;
-		transform: translateX(-50px);
+		color: var(--text-color);
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 160%; /* 28.8px */
+
+		._white-block & {
+			color: #fff;
+		}
 	}
 
 	&__body ul {
 		margin: 10px 0px;
-		transition: all 0.3s ease 0.75s;
-		opacity: 0;
-		transform: translateX(-50px);
 
 		li {
 			display: inline-flex;
 			align-items: flex-start;
+			color: var(--text-color);
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 160%; /* 28.8px */
+
+			._white-block & {
+				color: #fff;
+			}
+
 			&:not(:last-child) {
 				margin-bottom: 5px;
 			}
@@ -217,12 +254,15 @@
 
 	// .rs-slider__buttons
 	&__buttons {
-		margin-top: 20px;
+		margin-top: 30px;
 		display: flex;
 		align-items: center;
-		transition: all 0.3s ease 1s;
+
 		opacity: 0;
-		transform: translateX(-50px);
+		transform: translateY(15px);
+		transition:
+			transform 0.5s ease 0.6s,
+			opacity 0.5s ease 0.6s;
 
 		@media (max-width: 991.98px) {
 			width: 100%;
@@ -246,10 +286,20 @@
 				flex: 1 1 50%;
 			}
 
-			@media (max-width: 539.98px) {
+			@media (max-width: 767.98px) {
 				flex: 1 1 100%;
 				width: 100%;
 			}
+		}
+	}
+
+	.swiper-action {
+		position: absolute;
+		bottom: 20px;
+		right: 0;
+
+		@media (max-width: 767.98px) {
+			display: none;
 		}
 	}
 }
