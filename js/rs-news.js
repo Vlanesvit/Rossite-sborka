@@ -68,6 +68,26 @@ function initNewsSliders() {
 
 					slidesPerView: 4,
 					spaceBetween: 30,
+
+					// Брекпоинты (адаптив)
+					breakpoints: {
+						320: {
+							slidesPerView: 1.207,
+							spaceBetween: 24,
+						},
+						767.98: {
+							slidesPerView: 2.4,
+							spaceBetween: 24,
+						},
+						991.98: {
+							slidesPerView: 3,
+							spaceBetween: 24,
+						},
+						1439.98: {
+							slidesPerView: 4,
+							spaceBetween: 30,
+						}
+					},
 				});
 			});
 

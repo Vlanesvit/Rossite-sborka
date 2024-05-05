@@ -66,8 +66,23 @@ function initReviewsSliders() {
 						clickable: true,
 					},
 
-					slidesPerView: 2,
-					spaceBetween: 30,
+
+
+					// Брекпоинты (адаптив)
+					breakpoints: {
+						320: {
+							slidesPerView: 1.207,
+							spaceBetween: 24,
+						},
+						767.98: {
+							slidesPerView: 1.331,
+							spaceBetween: 24,
+						},
+						991.98: {
+							slidesPerView: 2,
+							spaceBetween: 30,
+						},
+					},
 				});
 			});
 
