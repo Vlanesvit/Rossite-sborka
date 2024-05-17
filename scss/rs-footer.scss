@@ -239,6 +239,10 @@
 				li {
 					&:not(:last-child) {
 						margin-right: 12px;
+
+						@media (max-width: 767.98px){
+							  margin-right: 7px;
+						}
 					}
 
 					svg,

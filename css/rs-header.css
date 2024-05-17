@@ -13,6 +13,7 @@
 }
 .rs-header._header-white {
   border-bottom-color: transparent;
+  margin-bottom: -100%;
 }
 .rs-header._header-scroll {
   color: var(--font-color);

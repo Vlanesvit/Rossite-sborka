@@ -90,6 +90,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 20px;
 }
 @media (max-width: 1439.98px) {
   .rs-features__img {

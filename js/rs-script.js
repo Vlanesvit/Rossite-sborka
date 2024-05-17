@@ -58,55 +58,51 @@ data-spollers="768,min" - спойлеры будут работать толь�
 */
 function spollers() {
 	const spollersArray = document.querySelectorAll('[data-spollers]');
+
+	function spollerClassInit() {
+		spollersArray.forEach(spoller => {
+			if (spoller) {
+				const spollersItem = spoller.querySelectorAll('[class*="_item"]')
+
+				spoller.classList.add('spollers')
+
+				spollersItem.forEach(item => {
+					if (item) {
+						const spollerTitle = item.querySelector('[class*="_title"]')
+						const spollerBody = item.querySelector('[class*="_body"]')
+
+						item.classList.add('spollers__item')
+						if (spollerTitle) {
+							spollerTitle.classList.add('spollers__title')
+						}
+						if (spollerBody) {
+							spollerBody.classList.add('spollers__body')
+						}
+					}
+				});
+			}
+		});
+	}
+	spollerClassInit()
+
 	if (spollersArray.length > 0) {
 		// Получение обычных слойлеров
 		const spollersRegular = Array.from(spollersArray).filter(function (item, index, self) {
 			return !item.dataset.spollers.split(",")[0];
 		});
 		// Инициализация обычных слойлеров
-		if (spollersRegular.length > 0) {
+		if (spollersRegular.length) {
 			initSpollers(spollersRegular);
 		}
 		// Получение слойлеров с медиа запросами
-		const spollersMedia = Array.from(spollersArray).filter(function (item, index, self) {
-			return item.dataset.spollers.split(",")[0];
-		});
-		// Инициализация слойлеров с медиа запросами
-		if (spollersMedia.length > 0) {
-			const breakpointsArray = [];
-			spollersMedia.forEach(item => {
-				const params = item.dataset.spollers;
-				const breakpoint = {};
-				const paramsArray = params.split(",");
-				breakpoint.value = paramsArray[0];
-				breakpoint.type = paramsArray[1] ? paramsArray[1].trim() : "max";
-				breakpoint.item = item;
-				breakpointsArray.push(breakpoint);
-			});
-			// Получаем уникальные брейкпоинты
-			let mediaQueries = breakpointsArray.map(function (item) {
-				return '(' + item.type + "-width: " + item.value + "px)," + item.value + ',' + item.type;
-			});
-			mediaQueries = mediaQueries.filter(function (item, index, self) {
-				return self.indexOf(item) === index;
-			});
-			// Работаем с каждым брейкпоинтом
-			mediaQueries.forEach(breakpoint => {
-				const paramsArray = breakpoint.split(",");
-				const mediaBreakpoint = paramsArray[1];
-				const mediaType = paramsArray[2];
-				const matchMedia = window.matchMedia(paramsArray[0]);
-				// Объекты с нужными условиями
-				const spollersArray = breakpointsArray.filter(function (item) {
-					if (item.value === mediaBreakpoint && item.type === mediaType) {
-						return true;
-					}
-				});
+		let mdQueriesArray = dataMediaQueries(spollersArray, "spollers");
+		if (mdQueriesArray && mdQueriesArray.length) {
+			mdQueriesArray.forEach(mdQueriesItem => {
 				// Событие
-				matchMedia.addEventListener("change", function () {
-					initSpollers(spollersArray, matchMedia);
+				mdQueriesItem.matchMedia.addEventListener("change", function () {
+					initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 				});
-				initSpollers(spollersArray, matchMedia);
+				initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 			});
 		}
 		// Инициализация
@@ -126,43 +122,63 @@ function spollers() {
 		}
 		// Работа с контентом
 		function initSpollerBody(spollersBlock, hideSpollerBody = true) {
-			const spollerTitles = spollersBlock.querySelectorAll('[data-spoller]');
-			if (spollerTitles.length > 0) {
+			let spollerTitles = spollersBlock.querySelectorAll('[data-spoller]');
+			if (spollerTitles.length) {
+				spollerTitles = Array.from(spollerTitles).filter(item => item.closest('[data-spollers]') === spollersBlock);
 				spollerTitles.forEach(spollerTitle => {
 					if (hideSpollerBody) {
 						spollerTitle.removeAttribute('tabindex');
 						if (!spollerTitle.classList.contains('_spoller-active')) {
-							spollerTitle.nextElementSibling.hidden = true;
+							spollerTitle.closest('.spollers__item').querySelector('.spollers__body').hidden = true;
 						}
 					} else {
 						spollerTitle.setAttribute('tabindex', '-1');
-						spollerTitle.nextElementSibling.hidden = false;
+						spollerTitle.closest('.spollers__item').querySelector('.spollers__body').hidden = false;
 					}
 				});
 			}
 		}
 		function setSpollerAction(e) {
 			const el = e.target;
-			if (el.hasAttribute('data-spoller') || el.closest('[data-spoller]')) {
-				const spollerTitle = el.hasAttribute('data-spoller') ? el : el.closest('[data-spoller]');
+			if (el.closest('[data-spoller]')) {
+				const spollerTitle = el.closest('[data-spoller]');
 				const spollersBlock = spollerTitle.closest('[data-spollers]');
-				const oneSpoller = spollersBlock.hasAttribute('data-one-spoller') ? true : false;
+				const oneSpoller = spollersBlock.hasAttribute('data-one-spoller');
+				const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
 				if (!spollersBlock.querySelectorAll('._slide').length) {
 					if (oneSpoller && !spollerTitle.classList.contains('_spoller-active')) {
 						hideSpollersBody(spollersBlock);
 					}
 					spollerTitle.classList.toggle('_spoller-active');
-					_slideToggle(spollerTitle.nextElementSibling, 500);
+					_slideToggle(spollerTitle.closest('.spollers__item').querySelector('.spollers__body'), spollerSpeed);
 				}
-				// e.preventDefault();
+				e.preventDefault();
 			}
 		}
 		function hideSpollersBody(spollersBlock) {
 			const spollerActiveTitle = spollersBlock.querySelector('[data-spoller]._spoller-active');
-			if (spollerActiveTitle) {
+			const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+			if (spollerActiveTitle && !spollersBlock.querySelectorAll('._slide').length) {
 				spollerActiveTitle.classList.remove('_spoller-active');
-				_slideUp(spollerActiveTitle.nextElementSibling, 500);
+				_slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
 			}
+		}
+		// Закрытие при клике вне спойлера
+		const spollersClose = document.querySelectorAll('[data-spoller-close]');
+		if (spollersClose.length) {
+			document.addEventListener("click", function (e) {
+				const el = e.target;
+				if (!el.closest('[data-spollers]')) {
+					spollersClose.forEach(spollerClose => {
+						const spollersBlock = spollerClose.closest('[data-spollers]');
+						if (spollersBlock.classList.contains('_spoller-init')) {
+							const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+							spollerClose.classList.remove('_spoller-active');
+							_slideUp(spollerClose.nextElementSibling, spollerSpeed);
+						}
+					});
+				}
+			});
 		}
 	}
 }
@@ -744,19 +760,21 @@ function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
 	formLines.forEach(formLine => {
 		const formInput = formLine.querySelector('.rs-input')
 		const formClear = formLine.querySelector('.rs-input-clear')
-		formInput.addEventListener('input', function () {
-			if (formInput.value != '') {
-				formClear.style.display = "block";
-				formInput.parentElement.classList.add('_form-valid')
-			} else {
-				formClear.style.display = "none";
-				formInput.parentElement.classList.remove('_form-valid')
-			}
-		})
+		if (formInput) {
+			formInput.addEventListener('input', function () {
+				if (formInput.value != '') {
+					formClear.classList.add('_clear-active');
+					formInput.parentElement.classList.add('_form-valid')
+				} else {
+					formClear.classList.remove('_clear-active');
+					formInput.parentElement.classList.remove('_form-valid')
+				}
+			})
+		}
 		if (formClear) {
 			formClear.addEventListener('click', function () {
 				formInput.value = '';
-				formClear.style.display = "none";
+				formClear.classList.remove('_clear-active');
 				formInput.parentElement.classList.remove('_form-valid')
 				formInput.focus()
 			})
@@ -939,6 +957,58 @@ function formSubmit() {
 formFieldsInit({
 	viewPass: false,
 	autoHeight: false
+});
+
+/* ====================================
+Кастомный курсор
+==================================== */
+const addCursorHover = (hoveredElement, selectedElement, newClass) => {
+	if (document.querySelector(hoveredElement) && document.querySelector(selectedElement)) {
+		document.querySelectorAll(hoveredElement).forEach(hover => {
+			hover.addEventListener('mouseenter', function () {
+				document.querySelector(selectedElement).classList.add(newClass)
+				hover.classList.add('_mouse-event')
+			})
+
+			hover.addEventListener('mouseleave', function () {
+				document.querySelector(selectedElement).classList.remove(newClass)
+				hover.classList.remove('_mouse-event')
+			})
+
+			hover.addEventListener('mousemove', function () {
+				document.querySelector(selectedElement).classList.add(newClass)
+			})
+		});
+	}
+}
+const addCursorDrag = (hoveredElement, selectedElement, newClass) => {
+	if (document.querySelector(hoveredElement) && document.querySelector(selectedElement)) {
+		document.querySelectorAll(hoveredElement).forEach(hover => {
+			hover.addEventListener('mousedown', function () {
+				document.querySelector(selectedElement).classList.add(newClass)
+			})
+		});
+		document.body.addEventListener('mouseup', function () {
+			document.querySelector(selectedElement).classList.remove(newClass)
+		})
+	}
+}
+const addCursorMove = (hoveredElement, selectedElement) => {
+	document.body.addEventListener('mousemove', function (e) {
+		if (document.querySelector(hoveredElement) && document.querySelector(selectedElement)) {
+			document.querySelector(selectedElement).style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+		}
+	});
+}
+// addCursorHover(".rs-slider-block__slider", ".rs-slider-block .cursor", "cursor__active");
+// addCursorMove(".rs-slider-block__slider", ".rs-slider-block .cursor__circle")
+// addCursorDrag(".rs-slider-block__slider", ".rs-slider-block .cursor__circle", "cursor__circle__drag")
+
+/* ====================================
+Инициализация галереи
+==================================== */
+Fancybox.bind("[data-fancybox]", {
+	// Your custom options
 });
 
 /* ====================================

@@ -444,8 +444,9 @@ pageNavigation();
 /* ====================================
 Header при скролле
 ==================================== */
-function headerFixed() {
+function headerScroll() {
 	const header = document.querySelector('.rs-header');
+	const headerTag = document.querySelector('header');
 
 	function headerClassAdd() {
 		// 0 - на сколько скролим, чтобы дался класс
@@ -455,11 +456,24 @@ function headerFixed() {
 	window.addEventListener('scroll', function () {
 		headerClassAdd()
 	})
+
 	window.addEventListener('load', function () {
 		headerClassAdd()
+
+		if (!header.classList.contains('_header-white')) {
+			headerTag.style.height = header.clientHeight + 'px';
+		}
+	})
+
+	window.addEventListener('resize', function () {
+		headerClassAdd()
+
+		if (!header.classList.contains('_header-white')) {
+			headerTag.style.height = header.clientHeight + 'px';
+		}
 	})
 }
-headerFixed()
+headerScroll()
 
 /* ====================================
 Мини-модальное для адреса 

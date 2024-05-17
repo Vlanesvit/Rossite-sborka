@@ -106,6 +106,53 @@
 			}
 		}
 	}
+
+	// pag (hor, bul)
+	.swiper-horizontal > .swiper-pagination-bullets,
+	.swiper-pagination-bullets.swiper-pagination-horizontal,
+	.swiper-pagination-custom,
+	.swiper-pagination-fraction {
+		margin-top: 0px;
+	}
+
+	.swiper-pagination {
+		text-align: center;
+	}
+
+	// pag-item
+	.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+	.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+		margin: 0 6px;
+	}
+
+	.swiper-pagination-bullet {
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background-color: var(--primary-opacity-color);
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			width: 8px;
+			height: 8px;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			border-radius: 50%;
+			background-color: #fff;
+			transition: background-color 0.3s ease 0s;
+		}
+	}
+
+	.swiper-pagination-bullet-active {
+		background-color: var(--primary-color);
+
+		&::after {
+			background-color: var(--primary-color);
+		}
+	}
 }
 
 // pag (hor, bul)
@@ -116,11 +163,21 @@
 	bottom: 0px;
 	left: 0;
 	width: auto;
+	margin-top: 24px;
+	margin-left: -7.5px;
+
+	@media (max-width: 1439.98px) {
+		margin-top: 16px;
+	}
+
+	@media (max-width: 991.98px) {
+		display: none;
+	}
 }
 
 .swiper-pagination {
 	position: relative;
-	text-align: center;
+	text-align: left;
 	transition: 0.3s opacity;
 	transform: translate3d(0, 0, 0);
 	z-index: 10;
@@ -129,40 +186,24 @@
 // pag-item
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-	margin: 0 6px;
+	margin: 0 7.5px;
 }
 
 .swiper-pagination-bullet {
-	width: 14px;
-	height: 14px;
+	width: 5px;
+	height: 5px;
 	display: inline-block;
-	border-radius: 50%;
-	background-color: var(--primary-opacity-color);
+	border-radius: 800px;
+	background-color: #b4b7c9;
 	opacity: 1;
 	transition: all 0.3s ease 0s;
 	position: relative;
-
-	&::after {
-		content: "";
-		position: absolute;
-		width: 8px;
-		height: 8px;
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
-		border-radius: 50%;
-		background-color: #fff;
-		transition: background-color 0.3s ease 0s;
-	}
 }
 
 .swiper-pagination-bullet-active {
 	opacity: 1;
 	background-color: var(--primary-color);
-
-	&::after {
-		background-color: var(--primary-color);
-	}
+	width: 24px;
 }
 
 // nav
