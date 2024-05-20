@@ -291,6 +291,7 @@ function menuFunction() {
 					const searchForm = search.querySelector('.search__form');
 					const searchSubmit = search.querySelector('.search__submit');
 					const searchClear = search.querySelector('.search__clear');
+					const searchClose = search.querySelector('.search__close');
 
 					// При фокусе показать блок с результатами поиска
 					searchInput.addEventListener('focus', function () {
@@ -307,6 +308,15 @@ function menuFunction() {
 							searchForm.submit();
 						}
 					})
+
+					if (searchClose) {
+						searchClose.addEventListener('click', function (e) {
+							e.preventDefault();
+							if (document.documentElement.classList.contains(classesOpen)) {
+								document.documentElement.classList.remove(classesOpen)
+							}
+						})
+					}
 
 					// При вводе появляется кнопка отчистки
 					searchInput.addEventListener('input', function (e) {

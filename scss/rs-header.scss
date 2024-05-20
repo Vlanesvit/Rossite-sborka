@@ -382,6 +382,11 @@
 		position: relative;
 		z-index: 5;
 
+		.search-2 &,
+		.search-3 & {
+			position: unset;
+		}
+
 		@media (max-width: 991.98px) {
 			padding: 15px 0px;
 		}
@@ -510,6 +515,11 @@
 			position: relative;
 			z-index: 10;
 			justify-content: space-between;
+
+			.search-2 &,
+			.search-3 & {
+				position: unset;
+			}
 		}
 
 		@media (max-width: 991.98px) {
@@ -1137,6 +1147,47 @@
 					background-color 0.3s cubic-bezier(0.77, 0, 0.175, 1) 0s;
 			}
 
+			.search-2 & {
+				border: none;
+				background: #f2f4f9;
+				width: 100%;
+				top: calc(100% + 1px);
+				left: 0;
+				border-radius: 0px;
+				padding: 10px 0px;
+				transform: translateY(10px);
+				transition: all 0.3s ease 0s;
+				opacity: 0;
+				visibility: hidden;
+
+				.search-open & {
+					opacity: 1;
+					visibility: visible;
+					transform: translateY(0px);
+				}
+			}
+
+			.search-3 & {
+				border: none;
+				backdrop-filter: blur(15px);
+				background: rgba(250, 251, 255, 0.8);
+				width: 100%;
+				top: 0;
+				left: 0;
+				border-radius: 0px;
+				padding: 34px 0px;
+				transform: translateY(10px);
+				transition: all 0.3s ease 0s;
+				opacity: 0;
+				visibility: hidden;
+
+				.search-open & {
+					opacity: 1;
+					visibility: visible;
+					transform: translateY(0px);
+				}
+			}
+
 			@media (max-width: 1569.98px) {
 				left: 0px;
 
@@ -1165,6 +1216,17 @@
 			&__block {
 				width: 100%;
 
+				@media (min-width: 991.98px) {
+					.search-2 &,
+					.search-3 & {
+						margin: 0 auto;
+						width: 100%;
+						max-width: 1592px;
+						padding-left: 36px;
+						padding-right: 36px;
+					}
+				}
+
 				@media (max-width: 991.98px) {
 					background-color: #fff;
 					border-radius: 23px;
@@ -1191,10 +1253,26 @@
 			// .search__line
 			&__line {
 				display: flex;
+				align-items: center;
 				padding: 4px 3px 4px 20px;
 
 				@media (max-width: 1569.98px) {
 					padding: 2.5px 3px 2.5px 20px;
+				}
+
+				@media (min-width: 991.98px) {
+					.search-2 &,
+					.search-3 & {
+						padding: 0;
+					}
+				}
+
+				& > h5 {
+					margin-right: 3px;
+
+					@media (max-width: 991.98px) {
+						display: none;
+					}
 				}
 			}
 
@@ -1208,6 +1286,22 @@
 				line-height: 140%;
 				color: var(--font-color);
 				background-color: transparent;
+
+				@media (min-width: 991.98px) {
+					.search-2 &,
+					.search-3 & {
+						font-weight: 500;
+						font-size: 16px;
+						// line-height: 26px;
+						line-height: 160%;
+					}
+
+					.search-3 & {
+						max-width: 502px;
+						margin-right: 5px;
+						border-bottom: 1px solid #d2d7e8;
+					}
+				}
 
 				@media (max-width: 1569.98px) {
 					font-size: 14px;
@@ -1230,6 +1324,13 @@
 			&__clear {
 				display: none;
 				margin-right: 10px;
+
+				@media (min-width: 991.98px) {
+					.search-3 & {
+						margin-left: -24px;
+						margin-top: -0px;
+					}
+				}
 			}
 
 			&__submit {
@@ -1242,6 +1343,48 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
+
+				@media (min-width: 991.98px) {
+					.search-2 & {
+						min-width: 45px;
+						min-height: 45px;
+						max-width: 45px;
+						max-height: 45px;
+						margin-right: 10px;
+					}
+
+					.search-3 & {
+						min-width: 19px;
+						min-height: 19px;
+						max-width: 19px;
+						max-height: 19px;
+						background-color: transparent;
+
+						svg {
+							path {
+								stroke: var(--primary-color);
+							}
+						}
+					}
+				}
+			}
+
+			&__close {
+				min-width: 45px;
+				min-height: 45px;
+				max-width: 45px;
+				max-height: 45px;
+				margin: 0px 0px 0px auto;
+				background: #fff;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 1px solid #e8e9f3;
+
+				@media (max-width: 991.98px) {
+					display: none;
+				}
 			}
 
 			// .search__result
@@ -1250,6 +1393,13 @@
 
 				@media (max-width: 991.98px) {
 					padding: 12px 20px 24px;
+				}
+
+				@media (min-width: 991.98px) {
+					.search-2 &,
+					.search-3 & {
+						padding: 0;
+					}
 				}
 
 				// .search__result_head

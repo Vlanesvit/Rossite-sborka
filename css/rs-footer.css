@@ -1,3 +1,6 @@
+.rs-footer {
+  border-top: 1px solid #e2e5f1;
+}
 @media (max-width: 991.98px) {
   .rs-footer {
     background-color: #f3f6ff;

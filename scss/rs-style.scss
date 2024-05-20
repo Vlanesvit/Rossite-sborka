@@ -44,6 +44,7 @@ $fontSize: 14px;
 	--icon-yt: #ff0000;
 
 	--box-shadow: 9px 11px 29px 0px rgba(125, 138, 152, 0.15);
+	--page-border-radius: 50px;
 }
 
 // Минимальная ширина страницы
@@ -82,7 +83,7 @@ body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
+	// overflow: hidden;
 
 	// Прижимаем footer
 	> main {
@@ -102,6 +103,11 @@ body {
 	max-width: $maxWidthContainer;
 	padding-left: $paddingContainer;
 	padding-right: $paddingContainer;
+
+	[class*="__container"] {
+		max-width: 100%;
+		padding: 0;
+	}
 
 	@media (max-width: 991.98px) {
 		max-width: 768px;
@@ -130,7 +136,7 @@ body {
 // Подключение стилей отдельных элементов ======================================================================================================================================================================================================================
 @import "./base/_common";
 @import "./base/_swiper";
-// @import "./base/_breadcrumbs";
+@import "./base/_breadcrumbs";
 // @import "./base/_modal";
 // @import "./base/_datepicker";
 // @import "./base/_light-gallery";

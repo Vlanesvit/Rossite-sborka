@@ -1,3 +1,6 @@
+.rs-catalog {
+  overflow: hidden;
+}
 .rs-catalog__slider {
   overflow: visible;
 }

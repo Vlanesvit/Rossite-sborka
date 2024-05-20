@@ -1,3 +1,6 @@
+.rs-slider-block {
+  overflow: hidden;
+}
 .rs-slider-block.rs-albom {
   padding-top: 0px;
 }

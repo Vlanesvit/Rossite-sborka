@@ -1,3 +1,6 @@
+.rs-news {
+  overflow: hidden;
+}
 .rs-news__slider {
   margin: -15px;
   padding: 15px;

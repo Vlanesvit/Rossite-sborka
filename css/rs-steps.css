@@ -1,3 +1,6 @@
+.rs-steps {
+  overflow: hidden;
+}
 .rs-steps__slider {
   overflow: visible;
 }

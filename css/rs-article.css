@@ -1,0 +1,124 @@
+@media (min-width: 1439.98px) {
+  .rs-article {
+    margin-top: 40px;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-article__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-article__title {
+    grid-column: 1/6;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-article__title {
+    margin-bottom: 50px;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-article__title_body {
+    position: sticky;
+    top: 150px;
+    left: 0;
+    width: 100%;
+  }
+}
+.rs-article__title .back-link {
+  margin-top: 174px;
+}
+@media (max-width: 1439.98px) {
+  .rs-article__title .back-link {
+    margin-top: 130px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-article__title .back-link {
+    margin-top: 80px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-article__title .back-link {
+    margin-top: 30px;
+  }
+}
+.rs-article__date {
+  padding: 5px 8px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 140%;
+  text-align: center;
+  color: #383b56;
+  background: #f2f4f9;
+  border-radius: 3px;
+  padding: 5px 8px;
+  display: inline-block;
+}
+@media (max-width: 1439.98px) {
+  .rs-article__date {
+    font-size: 11px;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-article__text {
+    grid-column: 6/13;
+  }
+}
+.rs-article__text p {
+  margin: 10px 0px;
+}
+.rs-article__text img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 10px;
+  margin: 30px 0px;
+}
+@media (max-width: 991.98px) {
+  .rs-article__text img {
+    margin: 20px 0px;
+  }
+}
+.rs-article__text blockquote {
+  background: #f3f6ff;
+}
+.rs-article__share {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 30px;
+}
+@media (max-width: 991.98px) {
+  .rs-article__share {
+    margin-top: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+.rs-article__share h5 {
+  margin-right: 15px;
+}
+@media (max-width: 991.98px) {
+  .rs-article__share h5 {
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+}

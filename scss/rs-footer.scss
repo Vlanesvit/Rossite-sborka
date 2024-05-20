@@ -1,4 +1,6 @@
 .rs-footer {
+	border-top: 1px solid #e2e5f1;
+
 	@media (max-width: 991.98px) {
 		background-color: #f3f6ff;
 	}
@@ -240,8 +242,8 @@
 					&:not(:last-child) {
 						margin-right: 12px;
 
-						@media (max-width: 767.98px){
-							  margin-right: 7px;
+						@media (max-width: 767.98px) {
+							margin-right: 7px;
 						}
 					}
 

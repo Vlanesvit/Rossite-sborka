@@ -1,3 +1,6 @@
+.rs-table {
+  overflow: hidden;
+}
 @media (max-width: 767.98px) {
   .rs-table__block {
     overflow: auto;

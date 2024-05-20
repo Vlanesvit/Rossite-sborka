@@ -1,3 +1,6 @@
+.rs-gallery {
+  overflow: hidden;
+}
 .rs-gallery__slider {
   overflow: visible;
 }

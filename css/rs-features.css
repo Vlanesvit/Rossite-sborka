@@ -1,3 +1,6 @@
+.rs-features {
+  overflow: hidden;
+}
 .rs-features__slider {
   overflow: visible;
 }
