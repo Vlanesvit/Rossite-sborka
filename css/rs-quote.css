@@ -1,6 +1,15 @@
 .rs-quote {
   margin: 0;
   padding: 110px 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+@supports (-webkit-overflow-scrolling: touch) {
+  .rs-quote {
+    background-attachment: scroll;
+  }
 }
 @media (max-width: 1439.98px) {
   .rs-quote {

@@ -16,4 +16,12 @@
   -webkit-box-shadow: 0 2px 6px -1px rgba(11, 15, 25, 0.03), 0 4px 10px -1px rgba(11, 15, 25, 0.06);
           box-shadow: 0 2px 6px -1px rgba(11, 15, 25, 0.03), 0 4px 10px -1px rgba(11, 15, 25, 0.06);
   background: #fff;
+  max-height: 123px;
+}
+.rs-partners__slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 123px;
 }

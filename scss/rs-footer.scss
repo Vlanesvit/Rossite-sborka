@@ -278,7 +278,13 @@
 
 						@media (any-hover: hover) {
 							&:hover {
-								transform: translateY(-3px);
+								background-color: var(--primary-color);
+
+								svg {
+									path {
+										fill: #fff;
+									}
+								}
 							}
 						}
 					}

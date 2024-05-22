@@ -305,9 +305,10 @@
 }
 @media (any-hover: hover) {
   .rs-footer__social .social__list li a:hover {
-    -webkit-transform: translateY(-3px);
-        -ms-transform: translateY(-3px);
-            transform: translateY(-3px);
+    background-color: var(--primary-color);
+  }
+  .rs-footer__social .social__list li a:hover svg path {
+    fill: #fff;
   }
 }
 .rs-footer__bottom {

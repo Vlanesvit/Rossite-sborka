@@ -52,7 +52,7 @@ function initMainSliders() {
 					loop: true,
 
 					// Анимация переключения
-					// effect: 'fade',
+					effect: 'fade',
 
 					// Курсор перетаскивания
 					grabCursor: true,

@@ -246,9 +246,10 @@
 }
 @media (any-hover: hover) {
   .rs-contacts__social li a:hover {
-    -webkit-transform: translateY(-3px);
-        -ms-transform: translateY(-3px);
-            transform: translateY(-3px);
+    background-color: var(--primary-color);
+  }
+  .rs-contacts__social li a:hover svg path {
+    fill: #fff;
   }
 }
 @media (min-width: 991.98px) {

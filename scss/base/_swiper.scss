@@ -91,6 +91,13 @@
 		display: none;
 	}
 
+	.swiper-horizontal > .swiper-pagination-bullets,
+	.swiper-pagination-bullets.swiper-pagination-horizontal,
+	.swiper-pagination-custom,
+	.swiper-pagination-fraction {
+		display: block;
+	}
+
 	.swiper-pagination {
 		margin-right: 8px;
 	}
@@ -220,6 +227,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow: hidden;
 	transition: all 0.3s ease 0s;
 	background-color: var(--light-color);
 
@@ -234,6 +242,8 @@
 	svg {
 		width: 24px;
 		height: 24px;
+		position: absolute;
+		transition: all 0.15s ease 0s;
 
 		path {
 			stroke: var(--primary-color);
@@ -242,6 +252,10 @@
 			._white-block & {
 				stroke: #fff;
 			}
+		}
+
+		&:last-child {
+			opacity: 0;
 		}
 	}
 
@@ -262,12 +276,54 @@
 .swiper-rtl .swiper-button-next {
 	left: 0px;
 	right: 0px;
+
+	svg {
+		&:last-child {
+			transform: translateX(100%);
+		}
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			svg {
+				&:first-child {
+					transform: translateX(-100%);
+					opacity: 0;
+				}
+				&:last-child {
+					transform: translateX(0%);
+					opacity: 1;
+				}
+			}
+		}
+	}
 }
 
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
 	right: 0px;
 	left: 0px;
+
+	svg {
+		&:last-child {
+			transform: translateX(-100%);
+		}
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			svg {
+				&:first-child {
+					transform: translateX(100%);
+					opacity: 0;
+				}
+				&:last-child {
+					transform: translateX(0%);
+					opacity: 1;
+				}
+			}
+		}
+	}
 }
 
 // // pag (hor, bul)

@@ -1110,7 +1110,7 @@ let bodyLock = (delay = 300) => {
 		let lock_padding = document.querySelectorAll("[data-lp]");
 		for (let index = 0; index < lock_padding.length; index++) {
 			const el = lock_padding[index];
-			// el.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+			el.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 		}
 		body.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 		document.documentElement.classList.add("lock");

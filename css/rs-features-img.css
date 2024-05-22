@@ -1,6 +1,7 @@
 .rs-features-img {
   overflow: hidden;
   z-index: 10;
+  position: relative;
 }
 @media (min-width: 1439.98px) {
   .rs-features-img__container .section-header {

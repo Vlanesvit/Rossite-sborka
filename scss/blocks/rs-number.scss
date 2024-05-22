@@ -1,6 +1,16 @@
 .rs-number {
 	margin: 0;
 	padding: 80px 0px 105px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+
+	@supports (-webkit-overflow-scrolling: touch) {
+		& {
+			background-attachment: scroll;
+		}
+	}
 
 	@media (max-width: 1439.98px) {
 		padding: 80px 0px;
