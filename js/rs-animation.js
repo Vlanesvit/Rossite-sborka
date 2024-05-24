@@ -7,7 +7,6 @@ https://gsap.com/docs/v3/Plugins/ScrollToPlugin
 
 gsap.registerPlugin(
 	ScrollTrigger,
-	ScrollToPlugin,
 	// drawSVGPlugin,
 );
 // console.clear();
@@ -127,37 +126,37 @@ function animMobile() {
 }
 
 function animCommon() {
-	// // /* MOVE SVG LINE */
-	// moveSvgDashed(".rs-features-img__line #dashed-line-1", ".rs-features-img__line #mask-line-1", ".rs-features-img");
+	// /* MOVE SVG LINE */
+	moveSvgDashed(".rs-features-img__line #dashed-line-1", ".rs-features-img__line #mask-line-1", ".rs-features-img");
 
-	// /* REVEAL ANIMATION */
-	// showContentOnScroll('section .section-header', 0.1, 0.5, 'bottom-up');
-	// showContentOnScroll('.rs-slider .rs-slider__slider', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-catalog .rs-catalog__item', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-text-block .rs-text-block__item', 0.1, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-features .rs-features__item', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-news .rs-news__item', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-reviews .rs-reviews__item', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-form .form__row > *', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-form .form__agreement', 0.3, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-footer .rs-footer__spollers_item', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-features-row .rs-features-row__item', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-features-img .rs-features-img__wrapper > *', 0.05, 0.5, 'fade--every');
-	// showContentOnScroll('.rs-parallax .rs-parallax__container', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-steps .rs-steps__item', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-gallery .rs-gallery__item', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-slider-block .rs-slider-block__item', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-partners .rs-partners__slide', 0.05, 0.5, 'bottom-up--every');
-	// showContentOnScroll('.rs-timer .rs-timer__container', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-tabs .rs-tabs__container', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-quote .rs-quote__container', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-feedback .rs-feedback__container', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-subscribe .rs-subscribe__container', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-tariff .rs-tariff__container', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-contacts .rs-contacts__container', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-accordion .rs-accordion__container', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-documents .rs-documents__container', 0.1, 0.5, 'fade');
-	// showContentOnScroll('.rs-table .rs-table__container', 0.1, 0.5, 'fade');
+	/* REVEAL ANIMATION */
+	showContentOnScroll('section .section-header', 0.5, 0.1, 'bottom-up');
+	showContentOnScroll('.rs-slider__slider', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-catalog__item', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.rs-text-block__item', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.rs-features__item', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.rs-news__item', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.rs-reviews__item', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.form__row > *', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.form__agreement', 0.3, 0.5, 'bottom-up--every');
+	showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.rs-features-row__item', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.rs-features-img__wrapper > *', 0.5, 0.1, 'fade--every');
+	showContentOnScroll('.rs-parallax', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-steps__item', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.rs-gallery__item', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.rs-slider-block__item', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.rs-partners__slide', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('.rs-timer', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-tabs', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-quote', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-feedback', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-subscribe', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-tariff', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-contacts', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-accordion', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-documents', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-table', 0.5, 0.1, 'fade');
 }
 
 // Проверка ширины экрана для вызова отдельных анимаций
