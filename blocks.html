@@ -1766,12 +1766,20 @@
 				</div>
 			</section>
 
-			<section class="rs-parallax" style="background-image: url('./img/blocks/parallax/parallax__img-2.jpg');">
+			<section class="rs-parallax">
+				<div class="rs-parallax__bg">
+					<!-- За скорость видео отвечает playbackRate -->
+					<video onloadstart="this.playbackRate = 0.3;" autoplay loop muted playsinline
+						poster="./img/blocks/parallax/parallax__img-2.jpg">
+						<source src="./img/blocks/parallax/video.mp4" type="video/mp4">
+					</video>
+				</div>
 				<div class="rs-parallax__container">
 					<div class="rs-parallax__content">
 						<h2>Блок «Адаптивная фотогалерея»</h2>
 						<p>Редактирование этого текста можно будет сделать через систему управления сайтом</p>
-						<a href="#" class="play-btn">
+						<a class="play-btn" href="./img/blocks/parallax/video.mp4" class="rs-gallery__link"
+							data-fancybox>
 							<svg width="36" height="36" viewBox="0 0 36 36" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<path

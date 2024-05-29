@@ -1,5 +1,3 @@
-# Rossait-Sborka
-
 1. [Главная](https://vlanesvit.github.io/Rossite-sborka/home.html)
 2. [Блоки](https://vlanesvit.github.io/Rossite-sborka/blocks.html)
 3. [Страница новости](https://vlanesvit.github.io/Rossite-sborka/news-page.html)
