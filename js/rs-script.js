@@ -960,6 +960,42 @@ formFieldsInit({
 });
 
 /* ====================================
+Заполнение блока с 
+==================================== */
+const addAnimFillHover = (hoveredElement) => {
+	const animItems = document.querySelectorAll(hoveredElement);
+	if (animItems.length > 0) {
+		animItems.forEach((item) => {
+			item.style.position = "relative";
+			item.style.overflow = "hidden";
+
+			const ripple = document.createElement("span");
+			ripple.classList.add('_fill-point')
+			item.appendChild(ripple);
+			item.addEventListener("mouseenter", (e) => {
+				let targetCoords = e.currentTarget.getBoundingClientRect();
+				let yCoord = e.clientY - targetCoords.top;
+				let xCoord = e.clientX - targetCoords.left;
+				ripple.style.top = `${yCoord}px`;
+				ripple.style.left = `${xCoord}px`;
+				ripple.classList.add('_fill-active');
+			});
+
+			item.addEventListener('mouseleave', function (e) {
+				let targetCoords = e.currentTarget.getBoundingClientRect();
+				let yCoord = e.clientY - targetCoords.top;
+				let xCoord = e.clientX - targetCoords.left;
+				ripple.style.top = `${yCoord}px`;
+				ripple.style.left = `${xCoord}px`;
+				ripple.classList.remove('_fill-active');
+			})
+		});
+	}
+}
+addAnimFillHover('.rs-features-img .rs-features-img__item')
+addAnimFillHover('.rs-albom .rs-slider-block__item')
+
+/* ====================================
 Кастомный курсор
 ==================================== */
 const addCursorHover = (hoveredElement, selectedElement, newClass) => {
@@ -1000,9 +1036,18 @@ const addCursorMove = (hoveredElement, selectedElement) => {
 		}
 	});
 }
-// addCursorHover(".rs-slider-block__slider", ".rs-slider-block .cursor", "cursor__active");
-// addCursorMove(".rs-slider-block__slider", ".rs-slider-block .cursor__circle")
-// addCursorDrag(".rs-slider-block__slider", ".rs-slider-block .cursor__circle", "cursor__circle__drag")
+
+addCursorHover(".rs-gallery.rs-photo .rs-gallery__item", ".rs-gallery.rs-photo .cursor", "cursor__active");
+addCursorDrag(".rs-gallery.rs-photo .rs-gallery__item", ".rs-gallery.rs-photo .cursor__circle", "cursor__circle__drag");
+addCursorMove(".rs-gallery.rs-photo .rs-gallery__item", ".rs-gallery.rs-photo .cursor__circle")
+
+addCursorHover(".rs-gallery.rs-video .rs-gallery__item", ".rs-gallery.rs-video .cursor", "cursor__active");
+addCursorDrag(".rs-gallery.rs-video .rs-gallery__item", ".rs-gallery.rs-video .cursor__circle", "cursor__circle__drag");
+addCursorMove(".rs-gallery.rs-video .rs-gallery__item", ".rs-gallery.rs-video .cursor__circle")
+
+addCursorHover(".rs-news .rs-news__item", ".rs-news .cursor", "cursor__active");
+addCursorDrag(".rs-news .rs-news__item", ".rs-news .cursor__circle", "cursor__circle__drag");
+addCursorMove(".rs-news .rs-news__item", ".rs-news .cursor__circle")
 
 /* ====================================
 Инициализация галереи

@@ -97,6 +97,10 @@
 			@media (min-width: 991.98px) {
 				display: flex;
 			}
+
+			& > *:first-child {
+				margin-left: 0px;
+			}
 		}
 
 		// .tabs__text

@@ -112,6 +112,7 @@
 		max-width: 449px;
 		position: relative;
 		z-index: 10;
+		transition: color 0.3s ease 0.15s;
 
 		@media (max-width: 1439.98px) {
 			padding: 20px;
@@ -132,6 +133,16 @@
 				margin-bottom: 10px;
 			}
 		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: #fff;
+
+				.rs-features-img__num {
+					color: #fff;
+				}
+			}
+		}
 	}
 
 	// .rs-features-img__num
@@ -142,6 +153,9 @@
 		// line-height: 28px;
 		line-height: 140%;
 		color: var(--primary-color);
+		position: relative;
+		z-index: 2;
+		transition: color 0.3s ease 0.15s;
 
 		@media (max-width: 1439.98px) {
 			font-size: 18px;
@@ -155,6 +169,8 @@
 	// .rs-features-img__desc
 	&__desc {
 		flex-grow: 1;
+		position: relative;
+		z-index: 2;
 
 		p {
 			margin-top: 8px;

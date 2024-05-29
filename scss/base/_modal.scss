@@ -1,17 +1,4 @@
-body::after {
-	content: "";
-	background-color: rgba(0, 0, 0, 0.3);
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	opacity: 0;
-	transition: opacity 0.8s ease 0s;
-	pointer-events: none;
-	z-index: 999;
-}
-.popup-show body::after {
+.popup-show .popup::after {
 	opacity: 1;
 }
 .popup {
@@ -20,11 +7,26 @@ body::after {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	padding: 30px 10px;
+	padding: 45px 16px;
 	transition: visibility 0.8s ease 0s;
 	visibility: hidden;
 	pointer-events: none;
 	z-index: 1000;
+
+	&::after {
+		content: "";
+		backdrop-filter: blur(10px);
+		background: rgba(86, 89, 115, 0.3);
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transition: opacity 0.8s ease 0s;
+		pointer-events: none;
+		z-index: -1;
+	}
 }
 .popup_show {
 	visibility: visible;
@@ -39,22 +41,84 @@ body::after {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	min-height: 100%;
 	flex: 1 1 auto;
 	width: 100%;
+}
+.popup__close {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	z-index: 10;
+	width: 46px;
+	height: 46px;
+	background-color: #f2f4f9;
+	border-radius: 50%;
+
+	@media (max-width: 991.98px) {
+		top: 13px;
+		height: 13px;
+	}
+
+	@media (max-width: 767.98px) {
+		top: 5px;
+		right: 5px;
+		width: 40px;
+		height: 40px;
+	}
 }
 .popup__content {
 	visibility: hidden;
 	transform: scale(0);
 	transition: transform 0.3s ease 0s;
-	background-color: #272d38;
-	padding: 0px;
+	background-color: #fff;
+	padding: 40px;
 	width: 100%;
-	max-width: 526px;
-	border-radius: 0px;
+	max-width: 580px;
+	border-radius: 10px;
 	position: relative;
+
+	@media (max-width: 991.98px) {
+		max-width: 538px;
+		padding: 36px;
+	}
+
+	@media (max-width: 767.98px) {
+		padding: 25px;
+		max-width: 343px;
+	}
 
 	.lock & {
 		visibility: visible;
+	}
+}
+
+.popup__text {
+	h3,
+	p {
+		text-align: center;
+	}
+
+	p {
+		margin-top: 5px;
+	}
+
+	.form {
+		margin-top: 15px;
+
+		&__agreement {
+			text-align: center;
+			margin-top: 10px;
+		}
+	}
+
+	.rs-input {
+		background-color: #f3f6ff;
+		border-radius: 10px;
+	}
+
+	textarea.rs-input {
+		min-height: 109px;
 	}
 }

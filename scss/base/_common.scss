@@ -182,6 +182,25 @@ p {
 }
 
 // Button ========================================================================================================================================================
+._fill-point {
+	background-color: var(--primary-color);
+	border-radius: 50%;
+	width: 0px;
+	height: 0px;
+	display: block;
+	position: absolute;
+	z-index: 1;
+	transform: translate(-50%, -50%);
+	transition: 1s;
+	transition-property: width, height;
+
+	&._fill-active {
+		transform: translate(-50%, -50%);
+		width: 1000px;
+		height: 1000px;
+	}
+}
+
 .rs-btn {
 	position: relative;
 	overflow: hidden;
@@ -461,6 +480,7 @@ p {
 			flex-grow: 1;
 
 			@media (min-width: 991.98px) {
+				text-align: left;
 				margin-top: 0px;
 				margin-left: 30px;
 			}

@@ -99,6 +99,9 @@
     display: flex;
   }
 }
+.rs-tabs .tabs__wrapper > *:first-child {
+  margin-left: 0px;
+}
 .rs-tabs .tabs__text {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;

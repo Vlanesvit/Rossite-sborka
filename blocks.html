@@ -1142,7 +1142,7 @@
 								</div>
 							</div>
 
-							<a href="#" class="rs-btn _btn-primary"> Оставить заявку </a>
+							<a href="#" class="rs-btn _btn-primary" data-popup="#feedback"> Оставить заявку </a>
 						</div>
 					</div>
 				</div>
@@ -1979,6 +1979,21 @@
 						</div>
 					</div>
 				</div>
+				<div class="cursor">
+					<div class="cursor__point-zero">
+						<div class="cursor__wrapper">
+							<div class="cursor__circle">
+								<svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M28.0266 8.45553L8.93469 27.5474M28.0266 8.45553L28.0266 16.9408M28.0266 8.45553L19.5413 8.45553M8.93469 27.5474L8.93469 19.0621M8.93469 27.5474L17.42 27.5474"
+										stroke="white" stroke-width="2" stroke-linecap="round"
+										stroke-linejoin="round" />
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
 
 			<link rel="stylesheet" href="css/rs-slider-block.css">
@@ -2463,6 +2478,20 @@
 						</div>
 					</div>
 				</div>
+				<div class="cursor">
+					<div class="cursor__point-zero">
+						<div class="cursor__wrapper">
+							<div class="cursor__circle">
+								<svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M12.4805 9.92869V26.0713C12.4805 27.2731 12.4805 27.874 12.7286 28.1523C12.944 28.3937 13.267 28.5218 13.5975 28.4969C13.9784 28.4682 14.4221 28.0433 15.3095 27.1935L23.7377 19.1222C24.1478 18.7294 24.3529 18.533 24.4298 18.3065C24.4974 18.1073 24.4974 17.8927 24.4298 17.6935C24.3529 17.467 24.1478 17.2706 23.7377 16.8778L15.3095 8.80649C14.4221 7.95669 13.9784 7.53177 13.5975 7.50306C13.267 7.47815 12.944 7.60628 12.7286 7.84772C12.4805 8.12597 12.4805 8.72688 12.4805 9.92869Z"
+										fill="white" />
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
 
 			<link rel="stylesheet" href="css/rs-tabs.css">
@@ -2536,35 +2565,10 @@
 										</blockquote>
 										<a href="#" class="rs-btn _btn-primary">Подробнее</a>
 									</div>
-									<div class="tabs__img">
-										<img src="./img/blocks/tabs/tabs_img-1.1.jpg" alt="">
-									</div>
 								</div>
 							</div>
 							<div class="tabs__body">
 								<div class="tabs__wrapper">
-									<div class="tabs__text">
-										<h4>Текст и картинка</h4>
-										<p>Наш магазин предлагает широкий ассортимент спортивного оборудования для
-											различных целей. Мы сотрудничаемс ведущими производителями спортинвентаря,
-											поставляемого в самые известные спортивные клубы России. Наше оборудование
-											поможет Вам привести фигуру в желаемую форму без ущерба для здоровья и
-											Вашего кошелька.</p>
-										<p>Наш магазин предлагает широкий ассортимент спортивного оборудования для
-											различных целей. Мы сотрудничаемс ведущими производителями спортинвентаря,
-											поставляемого в самые известные спортивные клубы России. Наше оборудование
-											поможет Вам привести фигуру в желаемую форму без ущерба для здоровья и
-											Вашего кошелька.</p>
-										<blockquote>
-											<h5>Здесь будет ваш текст</h5>
-											<p>Адаптивный дизайн и кроcсбраузерная верстка позволяет корректно
-												отображать ваш сайт во всех браузерах и на всех устройствах. Объединив
-												лучшее в мире дизайна, программирования и маркетинга мы создали
-												принципиально новый продукт, с которыми ваша компания выйдет на новый
-												уровень продаж, ранее казавшийся вам невозможным.</p>
-										</blockquote>
-										<a href="#" class="rs-btn _btn-primary">Подробнее</a>
-									</div>
 									<div class="tabs__img">
 										<img src="./img/blocks/tabs/tabs_img-1.1.jpg" alt="">
 									</div>
@@ -2842,6 +2846,7 @@
 			</section>
 
 			<link rel="stylesheet" href="css/rs-number.css">
+			<script src="js/rs-number.js" type="module" defer></script>
 			<section class="rs-number _white-block"
 				style="background-image: url('./img/blocks/number/number_bg-black.jpg');">
 				<div class="rs-number__container">
@@ -2854,22 +2859,22 @@
 
 					<div class="rs-number__list">
 						<div class="rs-number__item">
-							<div class="rs-number__total">2000</div>
+							<div class="rs-number__total" data-digits-counter="2000">2000</div>
 							<h4>Редактирование этого текста можно сделать через систему управления сайтом</h4>
 						</div>
 
 						<div class="rs-number__item">
-							<div class="rs-number__total">583</div>
+							<div class="rs-number__total" data-digits-counter="583">583</div>
 							<h4>Редактирование этого текста можно сделать через систему управления сайтом</h4>
 						</div>
 
 						<div class="rs-number__item">
-							<div class="rs-number__total">15</div>
+							<div class="rs-number__total" data-digits-counter="15">15</div>
 							<h4>Редактирование этого текста можно сделать через систему управления сайтом</h4>
 						</div>
 
 						<div class="rs-number__item">
-							<div class="rs-number__total">3</div>
+							<div class="rs-number__total" data-digits-counter="3">3</div>
 							<h4>Редактирование этого текста можно сделать через систему управления сайтом</h4>
 						</div>
 					</div>
@@ -2887,17 +2892,17 @@
 
 					<div class="rs-number__list">
 						<div class="rs-number__item">
-							<div class="rs-number__total">2000</div>
+							<div class="rs-number__total" data-digits-counter="2000">2000</div>
 							<h4>Редактирование этого текста можно сделать через систему управления сайтом</h4>
 						</div>
 
 						<div class="rs-number__item">
-							<div class="rs-number__total">583</div>
+							<div class="rs-number__total" data-digits-counter="583">583</div>
 							<h4>Редактирование этого текста можно сделать через систему управления сайтом</h4>
 						</div>
 
 						<div class="rs-number__item">
-							<div class="rs-number__total">15</div>
+							<div class="rs-number__total" data-digits-counter="15">15</div>
 							<h4>Редактирование этого текста можно сделать через систему управления сайтом</h4>
 						</div>
 					</div>
@@ -4015,6 +4020,20 @@
 						</a>
 					</div>
 				</div>
+				<div class="cursor">
+					<div class="cursor__point-zero">
+						<div class="cursor__wrapper">
+							<div class="cursor__circle">
+								<svg width="75" height="75" viewBox="0 0 75 75" fill="none"
+									xmlns="http://www.w3.org/2000/svg" class="astro-OFXTMV4X" style="--tint:white">
+									<path class="indicator astro-OFXTMV4X" id="nav"
+										d="M46 30C46 29.4477 45.5523 29 45 29L36 29C35.4477 29 35 29.4477 35 30C35 30.5523 35.4477 31 36 31H44V39C44 39.5523 44.4477 40 45 40C45.5523 40 46 39.5523 46 39V30ZM30.7071 45.7071L45.7071 30.7071L44.2929 29.2929L29.2929 44.2929L30.7071 45.7071Z"
+										fill="#fff"></path>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
 
 			<link rel="stylesheet" href="css/rs-form.css">
@@ -4280,6 +4299,60 @@
 			</div>
 		</footer>
 
+	</div>
+
+	<div id="feedback" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">
+					<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M11.7342 0.274897C11.65 0.190519 11.55 0.123576 11.4399 0.0779014C11.3298 0.0322267 11.2117 0.00871629 11.0925 0.00871629C10.9733 0.00871629 10.8553 0.0322267 10.7452 0.0779014C10.6351 0.123576 10.535 0.190519 10.4508 0.274897L6 4.71663L1.54916 0.265794C1.4649 0.181527 1.36486 0.114683 1.25476 0.0690775C1.14466 0.0234724 1.02665 8.879e-10 0.90748 0C0.788308 -8.879e-10 0.670302 0.0234724 0.560202 0.0690775C0.450101 0.114683 0.350062 0.181527 0.265794 0.265794C0.181527 0.350062 0.114683 0.450101 0.0690775 0.560202C0.0234724 0.670302 -8.879e-10 0.788308 0 0.90748C8.879e-10 1.02665 0.0234724 1.14466 0.0690775 1.25476C0.114683 1.36486 0.181527 1.4649 0.265794 1.54916L4.71663 6L0.265794 10.4508C0.181527 10.5351 0.114683 10.6351 0.0690775 10.7452C0.0234724 10.8553 0 10.9733 0 11.0925C0 11.2117 0.0234724 11.3297 0.0690775 11.4398C0.114683 11.5499 0.181527 11.6499 0.265794 11.7342C0.350062 11.8185 0.450101 11.8853 0.560202 11.9309C0.670302 11.9765 0.788308 12 0.90748 12C1.02665 12 1.14466 11.9765 1.25476 11.9309C1.36486 11.8853 1.4649 11.8185 1.54916 11.7342L6 7.28337L10.4508 11.7342C10.5351 11.8185 10.6351 11.8853 10.7452 11.9309C10.8553 11.9765 10.9733 12 11.0925 12C11.2117 12 11.3297 11.9765 11.4398 11.9309C11.5499 11.8853 11.6499 11.8185 11.7342 11.7342C11.8185 11.6499 11.8853 11.5499 11.9309 11.4398C11.9765 11.3297 12 11.2117 12 11.0925C12 10.9733 11.9765 10.8553 11.9309 10.7452C11.8853 10.6351 11.8185 10.5351 11.7342 10.4508L7.28337 6L11.7342 1.54916C12.0801 1.20329 12.0801 0.620769 11.7342 0.274897Z"
+							fill="#383B56" />
+					</svg>
+				</button>
+				<div class="popup__text">
+					<h3>Свяжитесь с нами </h3>
+					<p>Оставьте заявку, наш менеджер свяжется с вами <br> в ближайшее время</p>
+
+					<div class="form">
+						<form action="#">
+							<div class="form__wrapper">
+								<div class="form__block">
+									<div class="form__line">
+										<label class="rs-input-placeholder">ФИО</label>
+										<input type="text" name="user-name" data-required data-validate
+											data-error="Введите ФИО" class="rs-input">
+										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									</div>
+									<div class="form__line">
+										<label class="rs-input-placeholder">Телефон</label>
+										<input type="tel" name="user-phone" data-required="tel" data-validate
+											data-error="Введите телефон" class="rs-input">
+										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									</div>
+									<div class="form__line">
+										<label class="rs-input-placeholder">Введите ваше
+											сообщение</label>
+										<textarea name="user-message" class="rs-input"></textarea>
+										<button type="button" class="rs-input-clear _rs-icon-close"></button>
+									</div>
+								</div>
+								<div class="form__agreement">Нажимая на кнопку «Отправить сообщение»,
+									вы соглашаетесь на обработку персональных данных в соответствии
+									с <a href="#">пользовательским соглашением</a>
+								</div>
+								<div class="form__button">
+									<button type="submit" class="rs-btn _btn-primary">
+										Отправить сообщение
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

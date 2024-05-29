@@ -88,6 +88,8 @@ button::-moz-focus-inner {
 a {
 	cursor: pointer;
 	color: inherit;
+	user-select: none;
+	-webkit-user-drag: none;
 }
 a:link,
 a:visited {

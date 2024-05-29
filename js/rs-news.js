@@ -44,6 +44,7 @@ function initNewsSliders() {
 					touchRadio: 1,
 					// Угол срабатывания свайпа/перетаскивания
 					touchAngle: 45,
+					touchStartPreventDefault: false,
 
 					// Цикличность слайдера
 					// loop: true,
