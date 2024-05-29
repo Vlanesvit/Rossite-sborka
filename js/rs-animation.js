@@ -130,33 +130,33 @@ function animCommon() {
 	moveSvgDashed(".rs-features-img__line #dashed-line-1", ".rs-features-img__line #mask-line-1", ".rs-features-img");
 
 	/* REVEAL ANIMATION */
-	showContentOnScroll('section .section-header', 0.5, 0.1, 'bottom-up');
-	showContentOnScroll('.rs-slider__slider', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-catalog__item', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.rs-text-block__item', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.rs-features__item', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.rs-news__item', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.rs-reviews__item', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.form__row > *', 0.5, 0.1, 'bottom-up--every');
+	showContentOnScroll('section .section-header', 0.5, 0.05, 'bottom-up');
+	showContentOnScroll('.rs-slider__slider', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-catalog__item', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.rs-text-block__item', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.rs-features__item', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.rs-news__item', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.rs-reviews__item', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.form__row > *', 0.5, 0.05, 'bottom-up--every');
 	showContentOnScroll('.form__agreement', 0.3, 0.5, 'bottom-up--every');
-	showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.rs-features-row__item', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.rs-features-img__wrapper > *', 0.5, 0.1, 'fade--every');
-	showContentOnScroll('.rs-parallax', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-steps__item', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.rs-gallery__item', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.rs-slider-block__item', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.rs-partners__slide', 0.5, 0.1, 'bottom-up--every');
-	showContentOnScroll('.rs-timer', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-tabs', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-quote', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-feedback', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-subscribe', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-tariff', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-contacts', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-accordion', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-documents', 0.5, 0.1, 'fade');
-	showContentOnScroll('.rs-table', 0.5, 0.1, 'fade');
+	showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.rs-features-row__item', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.rs-features-img__wrapper > *', 0.5, 0.05, 'fade--every');
+	showContentOnScroll('.rs-parallax', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-steps__item', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.rs-gallery__item', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.rs-slider-block__item', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.rs-partners__slide', 0.5, 0.05, 'bottom-up--every');
+	showContentOnScroll('.rs-timer', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-tabs', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-quote', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-feedback', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-subscribe', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-tariff', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-contacts', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-accordion', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-documents', 0.5, 0.05, 'fade');
+	showContentOnScroll('.rs-table', 0.5, 0.05, 'fade');
 }
 
 // Проверка ширины экрана для вызова отдельных анимаций
