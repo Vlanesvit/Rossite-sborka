@@ -27,6 +27,7 @@
 		@media (max-width: 991.98px) {
 			flex: 1 1 100%;
 			padding: 8px;
+			order: 2;
 		}
 
 		&-desc {
@@ -34,12 +35,17 @@
 
 			@media (max-width: 991.98px) {
 				max-width: 100%;
+				order: 1;
 			}
 		}
 	}
 
 	// .rs-text-block__desc
 	&__desc {
+		@media (max-width: 991.98px) {
+			order: 1;
+		}
+
 		& > * {
 			&:first-child {
 				margin-top: 0px !important;
@@ -101,7 +107,7 @@
 					@media (max-width: 991.98px) {
 						flex: 0 0 100%;
 						padding: 0;
-						
+
 						&:not(:last-child) {
 							margin-bottom: 3px;
 						}

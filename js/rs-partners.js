@@ -80,7 +80,7 @@ function initPartnersSliders() {
 							spaceBetween: 20,
 						},
 						767.98: {
-							slidesPerView: 4,
+							slidesPerView: 3.525,
 							spaceBetween: 24,
 						},
 						991.98: {

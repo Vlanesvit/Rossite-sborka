@@ -1,21 +1,22 @@
 .rs-parallax {
   padding: 0;
   margin: 0;
-  height: 406px;
+  height: 410px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   background-color: #000;
+  border-radius: 30px;
 }
 @supports (-webkit-overflow-scrolling: touch) {
   .rs-parallax {
     background-attachment: scroll;
   }
 }
-@media (max-width: 1439.98px) {
+@media (max-width: 991.98px) {
   .rs-parallax {
-    height: 300px;
+    border-radius: 15px;
   }
 }
 .rs-parallax__bg {
@@ -34,6 +35,14 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 30px;
+}
+@media (max-width: 991.98px) {
+  .rs-parallax__bg img,
+  .rs-parallax__bg video,
+  .rs-parallax__bg iframe {
+    border-radius: 15px;
+  }
 }
 .rs-parallax__container {
   height: 100%;
@@ -83,6 +92,13 @@
   .rs-parallax__content .play-btn {
     width: 75px;
     height: 75px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-parallax__content .play-btn {
+    width: 60px;
+    height: 60px;
+    margin-top: 16px;
   }
 }
 .rs-parallax__content .play-btn::after {

@@ -8,6 +8,11 @@
 }
 @media (max-width: 1169.98px) {
   .rs-documents__list {
+    margin: -12px;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-documents__list {
     margin: -7.5px;
   }
 }
@@ -22,7 +27,7 @@
     -webkit-box-flex: 0;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%;
-    padding: 7.5px;
+    padding: 12px;
   }
 }
 @media (max-width: 767.98px) {
@@ -30,6 +35,7 @@
     -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
+    padding: 7.5px;
   }
 }
 @media (any-hover: hover) {

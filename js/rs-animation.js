@@ -13,9 +13,9 @@ gsap.registerPlugin(
 
 window.addEventListener('load', function () {
 	setTimeout(() => {
-		ScrollTrigger.refresh();
-		breakpointGsapAnimChecker();
-		window.scrollTo(0, 0);
+		// ScrollTrigger.refresh();
+		// breakpointGsapAnimChecker();
+		// window.scrollTo(0, 0);
 	}, 100);
 })
 

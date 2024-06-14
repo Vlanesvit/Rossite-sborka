@@ -25,7 +25,7 @@
 		}
 
 		@media (max-width: 991.98px) {
-			margin: -25px;
+			margin: 0px;
 			flex-direction: column;
 		}
 	}
@@ -41,7 +41,7 @@
 
 		@media (max-width: 991.98px) {
 			flex: 0 0 100%;
-			padding: 25px;
+			padding: 0;
 		}
 
 		&:first-child {
@@ -120,6 +120,7 @@
 
 		@media (max-width: 991.98px) {
 			padding: 15px;
+			max-width: 100%;
 		}
 
 		&:not(:last-child) {

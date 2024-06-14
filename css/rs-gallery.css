@@ -13,6 +13,9 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin: -15px;
+    -webkit-transform: translate(0, 0) !important;
+        -ms-transform: translate(0, 0) !important;
+            transform: translate(0, 0) !important;
   }
 }
 @media (min-width: 991.98px) and (max-width: 1439.98px) {
@@ -29,14 +32,11 @@
   min-height: 1px;
   height: auto;
 }
-@media (max-width: 991.98px) {
-  .rs-gallery__slide {
-    height: 290px;
-  }
-}
 @media (min-width: 991.98px) {
   .rs-gallery__slide {
     padding: 15px;
+    width: auto !important;
+    margin: 0px !important;
   }
 }
 @media (min-width: 991.98px) and (max-width: 1439.98px) {
@@ -182,6 +182,39 @@
 .rs-gallery__item {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+@media (max-width: 991.98px) {
+  .rs-video .rs-gallery__item::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    background-image: url("../img/icons/video-btn.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 11;
+  }
+  .rs-video .rs-gallery__item::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    z-index: 10;
+  }
 }
 @media (any-hover: hover) {
   .rs-gallery__item:hover .rs-gallery__img img {
@@ -200,12 +233,8 @@
   height: 100%;
   border-radius: 10px;
   overflow: hidden;
-}
-@media (min-width: 991.98px) {
-  .rs-gallery__img {
-    padding-bottom: 100%;
-    position: relative;
-  }
+  padding-bottom: 100%;
+  position: relative;
 }
 .rs-gallery__img img {
   width: 100%;
@@ -217,11 +246,7 @@
   transition: -webkit-transform 1s ease 0s;
   transition: transform 1s ease 0s;
   transition: transform 1s ease 0s, -webkit-transform 1s ease 0s;
-}
-@media (min-width: 991.98px) {
-  .rs-gallery__img img {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
 }

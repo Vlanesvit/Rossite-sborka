@@ -5,6 +5,7 @@
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
+	border-radius: 30px;
 
 	@supports (-webkit-overflow-scrolling: touch) {
 		& {
@@ -18,6 +19,7 @@
 
 	@media (max-width: 991.98px) {
 		padding: 50px 0px;
+		border-radius: 15px;
 	}
 
 	// .rs-quote__bg
@@ -33,6 +35,11 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			border-radius: 30px;
+
+			@media (max-width: 991.98px) {
+				border-radius: 15px;
+			}
 		}
 	}
 

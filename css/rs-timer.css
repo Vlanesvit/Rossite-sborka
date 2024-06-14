@@ -4,12 +4,17 @@
 }
 @media (max-width: 1439.98px) {
   .rs-timer {
-    padding: 80px 0px;
+    padding: 90px 0px;
   }
 }
 @media (max-width: 991.98px) {
   .rs-timer {
-    padding: 50px 0px;
+    padding: 70px 0px;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-timer {
+    padding: 83px 0px;
   }
 }
 .rs-timer__bg {
@@ -25,6 +30,8 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: bottom left;
+     object-position: bottom left;
 }
 .rs-timer__wrapper {
   display: -webkit-box;
@@ -57,7 +64,7 @@
 @media (max-width: 991.98px) {
   .rs-timer__text {
     max-width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
 }
 .rs-timer__text h6 {
@@ -111,23 +118,23 @@
 }
 @media (max-width: 1439.98px) {
   .rs-timer__time .timer__item {
-    font-size: 90px;
-    min-width: 110px;
-    max-width: 110px;
+    font-size: 80px;
+    min-width: 100px;
+    max-width: 100px;
   }
 }
-@media (max-width: 1169.98px) {
+@media (max-width: 767.98px) {
   .rs-timer__time .timer__item {
-    font-size: 60px;
-    min-width: 80px;
-    max-width: 80px;
+    font-size: 45px;
+    min-width: 56px;
+    max-width: 56px;
   }
 }
-@media (max-width: 991.98px) {
+@media (max-width: 374.98px) {
   .rs-timer__time .timer__item {
     font-size: 40px;
-    min-width: 40px;
-    max-width: 40px;
+    min-width: 50px;
+    max-width: 50px;
   }
 }
 .rs-timer__time .timer__item::before {
@@ -148,14 +155,9 @@
     font-size: 14px;
   }
 }
-@media (max-width: 1169.98px) {
+@media (max-width: 767.98px) {
   .rs-timer__time .timer__item::before {
-    font-size: 12px;
-  }
-}
-@media (max-width: 991.98px) {
-  .rs-timer__time .timer__item::before {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 .rs-timer__time .timer__item:not(:last-child) {
@@ -163,12 +165,12 @@
 }
 @media (max-width: 1439.98px) {
   .rs-timer__time .timer__item:not(:last-child) {
-    margin-right: 50px;
+    margin-right: 70px;
   }
 }
-@media (max-width: 1169.98px) {
+@media (max-width: 767.98px) {
   .rs-timer__time .timer__item:not(:last-child) {
-    margin-right: 30px;
+    margin-right: 28px;
   }
 }
 .rs-timer__time .timer__item:not(:last-child)::after {
@@ -190,21 +192,16 @@
 }
 @media (max-width: 1439.98px) {
   .rs-timer__time .timer__item:not(:last-child)::after {
-    left: calc(100% + 20px);
+    width: 9px;
+    height: 26px;
+    left: calc(100% + 30px);
   }
 }
-@media (max-width: 1169.98px) {
+@media (max-width: 767.98px) {
   .rs-timer__time .timer__item:not(:last-child)::after {
-    width: 5px;
-    height: 20px;
-    left: calc(100% + 15px);
-  }
-}
-@media (max-width: 991.98px) {
-  .rs-timer__time .timer__item:not(:last-child)::after {
-    width: 5px;
-    height: 20px;
-    left: calc(100% + 12.5px);
+    width: 6px;
+    height: 35px;
+    left: calc(100% + 12px);
   }
 }
 @-webkit-keyframes opacityTimer {

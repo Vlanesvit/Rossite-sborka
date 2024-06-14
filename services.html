@@ -1151,19 +1151,126 @@
 
 		<main class="page">
 
+			<div class="rs-breadcrumbs">
+				<div class="rs-breadcrumbs__container">
+					<nav class="rs-breadcrumbs__navigation">
+						<ul itemscope itemtype="http://schema.org/BreadcrumbList" class="rs-breadcrumbs__list">
+							<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+								itemtype="http://schema.org/ListItem">
+								<a class="rs-breadcrumbs__link" href="home.html" itemprop="item" typeof="WebPage">
+									<span itemprop="name">Главная</span>
+								</a>
+								<meta itemprop="position" content="1">
+							</li>
+							<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope
+								itemtype="http://schema.org/ListItem">
+								<a class="rs-breadcrumbs__link" href="#" itemprop="item" typeof="WebPage">
+									<span itemprop="name">Услуги</span>
+								</a>
+								<meta itemprop="position" content="2">
+							</li>
+							<li class="rs-breadcrumbs__item" itemprop="itemListElement" itemscope=""
+								itemtype="http://schema.org/ListItem">
+								<span itemprop="name">Услуга 3</span>
+								<meta itemprop="position" content="3">
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
 			<link rel="stylesheet" href="css/rs-services.css">
 			<section class="rs-services">
 				<div class="rs-services__container">
 					<div class="rs-services__wrapper">
-						<nav class="rs-services__links">
-							<ul>
-								<li><a href="#">Услуга 1</a></li>
-								<li><a href="#">Услуга 2</a></li>
-								<li><a href="#" class="_services-active">Услуга 3</a></li>
-								<li><a href="#">Услуга 4</a></li>
-								<li><a href="#">Услуга 5</a></li>
-							</ul>
-						</nav>
+						<div class="rs-services__sidebar">
+							<div data-spollers="991.91, max" class="rs-services__sub-spollers">
+								<div class="rs-services__sub-spollers_item">
+									<button type="button" data-spoller class="rs-services__sub-spollers_title">Услуга
+										3</button>
+									<div class="rs-services__sub-spollers_body">
+
+										<div data-spollers data-one-spoller class="rs-services__spollers">
+											<div class="rs-services__spollers_item">
+												<button type="button" data-spoller
+													class="rs-services__spollers_title">Услуга
+													1</button>
+												<div class="rs-services__spollers_body">
+													<ul>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rs-services__spollers_item">
+												<button type="button" data-spoller
+													class="rs-services__spollers_title">Услуга
+													2</button>
+												<div class="rs-services__spollers_body">
+													<ul>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rs-services__spollers_item">
+												<button type="button" data-spoller
+													class="rs-services__spollers_title">Услуга
+													3</button>
+												<div class="rs-services__spollers_body">
+													<ul>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rs-services__spollers_item">
+												<button type="button" data-spoller
+													class="rs-services__spollers_title">Услуга
+													4</button>
+												<div class="rs-services__spollers_body">
+													<ul>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rs-services__spollers_item">
+												<button type="button" data-spoller
+													class="rs-services__spollers_title">Услуга
+													5</button>
+												<div class="rs-services__spollers_body">
+													<ul>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+														<li><a href="#">Услуга 1</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="rs-services__content">
 							<div class="rs-services__body">
 								<h2>Услуга 3</h2>
@@ -1172,13 +1279,66 @@
 									Веб-сайты, дизайн которых соответствует ожиданиям самых требовательных заказчиков и
 									будет оставаться актуальным многие годы.</p>
 
-								<div data-tabs data-tabs-animate="500" class="tabs">
+								<div data-tabs="991.98,max" data-tabs-animate="500" class="tabs">
 									<nav data-tabs-titles class="tabs__navigation">
-										<button type="button" class="tabs__title _tab-active">Вкладка 1</button>
-										<button type="button" class="tabs__title">Вкладка 2</button>
-										<button type="button" class="tabs__title">Вкладка 3</button>
+										<button type="button" class="tabs__title _tab-active">
+											Вкладка 1
+											<i class="tabs__icon">
+												<svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M8.82082 1.91016L5 5.73098L1.17918 1.91016L0 3.0893L5 8.0893L10 3.0893L8.82082 1.91016Z"
+														fill="#fff" />
+												</svg>
+											</i>
+										</button>
+										<button type="button" class="tabs__title">
+											Вкладка 2
+											<i class="tabs__icon">
+												<svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M8.82082 1.91016L5 5.73098L1.17918 1.91016L0 3.0893L5 8.0893L10 3.0893L8.82082 1.91016Z"
+														fill="#fff" />
+												</svg>
+											</i>
+										</button>
+										<button type="button" class="tabs__title">
+											Вкладка 3
+											<i class="tabs__icon">
+												<svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M8.82082 1.91016L5 5.73098L1.17918 1.91016L0 3.0893L5 8.0893L10 3.0893L8.82082 1.91016Z"
+														fill="#fff" />
+												</svg>
+											</i>
+										</button>
+										<button type="button" class="tabs__title">
+											Вкладка 4
+											<i class="tabs__icon">
+												<svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M8.82082 1.91016L5 5.73098L1.17918 1.91016L0 3.0893L5 8.0893L10 3.0893L8.82082 1.91016Z"
+														fill="#fff" />
+												</svg>
+											</i>
+										</button>
 									</nav>
 									<div data-tabs-body class="tabs__content">
+										<div class="tabs__body">
+											<p>Отправте нам информацию о Вашей компании, мы ее разместим или сделаем
+												ререайт, например: Россайт открывает совершенно новый мир доступных
+												интернет технологий. Веб-сайты, дизайн которых соответствует ожиданиям
+												самых требовательных заказчиков и будет оставаться актуальным многие
+												годы.</p>
+											<p>Здесь может быть Ваш текст, который Вы сможете самостоятельно
+												редактировать. Редактирование этого текста можно будет сделать через
+												систему управления сайтом, которая будет доступна после сдачи сайта. Вы
+												сможете самостоятельно редактировать, текст который здесь размещен через
+												систему управления сайтом, которая будет доступна Вам.</p>
+										</div>
 										<div class="tabs__body">
 											<p>Отправте нам информацию о Вашей компании, мы ее разместим или сделаем
 												ререайт, например: Россайт открывает совершенно новый мир доступных
@@ -1298,10 +1458,7 @@
 			</section>
 
 			<link rel="stylesheet" href="css/rs-quote.css">
-			<section class="rs-quote">
-				<div class="rs-quote__bg">
-					<img src="./img/blocks/quote/quote__img-3.jpg" alt="">
-				</div>
+			<section class="rs-quote" style="background-image: url('./img/blocks/quote/quote__img-3.jpg');">
 				<div class="rs-quote__container">
 					<div class="rs-quote__content">
 						<h1>Блок «Цитата»</h1>

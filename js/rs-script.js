@@ -321,7 +321,10 @@ function tabs() {
 				let tabActiveTitle = tabsBlock.querySelectorAll('[data-tabs-title]._tab-active');
 				tabActiveTitle.length ? tabActiveTitle = Array.from(tabActiveTitle).filter(item => item.closest('[data-tabs]') === tabsBlock) : null;
 				tabActiveTitle.length ? tabActiveTitle[0].classList.remove('_tab-active') : null;
-				tabTitle.classList.toggle('_tab-active');
+				tabTitle.classList.add('_tab-active');
+				setTabsStatus(tabsBlock);
+			} else if (tabsBlock.classList.contains('_tab-spoller')) {
+				tabTitle.classList.remove('_tab-active');
 				setTabsStatus(tabsBlock);
 			}
 			e.preventDefault();
@@ -1045,6 +1048,10 @@ addCursorHover(".rs-gallery.rs-video .rs-gallery__item", ".rs-gallery.rs-video .
 addCursorDrag(".rs-gallery.rs-video .rs-gallery__item", ".rs-gallery.rs-video .cursor__circle", "cursor__circle__drag");
 addCursorMove(".rs-gallery.rs-video .rs-gallery__item", ".rs-gallery.rs-video .cursor__circle")
 
+addCursorHover(".rs-tabs .tabs__body .tabs__gallery_item", ".rs-tabs .cursor", "cursor__active");
+addCursorDrag(".rs-tabs .tabs__body .tabs__gallery_item", ".rs-tabs .cursor__circle", "cursor__circle__drag");
+addCursorMove(".rs-tabs .tabs__body .tabs__gallery_item", ".rs-tabs .cursor__circle")
+
 addCursorHover(".rs-news .rs-news__item", ".rs-news .cursor", "cursor__active");
 addCursorDrag(".rs-news .rs-news__item", ".rs-news .cursor__circle", "cursor__circle__drag");
 addCursorMove(".rs-news .rs-news__item", ".rs-news .cursor__circle")
@@ -1054,6 +1061,32 @@ addCursorMove(".rs-news .rs-news__item", ".rs-news .cursor__circle")
 ==================================== */
 Fancybox.bind("[data-fancybox]", {
 	// Your custom options
+	compact: false,
+	idle: false,
+
+	animated: false,
+	showClass: false,
+	hideClass: false,
+
+	dragToClose: false,
+	contentClick: false,
+
+	Images: {
+		// Disable animation from/to thumbnail on start/close
+		zoom: false,
+	},
+
+	Thumbs: {
+		type: 'classic',
+	},
+
+	Toolbar: {
+		display: {
+			left: [],
+			middle: ['infobar'],
+			right: ['close'],
+		},
+	},
 });
 
 /* ====================================

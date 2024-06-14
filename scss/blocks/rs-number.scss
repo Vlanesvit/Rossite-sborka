@@ -42,6 +42,9 @@
 
 	// .rs-number__container
 	&__container {
+		.section-header {
+			margin-bottom: 40px;
+		}
 	}
 
 	// .rs-number__list
@@ -53,8 +56,11 @@
 		margin: -15px;
 
 		@media (max-width: 1169.98px) {
-			flex: 0 0 50%;
 			margin: -7.5px;
+		}
+
+		@media (max-width: 991.98px) {
+			margin: 0;
 		}
 	}
 
@@ -69,8 +75,14 @@
 			padding: 7.5px;
 		}
 
-		@media (max-width: 767.98px) {
+		@media (max-width: 991.98px) {
 			flex: 0 0 100%;
+			max-width: 384px;
+			padding: 0px;
+
+			&:not(:last-child) {
+				margin-bottom: 50px;
+			}
 		}
 	}
 
@@ -85,11 +97,15 @@
 		color: var(--primary-color);
 
 		@media (max-width: 1439.98px) {
-			font-size: 65px;
+			font-size: 70px;
 		}
 
 		@media (max-width: 1169.98px) {
-			font-size: 45px;
+			font-size: 60px;
+		}
+
+		@media (max-width: 767.98px) {
+			font-size: 50px;
 		}
 
 		._white-block & {

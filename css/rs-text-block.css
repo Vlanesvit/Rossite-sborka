@@ -41,6 +41,9 @@
         -ms-flex: 1 1 100%;
             flex: 1 1 100%;
     padding: 8px;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
   }
 }
 .rs-text-block__item-desc {
@@ -49,6 +52,16 @@
 @media (max-width: 991.98px) {
   .rs-text-block__item-desc {
     max-width: 100%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
   }
 }
 .rs-text-block__desc > *:first-child {
