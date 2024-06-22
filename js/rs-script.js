@@ -1061,32 +1061,32 @@ addCursorMove(".rs-news .rs-news__item", ".rs-news .cursor__circle")
 ==================================== */
 Fancybox.bind("[data-fancybox]", {
 	// Your custom options
-	compact: false,
-	idle: false,
+	// compact: false,
+	// idle: false,
 
-	animated: false,
-	showClass: false,
-	hideClass: false,
+	// animated: false,
+	// showClass: false,
+	// hideClass: false,
 
-	dragToClose: false,
-	contentClick: false,
+	// dragToClose: false,
+	// contentClick: false,
 
-	Images: {
-		// Disable animation from/to thumbnail on start/close
-		zoom: false,
-	},
+	// Images: {
+	// 	// Disable animation from/to thumbnail on start/close
+	// 	zoom: false,
+	// },
 
 	Thumbs: {
 		type: 'classic',
 	},
 
-	Toolbar: {
-		display: {
-			left: [],
-			middle: ['infobar'],
-			right: ['close'],
-		},
-	},
+	// Toolbar: {
+	// 	display: {
+	// 		left: [],
+	// 		middle: ['infobar'],
+	// 		right: ['close'],
+	// 	},
+	// },
 });
 
 /* ====================================

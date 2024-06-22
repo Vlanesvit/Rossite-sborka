@@ -54,6 +54,14 @@
 			&:nth-child(7) {
 				flex: 0 0 33.33333%;
 			}
+
+			&:nth-child(8),
+			&:nth-child(9),
+			&:nth-child(10),
+			&:nth-child(11),
+			&:nth-child(12) {
+				flex: 0 0 20%;
+			}
 		}
 
 		@media (any-hover: hover) {

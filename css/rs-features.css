@@ -57,6 +57,11 @@
         -ms-flex: 0 0 33.33333%;
             flex: 0 0 33.33333%;
   }
+  .rs-features__slide:nth-child(8), .rs-features__slide:nth-child(9), .rs-features__slide:nth-child(10), .rs-features__slide:nth-child(11), .rs-features__slide:nth-child(12) {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+            flex: 0 0 20%;
+  }
 }
 @media (any-hover: hover) {
   .rs-features__slide:hover {
