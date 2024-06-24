@@ -30,7 +30,7 @@
 @media (min-width: 991.98px) {
   .rs-subscribe__text {
     max-width: 484px;
-    margin-right: 30px;
+    margin-right: 37px;
   }
 }
 @media (min-width: 991.98px) and (max-width: 1439.98px) {
@@ -51,16 +51,18 @@
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-@media (min-width: 1439.98px) {
-  .rs-subscribe__form {
-    max-width: 930px;
-  }
-}
 @media (min-width: 991.98px) {
   .rs-subscribe__form .form__row .form__line {
     margin-right: 0px;
   }
   .rs-subscribe__form .form__row .form__button {
-    margin-left: 10px;
+    margin-left: 15px;
+    min-width: 182px;
+    max-width: 182px;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-subscribe__form .form__agreement {
+    padding-left: 25px;
   }
 }

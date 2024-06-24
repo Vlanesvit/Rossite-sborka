@@ -53,16 +53,18 @@
 		flex-grow: 1;
 		min-width: 200px;
 		padding-right: 15px;
+		flex: 1 1 auto;
+		width: 100%;
 
 		p {
-			margin-top: 10px;
+			margin-top: 13px;
 		}
 	}
 
 	// .rs-tariff__head
 	&__head {
 		margin-left: 15px;
-		max-width: 245px;
+		flex: 1 1 47%;
 		min-height: 137px;
 		width: 100%;
 		display: flex;
@@ -133,7 +135,7 @@
 		// .rs-tariff__about_item
 		&_item {
 			margin-left: 15px;
-			max-width: 245px;
+			flex: 1 1 47%;
 			width: 100%;
 			position: relative;
 			vertical-align: middle;
@@ -143,7 +145,7 @@
 			flex-direction: column;
 			text-align: center;
 			background: #f3f6ff;
-			padding: 16px 15px;
+			padding: 19.9px 15px;
 
 			@media (max-width: 1439.98px) {
 				padding: 15px 10px;
@@ -153,10 +155,10 @@
 			&:first-child {
 				max-width: 100%;
 				min-width: 200px;
-				flex-grow: 1;
+				flex: 1 1 auto;
 				margin-left: 0px;
 				padding-left: 0px;
-				padding-right: 0px;
+				padding-right: 15px;
 				text-align: left;
 				align-items: flex-start;
 				background-color: transparent;

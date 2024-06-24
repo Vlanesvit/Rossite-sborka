@@ -24,7 +24,7 @@
 
 		@media (min-width: 991.98px) {
 			max-width: 484px;
-			margin-right: 30px;
+			margin-right: 37px;
 
 			@media (max-width: 1439.98px) {
 				max-width: 350px;
@@ -43,11 +43,6 @@
 	// .rs-subscribe__form
 	&__form {
 		flex-grow: 1;
-
-		@media (min-width: 1439.98px) {
-			max-width: 930px;
-		}
-
 		.form {
 			// .form__block
 			&__block {
@@ -61,8 +56,16 @@
 					}
 
 					.form__button {
-						margin-left: 10px;
+						margin-left: 15px;
+						min-width: 182px;
+						max-width: 182px;
 					}
+				}
+			}
+
+			&__agreement {
+				@media (min-width:991.98px){
+					  padding-left: 25px;
 				}
 			}
 		}

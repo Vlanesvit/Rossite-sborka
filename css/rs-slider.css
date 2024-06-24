@@ -30,6 +30,9 @@
     display: none;
   }
 }
+.rs-slider__container {
+  height: 100%;
+}
 .rs-slider__slider {
   height: 100vh;
   min-height: 760px;
@@ -371,5 +374,10 @@
 @media (max-width: 767.98px) {
   .rs-slider .swiper-action {
     display: none;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-slider .swiper-action {
+    right: 36px;
   }
 }

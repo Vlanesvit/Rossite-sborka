@@ -72,7 +72,7 @@ function initSliderBlockSliders() {
 					// Брекпоинты (адаптив)
 					breakpoints: {
 						320: {
-							slidesPerView: 1.207,
+							slidesPerView: 1.22,
 							spaceBetween: 24,
 						},
 						767.98: {

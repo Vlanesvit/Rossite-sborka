@@ -37,6 +37,7 @@
 
 	// .rs-slider__container
 	&__container {
+		height: 100%;
 	}
 
 	// .rs-slider__slider
@@ -343,6 +344,10 @@
 
 		@media (max-width: 767.98px) {
 			display: none;
+		}
+
+		@media (max-width: 991.98px) {
+			right: 36px;
 		}
 	}
 }

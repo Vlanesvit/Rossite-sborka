@@ -203,9 +203,6 @@
     margin: 16px 0px;
   }
 }
-.rs-article__text > blockquote {
-  background: #f3f6ff;
-}
 .rs-article__share {
   display: -webkit-box;
   display: -ms-flexbox;

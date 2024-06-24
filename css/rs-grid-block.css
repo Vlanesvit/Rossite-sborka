@@ -1,0 +1,100 @@
+.rs-grid-block {
+  margin-top: 0;
+}
+.rs-grid-block.rs-albom .section-header__title {
+  max-width: 100%;
+}
+.rs-grid-block__block {
+  padding: 80px 0px;
+}
+@media (max-width: 991.98px) {
+  .rs-grid-block__block {
+    padding: 50px 0px;
+  }
+}
+.rs-grid-block__block:first-child {
+  padding-top: 0px;
+}
+.rs-grid-block__block:last-child {
+  padding-bottom: 0px;
+}
+.rs-grid-block__block:not(:last-child) {
+  border-bottom: 1px solid #d6dbe0;
+}
+@media (min-width: 767.98px) {
+  .rs-grid-block .back-link {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-grid-block .back-link {
+    margin-top: 16px;
+  }
+}
+.rs-grid-block__wrapper {
+  position: relative;
+}
+.rs-grid-block__list {
+  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  gap: 30px;
+}
+.rs-grid-block__list[data-grid-column="3"] {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1169.98px) {
+  .rs-grid-block__list[data-grid-column="3"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-grid-block__list[data-grid-column="3"] {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.rs-grid-block__list[data-grid-column="2"] {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 991.98px) {
+  .rs-grid-block__list[data-grid-column="2"] {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.rs-grid-block__list[data-grid-column="1"] {
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (max-width: 1169.98px) {
+  .rs-grid-block__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-grid-block__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-grid-block__list {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+  }
+}
+.rs-grid-block__column > * {
+  height: auto;
+}
+.rs-grid-block__column > *:not(:last-child) {
+  margin-bottom: 30px;
+}
+@media (max-width: 1169.98px) {
+  .rs-grid-block__column > *:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-grid-block__column > *:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}

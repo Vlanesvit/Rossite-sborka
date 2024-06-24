@@ -995,8 +995,8 @@ const addAnimFillHover = (hoveredElement) => {
 		});
 	}
 }
-addAnimFillHover('.rs-features-img .rs-features-img__item')
-addAnimFillHover('.rs-albom .rs-slider-block__item')
+addAnimFillHover('.rs-features-img__item')
+addAnimFillHover('.rs-slider-block__item.rs-albom')
 
 /* ====================================
 Кастомный курсор
