@@ -205,6 +205,12 @@
 	opacity: 1;
 	transition: all 0.3s ease 0s;
 	position: relative;
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--primary-color);
+		}
+	}
 }
 
 .swiper-pagination-bullet-active {
@@ -243,7 +249,7 @@
 		width: 24px;
 		height: 24px;
 		position: absolute;
-		transition: all 0.15s ease 0s;
+		transition: all 0.2s ease 0s;
 
 		path {
 			stroke: var(--primary-color);

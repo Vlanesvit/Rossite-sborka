@@ -76,6 +76,11 @@
     margin-bottom: 0px;
   }
 }
+@media (any-hover: hover) {
+  .rs-tabs .tabs__title:hover {
+    background-color: #cccdf1;
+  }
+}
 .rs-tabs .tabs__title._tab-active {
   background-color: var(--primary-color);
   color: #fff;

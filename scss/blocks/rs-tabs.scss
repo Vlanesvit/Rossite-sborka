@@ -70,6 +70,12 @@
 				}
 			}
 
+			@media (any-hover: hover) {
+				&:hover {
+					background-color: #cccdf1;
+				}
+			}
+
 			&._tab-active {
 				background-color: var(--primary-color);
 				color: #fff;

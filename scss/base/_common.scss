@@ -357,6 +357,7 @@ p {
 	// line-height: 26px;
 	line-height: 160%;
 	color: #9397bf;
+	transition: color 0.3s ease 0s;
 
 	@media (max-width: 1439.98px) {
 		font-size: 14px;
@@ -364,6 +365,24 @@ p {
 
 	svg {
 		margin-right: 15px;
+		transition: transform 0.3s ease 0s;
+
+		path {
+			transition: stroke 0.3s ease 0s;
+		}
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			color: var(--primary-color);
+
+			svg {
+				transform: translateX(-5px);
+				path {
+					stroke: var(--primary-color);
+				}
+			}
+		}
 	}
 }
 
@@ -565,6 +584,7 @@ p {
 			position: relative;
 			background-color: #fff;
 			border-radius: 15px;
+			cursor: pointer;
 
 			&::after {
 				content: "";
@@ -597,12 +617,12 @@ p {
 
 		.filepond--drop-label.filepond--drop-label label {
 			display: flex;
-			text-align: center;
 			align-items: center;
 			justify-content: flex-start;
 			flex-direction: column;
 			color: #61646b;
 			padding: 20px 15px;
+			cursor: pointer;
 
 			span {
 				display: block;
@@ -644,7 +664,6 @@ p {
 				font-size: 13px;
 				// line-height: 18px;
 				line-height: 140%;
-				text-align: center;
 				color: #73757b;
 				margin-top: 1px;
 
@@ -672,6 +691,7 @@ p {
 		}
 
 		.filepond--file-action-button {
+			cursor: pointer;
 			color: var(--text-color);
 			background-color: #fff;
 		}
@@ -1257,19 +1277,14 @@ blockquote {
 			z-index: 1;
 		}
 
-		&.rs-albom {
-			@media (any-hover: hover) {
-				&:hover {
-					.rs-slider-block__desc {
-						transform: translateY(0%);
-
-						p,
-						ul,
-						.rs-btn {
-							opacity: 1;
-							visibility: visible;
-							transition: all 0.3s ease 0.3s;
-						}
+		@media (any-hover: hover) {
+			&:hover {
+				.rs-slider-block__desc {
+					&-text {
+						margin-bottom: 0;
+						opacity: 1;
+						visibility: visible;
+						transition: all 0.3s ease 0.3s;
 					}
 				}
 			}
@@ -1321,17 +1336,12 @@ blockquote {
 		bottom: 0;
 		left: 0;
 
-		.rs-albom & {
-			transform: translateY(72%);
-			transition: transform 0.3s ease 0s;
-
-			p,
-			ul,
-			.rs-btn {
-				opacity: 0;
-				visibility: hidden;
-				transition: all 0.3s ease 0s;
-			}
+		&-text {
+			margin-bottom: var(--h);
+			transition: margin 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s ease 0s;
 		}
 
 		p {

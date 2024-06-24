@@ -22,6 +22,25 @@
 		transition: all 0.3s ease 0s;
 		border-radius: 50%;
 		background-color: #f2f4f9;
+
+		svg {
+			path {
+				transition: stroke 0.3s ease 0s;
+			}
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--primary-color);
+				border-color: var(--primary-color);
+
+				svg {
+					path {
+						stroke: #fff;
+					}
+				}
+			}
+		}
 	}
 
 	// .pagging__prev
@@ -63,6 +82,13 @@
 		color: #000;
 		background-color: transparent;
 		transition: all 0.3s ease 0s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #cccdf1;
+				border-color: #cccdf1;
+			}
+		}
 
 		&._active {
 			background-color: var(--primary-color);

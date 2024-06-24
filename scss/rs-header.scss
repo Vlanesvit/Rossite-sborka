@@ -25,6 +25,12 @@
 		border-bottom-color: #d6dbe0;
 	}
 
+	@media (min-width: 991.98px) {
+		.lock & {
+			padding-right: 5px;
+		}
+	}
+
 	@media (max-width: 991.98px) {
 		border-radius: 0 0 15px 15px;
 
@@ -280,11 +286,26 @@
 						transition: all 0.3s ease 0s;
 						display: flex;
 						align-items: center;
+						position: relative;
 
 						@media (any-hover: hover) {
 							&:hover {
-								color: var(--primary-color);
+								&::after {
+									width: 100%;
+									left: 0;
+								}
 							}
+						}
+
+						&:after {
+							content: "";
+							position: absolute;
+							bottom: 0;
+							right: 0;
+							width: 0%;
+							height: 1px;
+							background-color: #fff;
+							transition: width 0.3s ease 0s;
 						}
 					}
 				}

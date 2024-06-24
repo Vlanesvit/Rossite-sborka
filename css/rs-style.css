@@ -597,6 +597,8 @@ p {
   font-size: 16px;
   line-height: 160%;
   color: #9397bf;
+  -webkit-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
 }
 @media (max-width: 1439.98px) {
   .back-link {
@@ -605,6 +607,27 @@ p {
 }
 .back-link svg {
   margin-right: 15px;
+  -webkit-transition: -webkit-transform 0.3s ease 0s;
+  transition: -webkit-transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+}
+.back-link svg path {
+  -webkit-transition: stroke 0.3s ease 0s;
+  transition: stroke 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .back-link:hover {
+    color: var(--primary-color);
+  }
+  .back-link:hover svg {
+    -webkit-transform: translateX(-5px);
+        -ms-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  .back-link:hover svg path {
+    stroke: var(--primary-color);
+  }
 }
 
 @media (min-width: 991.98px) {
@@ -795,6 +818,7 @@ p {
   position: relative;
   background-color: #fff;
   border-radius: 15px;
+  cursor: pointer;
 }
 .form__upload .filepond--root::after {
   content: "";
@@ -826,7 +850,6 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -839,6 +862,7 @@ p {
           flex-direction: column;
   color: #61646b;
   padding: 20px 15px;
+  cursor: pointer;
 }
 .form__upload .filepond--drop-label.filepond--drop-label label span {
   display: block;
@@ -881,7 +905,6 @@ p {
   font-weight: 600;
   font-size: 13px;
   line-height: 140%;
-  text-align: center;
   color: #73757b;
   margin-top: 1px;
 }
@@ -904,6 +927,7 @@ p {
   color: var(--text-color);
 }
 .form__upload .filepond--file-action-button {
+  cursor: pointer;
   color: var(--text-color);
   background-color: #fff;
 }
@@ -1543,14 +1567,8 @@ blockquote .rs-btn {
   z-index: 1;
 }
 @media (any-hover: hover) {
-  .rs-slider-block__item.rs-albom:hover .rs-slider-block__desc {
-    -webkit-transform: translateY(0%);
-        -ms-transform: translateY(0%);
-            transform: translateY(0%);
-  }
-  .rs-slider-block__item.rs-albom:hover .rs-slider-block__desc p,
-  .rs-slider-block__item.rs-albom:hover .rs-slider-block__desc ul,
-  .rs-slider-block__item.rs-albom:hover .rs-slider-block__desc .rs-btn {
+  .rs-slider-block__item:hover .rs-slider-block__desc-text {
+    margin-bottom: 0;
     opacity: 1;
     visibility: visible;
     -webkit-transition: all 0.3s ease 0.3s;
@@ -1604,18 +1622,10 @@ blockquote .rs-btn {
   bottom: 0;
   left: 0;
 }
-.rs-albom .rs-slider-block__desc {
-  -webkit-transform: translateY(72%);
-      -ms-transform: translateY(72%);
-          transform: translateY(72%);
-  -webkit-transition: -webkit-transform 0.3s ease 0s;
-  transition: -webkit-transform 0.3s ease 0s;
-  transition: transform 0.3s ease 0s;
-  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
-}
-.rs-albom .rs-slider-block__desc p,
-.rs-albom .rs-slider-block__desc ul,
-.rs-albom .rs-slider-block__desc .rs-btn {
+.rs-slider-block__desc-text {
+  margin-bottom: var(--h);
+  -webkit-transition: margin 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: margin 0.45s cubic-bezier(0.23, 1, 0.32, 1);
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.3s ease 0s;
@@ -2188,6 +2198,11 @@ blockquote .rs-btn {
   transition: all 0.3s ease 0s;
   position: relative;
 }
+@media (any-hover: hover) {
+  .swiper-pagination-bullet:hover {
+    background-color: var(--primary-color);
+  }
+}
 
 .swiper-pagination-bullet-active {
   opacity: 1;
@@ -2232,8 +2247,8 @@ blockquote .rs-btn {
   width: 24px;
   height: 24px;
   position: absolute;
-  -webkit-transition: all 0.15s ease 0s;
-  transition: all 0.15s ease 0s;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
 }
 .swiper-button-next svg path,
 .swiper-button-prev svg path {
@@ -2573,6 +2588,19 @@ blockquote .rs-btn {
   border-radius: 50%;
   background-color: #f2f4f9;
 }
+.pagging__arrow svg path {
+  -webkit-transition: stroke 0.3s ease 0s;
+  transition: stroke 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .pagging__arrow:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .pagging__arrow:hover svg path {
+    stroke: #fff;
+  }
+}
 .pagging__prev {
   margin-right: 10px;
 }
@@ -2612,6 +2640,12 @@ blockquote .rs-btn {
   background-color: transparent;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .pagging__item:hover {
+    background-color: #cccdf1;
+    border-color: #cccdf1;
+  }
 }
 .pagging__item._active {
   background-color: var(--primary-color);
