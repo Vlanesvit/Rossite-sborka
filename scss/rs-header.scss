@@ -670,6 +670,14 @@
 						transform: translateX(0%);
 					}
 
+					.dropdown-menu-open & {
+						overflow: hidden;
+					}
+
+					&::-webkit-scrollbar {
+						width: 0px;
+					}
+
 					& > * {
 						width: 100%;
 						max-width: 768px;
@@ -933,8 +941,14 @@
 							}
 						}
 
-						& > ul {
+						& > .menu__dropdown_list {
 							transform: translateX(0%);
+						}
+					}
+
+					&._block-menu {
+						& > .menu__dropdown_list {
+							overflow: hidden;
 						}
 					}
 				}

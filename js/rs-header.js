@@ -15,12 +15,7 @@ function menuFunction() {
 					// Открываем меню
 					btn.addEventListener("click", function (e) {
 						e.preventDefault();
-
-						if (document.documentElement.classList.contains("menu-open")) {
-							menuClose("menu-open");
-						} else {
-							menuOpen("menu-open")
-						}
+						menuToggle("menu-open");
 					});
 				});
 			}
@@ -96,33 +91,48 @@ function menuFunction() {
 			});
 
 			// Функция для отдельных уровней меню, чтобы открывался только один пункт, а открытые закрывались, кроме тех, кто выше уровнем
-			function openLvlMenu(li, ul) {
+			function openLvlMenu() {
 				document.addEventListener('click', (e) => {
 					if (e.target.classList.contains('menu__dropdown_arrow')) {
 						const menuItemIcons = e.target;
-						const menuDropdown = menuItemIcons.closest('.menu__dropdown');
-						menuDropdown.classList.add('_open-menu');
-						document.documentElement.classList.add('dropdown-menu-open');
+						const currentDropdown = menuItemIcons.closest('.menu__dropdown');
+						const parentDropdown = currentDropdown?.parentElement.closest('.menu__dropdown');
+						currentDropdown.classList.add('_open-menu');
+
+						if (parentDropdown) {
+							parentDropdown.classList.add('_block-menu');
+						}
+
+						if (!document.documentElement.classList.contains('dropdown-menu-open')) {
+							document.documentElement.classList.add('dropdown-menu-open');
+						}
 					}
 
 					// Клик на кнопку "Назад" или её дочерние элементы
 					const switchBackBtn = e.target.closest('.switch-back');
 					if (switchBackBtn) {
-						const menuDropdown = switchBackBtn.closest('.menu__dropdown');
-						menuDropdown.classList.remove('_open-menu');
-						document.documentElement.classList.remove('dropdown-menu-open');
+						const currentDropdown = switchBackBtn.closest('.menu__dropdown');
+						const parentDropdown = currentDropdown?.parentElement.closest('.menu__dropdown');
+						currentDropdown.classList.remove('_open-menu');
+
+						if (parentDropdown) {
+							parentDropdown.classList.remove('_block-menu');
+						}
+
+						if (!document.documentElement.classList.contains('dropdown-menu-open')) {
+							document.documentElement.classList.add('dropdown-menu-open');
+						}
+
+						// Получаем все элементы с классом _open-menu из массива menuItemDropdowns
+						const openMenus = Array.from(menuItemDropdowns).filter(item => item.classList.contains('_open-menu'));
+						// Если таких элементов 0 или меньше, убираем класс у document.documentElement
+						if (openMenus.length <= 0) {
+							document.documentElement.classList.remove('dropdown-menu-open');
+						}
 					}
 				});
 			}
-
-			// Пункты 0-го уровня меню
-			openLvlMenu(menuItemDropdownsNull, menuItemDropdownsMenuNull)
-			// Пункты 1-го уровня меню
-			openLvlMenu(menuItemDropdownsFirst, menuItemDropdownsMenuFirst)
-			// Пункты 2-го уровня меню
-			openLvlMenu(menuItemDropdownsThree, menuItemDropdownsMenuTwo)
-			// Пункты 3-го уровня меню
-			openLvlMenu(menuItemDropdownsTwo, menuItemDropdownsMenuThree)
+			openLvlMenu()
 
 			// При клике на бургер убираем открые меню и активные класс
 			document.addEventListener("click", function (e) {
@@ -347,11 +357,9 @@ function menuFunction() {
 
 	// Функции открытия меню с блокировкой скролла
 	function menuOpen(classes) {
-		bodyLock();
 		document.documentElement.classList.add(classes);
 	}
 	function menuClose(classes) {
-		bodyUnlock();
 		document.documentElement.classList.remove(classes);
 	}
 	function menuToggle(classes) {
