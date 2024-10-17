@@ -796,6 +796,7 @@ p {
   line-height: 120%;
   color: var(--text-color);
   margin-top: 25px;
+  text-align: center;
 }
 @media (max-width: 991.98px) {
   .form__agreement {
@@ -817,8 +818,13 @@ p {
   margin: 0;
   position: relative;
   background-color: #fff;
-  border-radius: 15px;
+  border-radius: 30px;
   cursor: pointer;
+}
+@media (max-width: 991.98px) {
+  .form__upload .filepond--root {
+    border-radius: 15px;
+  }
 }
 .form__upload .filepond--root::after {
   content: "";
@@ -829,18 +835,24 @@ p {
   width: 100%;
   height: 100%;
   border: 2px dashed #e2e6ef;
-  border-radius: 15px;
+  border-radius: 30px;
   z-index: 10;
   pointer-events: none;
+}
+@media (max-width: 991.98px) {
+  .form__upload .filepond--root::after {
+    border-radius: 15px;
+  }
 }
 .form__upload .filepond--root .filepond--drop-label {
   min-height: 139px;
   background-color: #fff;
-  border-radius: 15px;
+  border-radius: 30px;
 }
 @media (max-width: 991.98px) {
   .form__upload .filepond--root .filepond--drop-label {
     min-height: 121px;
+    border-radius: 15px;
   }
 }
 .form__upload .filepond--credits {
@@ -945,7 +957,7 @@ p {
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
-  color: #61646b;
+  color: #383b56;
 }
 @media (max-width: 991.98px) {
   .rs-input-placeholder {
@@ -1467,8 +1479,6 @@ blockquote .rs-btn {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  -webkit-box-shadow: 0 2px 6px -1px rgba(11, 15, 25, 0.03), 0 4px 10px -1px rgba(11, 15, 25, 0.06);
-          box-shadow: 0 2px 6px -1px rgba(11, 15, 25, 0.03), 0 4px 10px -1px rgba(11, 15, 25, 0.06);
 }
 @media (any-hover: hover) {
   .rs-news__item:hover .rs-news__img img {
@@ -1511,7 +1521,7 @@ blockquote .rs-btn {
   z-index: 10;
   border-radius: 15px;
   padding: 25px 20px;
-  background-color: #fff;
+  background-color: #f3f6ff;
 }
 @media (max-width: 1439.98px) {
   .rs-news__desc {
@@ -2230,8 +2240,8 @@ blockquote .rs-btn {
       -ms-flex-pack: center;
           justify-content: center;
   overflow: hidden;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1) 0s;
+  transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1) 0s;
   background-color: var(--light-color);
 }
 ._white-block .swiper-button-next,
@@ -2247,14 +2257,14 @@ blockquote .rs-btn {
   width: 24px;
   height: 24px;
   position: absolute;
-  -webkit-transition: all 0.2s ease 0s;
-  transition: all 0.2s ease 0s;
+  -webkit-transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0s;
+  transition: all 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0s;
 }
 .swiper-button-next svg path,
 .swiper-button-prev svg path {
   stroke: var(--primary-color);
-  -webkit-transition: stroke 0.3s ease 0s;
-  transition: stroke 0.3s ease 0s;
+  -webkit-transition: stroke 0.3s cubic-bezier(0.77, 0, 0.175, 1) 0s;
+  transition: stroke 0.3s cubic-bezier(0.77, 0, 0.175, 1) 0s;
 }
 ._white-block .swiper-button-next svg path,
 ._white-block .swiper-button-prev svg path {
@@ -2587,6 +2597,10 @@ blockquote .rs-btn {
   transition: all 0.3s ease 0s;
   border-radius: 50%;
   background-color: #f2f4f9;
+}
+.pagging__arrow.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 .pagging__arrow svg path {
   -webkit-transition: stroke 0.3s ease 0s;

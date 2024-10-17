@@ -5,14 +5,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
   background-color: #000;
   border-radius: 30px;
-}
-@supports (-webkit-overflow-scrolling: touch) {
-  .rs-parallax {
-    background-attachment: scroll;
-  }
 }
 @media (max-width: 991.98px) {
   .rs-parallax {

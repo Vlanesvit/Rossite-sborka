@@ -23,6 +23,11 @@
 		border-radius: 50%;
 		background-color: #f2f4f9;
 
+		&.disabled {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
 		svg {
 			path {
 				transition: stroke 0.3s ease 0s;

@@ -7,167 +7,204 @@ https://gsap.com/docs/v3/Plugins/ScrollToPlugin
 
 gsap.registerPlugin(
 	ScrollTrigger,
-	// drawSVGPlugin,
 );
 // console.clear();
 
-window.addEventListener('load', function () {
-	setTimeout(() => {
-		// ScrollTrigger.refresh();
-		// breakpointGsapAnimChecker();
-		// window.scrollTo(0, 0);
-	}, 100);
-})
+// Обработка изменений на странице динамически
+const handleResize = () => {
+	requestAnimationFrame(() => {
+		ScrollTrigger.refresh();
+	});
+};
+
+const handleReveal = () => {
+	initAnimationsBasedOnWidth();
+	if (typeof refreshScrollTrigger === 'function') {
+		refreshScrollTrigger();
+	}
+};
+
+let currentWidthAnimation = null;
+
+// ScrollTrigger.addEventListener('refresh', () => console.log('refresh'))
 
 //========================================================================================================================================================
-/* MOVE SVG LINE */
-function moveSvgDashed(dashed, mask, trigger, top = 50, end = 50, markers = 0) {
-	if (document.querySelector(dashed) && document.querySelector(mask) && document.querySelector(trigger)) {
-		gsap.from(mask, {
-			// drawSVG: "0%",
-			scrollTrigger: {
-				trigger: trigger,
-				start: `top-=50% top`,
-				end: `bottom+=50% bottom`,
-				scrub: 1,
-				// markers: 1,
-			},
-		});
+// Анимация появления контента при скролле
+function revealOnScroll({ elements, duration = 0.5, delay = 0.1, direction = 'bottom-up' }) {
+	const items = gsap.utils.toArray(elements);
 
-		gsap.from(dashed, {
-			"--dashOffset": 1000,
-			delay: 5,
-			scrollTrigger: {
-				trigger: trigger,
-				start: `top-=${top}% top`,
-				end: `bottom+=${end}% bottom`,
-				scrub: 1,
-				// markers: 1,
-			}
-		});
-		ScrollTrigger.refresh()
-		document.querySelector(dashed).setAttribute("stroke-dashoffset", "var(--dashOffset)");
-	}
-}
+	// Функция для определения начальных значений и конечной анимации в зависимости от направления
+	const getAnimationProps = (direction, index) => {
+		const baseProps = {
+			autoAlpha: 0,
+			duration,
+			delay: direction.includes('--every') ? delay * (index + 1) : delay,
+		};
 
-/* REVEAL ANIMATION */
-function showContentOnScroll(elem, duration, delay, direction) {
-	if (document.querySelectorAll(elem)) {
-		const elems = gsap.utils.toArray(elem);
-		elems.forEach((item, i) => {
-			let anim;
+		switch (direction.replace('--every', '')) {
+			case 'bottom-up':
+				return { ...baseProps, from: { autoAlpha: 0, y: 50 }, to: { autoAlpha: 1, y: 0 } };
+			case 'up-bottom':
+				return { ...baseProps, from: { autoAlpha: 0, y: -50 }, to: { autoAlpha: 1, y: 0 } };
+			case 'left-right':
+				return { ...baseProps, from: { autoAlpha: 0, x: -50 }, to: { autoAlpha: 1, x: 0 } };
+			case 'right-left':
+				return { ...baseProps, from: { autoAlpha: 0, x: 50 }, to: { autoAlpha: 1, x: 0 } };
+			case 'fade':
+				return { ...baseProps, from: { autoAlpha: 0 }, to: { autoAlpha: 1 } };
+			case 'scale':
+				return { ...baseProps, from: { scale: 0, autoAlpha: 0 }, to: { scale: 1, autoAlpha: 1 } };
+			case 'width-100':
+				return { from: { width: '0%' }, to: { width: '100%', ease: 'cubic-bezier(0.4, 0, 0.2, 1)' } };
+			default:
+				return {};
+		}
+	};
 
-			switch (true) {
-				case direction === 'bottom-up':
-					anim = gsap.fromTo(item, { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'right-left':
-					anim = gsap.fromTo(item, { autoAlpha: 0, x: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'up-bottom':
-					anim = gsap.fromTo(item, { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'left-right':
-					anim = gsap.fromTo(item, { autoAlpha: 0, x: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay, duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'fade':
-					anim = gsap.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, delay: delay, duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'scale':
-					anim = gsap.fromTo(item, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, delay: delay, duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'bottom-up--every':
-					anim = gsap.fromTo(item, { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'right-left--every':
-					anim = gsap.fromTo(item, { autoAlpha: 0, x: 50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'up-bottom--every':
-					anim = gsap.fromTo(item, { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'left-right--every':
-					anim = gsap.fromTo(item, { autoAlpha: 0, x: -50 }, { autoAlpha: 1, y: 0, x: 0, delay: delay * (i + 1), duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'fade--every':
-					anim = gsap.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, delay: delay * (i + 1), duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'scale--every':
-					anim = gsap.fromTo(item, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, delay: delay * (i + 1), duration: duration, ease: 'cubic-1' });
-					break;
-				case direction === 'width-100':
-					anim = gsap.fromTo(item, { width: 0 + '%' }, { width: 100 + '%', delay: delay, duration: duration, ease: 'cubic-1', });
-					break;
+	items.forEach((item, index) => {
+		// Проверяем, есть ли у элемента класс 'animated', чтобы избежать повторной анимации
+		if (!item.classList.contains('animated')) {
+			const { from, to, duration, delay } = getAnimationProps(direction, index);
 
-				default:
-					break;
-			}
+			// Создание анимации
+			const anim = gsap.fromTo(item, from, { ...to, duration, delay });
 
 			ScrollTrigger.create({
 				trigger: item,
 				animation: anim,
-				once: true,
-				// scrub: true,
-				// markers: 1,
-
-				onEnter: () => function () { },
-				onLeave: () => function () { },
-				onEnterBack: () => function () { },
-				onLeaveBack: () => function () { },
+				once: true, // Анимация выполняется только один раз
+				onEnter: () => item.classList.add('animated') // Добавляем класс 'animated' при анимации
 			});
-		});
-	}
+		}
+	});
 }
 
 //========================================================================================================================================================
-function animDesktop() {
+// Дебаунсинг функции
+function debounce(func, wait) {
+	let timeout;
+	return function () {
+		const context = this, args = arguments;
+		clearTimeout(timeout);
+		timeout = setTimeout(() => func.apply(context, args), wait);
+	};
 }
 
-function animMobile() {
+// Дебаунсинг события ресайза
+const debouncedInitAnimations = debounce(initAnimationsBasedOnWidth, 100);
+
+// Функция для удаления анимаций
+function clearAnimations() {
+	// Удаление всех активных ScrollTrigger
+	ScrollTrigger.getAll().forEach(trigger => {
+		trigger.kill();
+	});
+
+	// Удаление всех pin-spacer, созданных ScrollTrigger
+	document.querySelectorAll('.pin-spacer, .gsap-pin-spacer').forEach(spacer => {
+		spacer.replaceWith(...spacer.childNodes);
+
+	});
+
+	// console.log("Все анимации и pin-spacer удалены");
 }
 
-function animCommon() {
-	// /* MOVE SVG LINE */
-	moveSvgDashed(".rs-features-img__line #dashed-line-1", ".rs-features-img__line #mask-line-1", ".rs-features-img");
+// Инициализация анимаций для разных разрешений
+function initAnimationsBasedOnWidth() {
+	const width = window.innerWidth;
+	// Сохраняем текущую позицию скролла
+	const scrollPos = window.scrollY || window.pageYOffse;
+
+	clearAnimations();
+
+	// Восстанавливаем позицию скролла после обновления
+	window.scrollTo(0, scrollPos);
+
+	if (width >= 991.98) {
+		// Если переключаемся с мобильной версии, очищаем мобильные анимации
+		if (currentWidthAnimation === 'mobile') {
+			clearAnimations();
+		}
+		initializeDesktopAnimations();
+		currentWidthAnimation = 'desktop';
+	} else {
+		// Если переключаемся с десктопной версии, очищаем десктопные анимации
+		if (currentWidthAnimation === 'desktop') {
+			clearAnimations();
+		}
+		initializeMobileAnimations();
+		currentWidthAnimation = 'mobile';
+	}
+
+	// Инициализация общих анимаций
+	initializeCommonAnimations();
+
+	// Обновляем точки старта/окончания для всех ScrollTrigger
+	ScrollTrigger.refresh();
+}
+
+//========================================================================================================================================================
+
+// Обработка изменения размера окна с дебаунсом
+window.addEventListener('resize', debouncedInitAnimations);
+
+// Обработка смены ориентации экрана
+window.addEventListener('orientationchange', () => {
+	setTimeout(() => {
+		initAnimationsBasedOnWidth();
+	}, 500);
+});
+
+// Обработка при загрузке страницы
+window.addEventListener('load', () => {
+	initAnimationsBasedOnWidth();
+	handleResize();
+	setTimeout(() => {
+		window.scrollTo(0, 0);
+	}, 300);
+});
+
+//========================================================================================================================================================
+// Общие анимации
+function initializeCommonAnimations() {
+	// console.log("Инициализация общих анимаций");
 
 	/* REVEAL ANIMATION */
-	showContentOnScroll('section .section-header', 0.5, 0.05, 'bottom-up');
-	showContentOnScroll('.rs-slider__slider', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-catalog__item', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.rs-text-block__item', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.rs-features__item', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.rs-news__item', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.rs-reviews__item', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.form__row > *', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.form__agreement', 0.3, 0.5, 'bottom-up--every');
-	showContentOnScroll('.rs-footer__spollers_item', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.rs-features-row__item', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.rs-features-img__wrapper > *', 0.5, 0.05, 'fade--every');
-	showContentOnScroll('.rs-parallax', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-steps__item', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.rs-gallery__item', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.rs-slider-block__item', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.rs-partners__slide', 0.5, 0.05, 'bottom-up--every');
-	showContentOnScroll('.rs-timer', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-tabs', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-quote', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-feedback', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-subscribe', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-tariff', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-contacts', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-accordion', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-documents', 0.5, 0.05, 'fade');
-	showContentOnScroll('.rs-table', 0.5, 0.05, 'fade');
+	revealOnScroll({ elements: 'section .section-header', });
+	revealOnScroll({ elements: '.rs-slider__slider', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-catalog__item', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-text-block__item', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-features__item', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-news__item', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-reviews__item', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.form__row > *', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.form__agreement', duration: 0.3, delay: 0.5, direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-footer__spollers_item', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-features-row__item', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-features-img__wrapper > *', direction: 'fade--every' });
+	revealOnScroll({ elements: '.rs-parallax', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-steps__item', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-gallery__item', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-slider-block__item', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-partners__slide', direction: 'bottom-up--every' });
+	revealOnScroll({ elements: '.rs-timer', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-tabs', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-quote', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-feedback', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-subscribe', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-tariff', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-contacts', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-accordion', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-documents', direction: 'fade' });
+	revealOnScroll({ elements: '.rs-table', direction: 'fade' });
 }
 
-// Проверка ширины экрана для вызова отдельных анимаций
-const breakpoint = window.matchMedia('(min-width: 991.98px)');
-const breakpointGsapAnimChecker = function () {
+// Десктопные анимаций
+function initializeDesktopAnimations() {
+	// console.log("Инициализация десктопных анимаций");
+}
 
-	animCommon()
-	if (breakpoint.matches === true) {
-		return animDesktop();
-	} else if (breakpoint.matches === false) {
-		return animMobile();
-	}
-};
-breakpoint.addListener(breakpointGsapAnimChecker);
+// Мобильные анимаций
+function initializeMobileAnimations() {
+	// console.log("Инициализация мобильных анимаций");
+}

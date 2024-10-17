@@ -1,6 +1,7 @@
 .rs-contacts {
   padding: 80px 0px;
   margin: 0;
+  border-radius: 0px;
 }
 @media (max-width: 1439.98px) {
   .rs-contacts {

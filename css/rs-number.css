@@ -4,12 +4,6 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
-}
-@supports (-webkit-overflow-scrolling: touch) {
-  .rs-number {
-    background-attachment: scroll;
-  }
 }
 @media (max-width: 1439.98px) {
   .rs-number {

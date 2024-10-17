@@ -9,7 +9,7 @@
 }
 @media (min-width: 1439.98px) {
   .rs-error-block.rs-error-block-1 {
-    padding-top: 53px;
+    padding-top: 62px;
   }
   .rs-error-block.rs-error-block-2 {
     padding-top: 10px;
@@ -43,12 +43,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  text-align: center;
 }
 .rs-error-block__description {
   margin-top: 40px;
   max-width: 745px;
   width: 100%;
+  text-align: center;
 }
 @media (max-width: 1439.98px) {
   .rs-error-block__description {

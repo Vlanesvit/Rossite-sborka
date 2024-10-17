@@ -8,7 +8,7 @@
 
 	@media (min-width: 1439.98px) {
 		&.rs-error-block-1 {
-			padding-top: 53px;
+			padding-top: 62px;
 		}
 
 		&.rs-error-block-2 {
@@ -38,7 +38,6 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		text-align: center;
 	}
 
 	// .rs-error-block__description
@@ -46,7 +45,8 @@
 		margin-top: 40px;
 		max-width: 745px;
 		width: 100%;
-
+		text-align: center;
+		
 		@media (max-width: 1439.98px) {
 			margin-top: 20px;
 		}

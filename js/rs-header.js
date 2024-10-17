@@ -5,149 +5,138 @@
 function menuFunction() {
 	const menus = document.querySelectorAll('.rs-header__menu');
 
-	// Меню
-	function menuInit() {
+	// Бургер-кнопка
+	function burger() {
 		menus.forEach(menu => {
-			//========================================================================================================================================================
+			const menuBurgerBtns = menu.querySelectorAll('.menu__icon');
 
-			// Бургер-кнопка
-			const menuBurgerBtns = menu.querySelectorAll('.icon-menu');
 			if (menuBurgerBtns) {
 				menuBurgerBtns.forEach(btn => {
 					// Открываем меню
 					btn.addEventListener("click", function (e) {
+						e.preventDefault();
+
 						if (document.documentElement.classList.contains("menu-open")) {
 							menuClose("menu-open");
 						} else {
 							menuOpen("menu-open")
 						}
-
-						menuItemDropdowns.forEach(item => {
-							item.classList.remove('_open-menu');
-						});
-
-						if (menuChilds) {
-							menuChilds.forEach(menuChilds => {
-								menuChilds.classList.remove("_open-dropmenu")
-							});
-						}
-
-						menuClose("dropmenu-open");
 					});
 				});
 			}
+		});
+	};
+	burger()
 
-			//========================================================================================================================================================
-
-			// Все пункты
-			const menuBodys = document.querySelectorAll('.rs-header__menu .menu__body');
-			menuBodys.forEach(menuBody => {
-				const menuListItem = menuBody.querySelectorAll('.menu__list > li');
-				// Добавляем иконки в пункты с выпадающим меню
-				menuListItem.forEach(item => {
-					const menuLink = item.querySelector('a');
-					let icon = document.createElement('i');
-					icon.classList.add('menu__dropdown-arrow')
-					menuLink.append(icon);
-				});
-			});
-
+	// Меню
+	function menuInit() {
+		menus.forEach(menu => {
 			// Все пункты с выпадающим меню
 			const menuItemDropdowns = menu.querySelectorAll('.menu__list .menu__dropdown');
 			const menuItemDropdownsMenu = menu.querySelectorAll('.menu__list .menu__dropdown_list');
 
+			// 0-ой уровень
+			const menuItemDropdownsNull = menu.querySelectorAll('.menu__list > .menu__dropdown');
+			const menuItemDropdownsMenuNull = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list');
+
 			// 1-ый уровень
-			const menuItemDropdownsFirst = menu.querySelectorAll('.menu__list > .menu__dropdown');
-			const menuItemDropdownsMenuFirst = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list');
+			const menuItemDropdownsFirst = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown');
+			const menuItemDropdownsMenuFirst = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
 
 			// 2-ой уровень
-			const menuItemDropdownsTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown');
-			const menuItemDropdownsMenuTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
+			const menuItemDropdownsTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown');
+			const menuItemDropdownsMenuTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
 
 			// 3-ий уровень
-			const menuItemDropdownsThree = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown');
-			const menuItemDropdownsMenuThree = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
+			const menuItemDropdownsThree = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown');
+			const menuItemDropdownsMenuThree = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
 
-			/* Один и тот же код для отдельных уровней меню, 
-			чтобы открывался только один пункт, а открытые - закрывались, кроме тех, кто выше уровнем */
+			// Блоки, которые копируются во вкладки
+			const contactBlock = menu.querySelector('.menu__contact');
+			const searchBlock = menu.querySelector('.rs-header__search');
+			menuItemDropdownsMenu.forEach(menuDropdown => {
+				if (contactBlock) {
+					const contactClone = contactBlock.cloneNode(true);
+					menuDropdown.appendChild(contactClone);
+				}
+
+				if (searchBlock) {
+					const searchClone = searchBlock.cloneNode(true);
+					menuDropdown.appendChild(searchClone);
+				}
+			});
+
+			// Добавляем иконки в пункты с выпадающим меню
+			menuItemDropdowns.forEach(item => {
+				let icon = document.createElement('button');
+				icon.setAttribute('type', 'button');
+				icon.classList.add('menu__dropdown_arrow')
+				item.append(icon);
+			});
+
+			// Добавляем иконки в пункты с выпадающим меню
+			menuItemDropdownsMenu.forEach(list => {
+				let back = document.createElement('li');
+				back.classList.add('menu-item', 'switch-back');
+				list.prepend(back);
+
+				let btn = document.createElement('a');
+				btn.setAttribute('href', '#');
+
+				// Найдем элемент .menu__dropdown и проверим наличие <a>
+				const menuLink = back.closest('.menu__dropdown')?.querySelector('a');
+
+				if (menuLink) {
+					btn.textContent = menuLink.textContent; // Добавляем текст только если <a> найден
+				} else {
+					btn.textContent = 'Назад'; // Запасной текст
+				}
+
+				back.prepend(btn);
+			});
+
+			// Функция для отдельных уровней меню, чтобы открывался только один пункт, а открытые закрывались, кроме тех, кто выше уровнем
 			function openLvlMenu(li, ul) {
-				if (li && ul) {
-					li.forEach(item => {
-						const menuItemList = item.querySelector('ul');
-						const menuItemIcons = item.querySelector('a > i');
+				document.addEventListener('click', (e) => {
+					if (e.target.classList.contains('menu__dropdown_arrow')) {
+						const menuItemIcons = e.target;
+						const menuDropdown = menuItemIcons.closest('.menu__dropdown');
+						menuDropdown.classList.add('_open-menu');
+						document.documentElement.classList.add('dropdown-menu-open');
+					}
 
-						if (menuItemIcons && menuItemList) {
-							// Открытие меню при клике на иконку
-							menuItemIcons.addEventListener('click', (e) => {
-								e.preventDefault();
+					// Клик на кнопку "Назад" или её дочерние элементы
+					const switchBackBtn = e.target.closest('.switch-back');
+					if (switchBackBtn) {
+						const menuDropdown = switchBackBtn.closest('.menu__dropdown');
+						menuDropdown.classList.remove('_open-menu');
+						document.documentElement.classList.remove('dropdown-menu-open');
+					}
+				});
+			}
 
-								_slideToggle(menuItemList, 500);
-								ul.forEach(menu => {
-									if (!menu.hasAttribute('hidden')) {
-										_slideUp(menu, 500);
-									}
-								});
+			// Пункты 0-го уровня меню
+			openLvlMenu(menuItemDropdownsNull, menuItemDropdownsMenuNull)
+			// Пункты 1-го уровня меню
+			openLvlMenu(menuItemDropdownsFirst, menuItemDropdownsMenuFirst)
+			// Пункты 2-го уровня меню
+			openLvlMenu(menuItemDropdownsThree, menuItemDropdownsMenuTwo)
+			// Пункты 3-го уровня меню
+			openLvlMenu(menuItemDropdownsTwo, menuItemDropdownsMenuThree)
 
-								// Проходимся по всем пунктам и ищем активные классы, убираем их и добавляем активный класс кликнутому пункту
-								if (!menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
-									li.forEach(itemDrop => {
-										if (itemDrop.classList.contains('_open-menu')) {
-											itemDrop.classList.remove('_open-menu')
-										}
-									});
-									menuItemIcons.closest('.menu__dropdown').classList.add('_open-menu');
-								} else if (menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
-									menuItemIcons.closest('.menu__dropdown').classList.remove('_open-menu');
-								}
-							});
-						}
+			// При клике на бургер убираем открые меню и активные класс
+			document.addEventListener("click", function (e) {
+				if (e.target.closest('.menu__icon')) {
+					menuItemDropdowns.forEach(item => {
+						item.classList.remove('_open-menu');
 					});
 				}
-			}
-			openLvlMenu(menuItemDropdownsFirst, menuItemDropdownsMenuFirst)
-			openLvlMenu(menuItemDropdownsTwo, menuItemDropdownsMenuTwo)
-			openLvlMenu(menuItemDropdownsThree, menuItemDropdownsMenuThree)
-
-			//========================================================================================================================================================
-
-			const menuParents = menu.querySelectorAll('[data-parent-menu]');
-			const menuChilds = menu.querySelectorAll('[data-child-menu]');
-			let activeMenu = 0;
-
-			menuParents.forEach(menuParent => {
-				const menuLinkIcon = menuParent.querySelector('a > .menu__dropdown-arrow');
-
-				menuLinkIcon.addEventListener('click', function (e) {
-					e.preventDefault()
-					menuOpen("dropmenu-open");
-					// Открываем нужный раздел
-					menuChilds.forEach((menuChild) => {
-						if (menuChild.dataset.childMenu === menuLinkIcon.closest('[data-parent-menu]').dataset.parentMenu) {
-							menuChild.classList.add("_open-dropmenu")
-							activeMenu++;
-						}
-					});
-				})
-			});
-
-			menuChilds.forEach(menuChild => {
-				const menuBack = menuChild.querySelector('.menu__dropdown_back');
-				// Закрываем вкладку
-				menuBack.addEventListener('click', function (e) {
-					e.preventDefault()
-					menuBack.closest('[data-child-menu]').classList.remove("_open-dropmenu")
-					console.log('Удален класс подраздела', menuBack.closest('[data-child-menu]'));
-					activeMenu--;
-					if (activeMenu === 0) {
-						menuClose("dropmenu-open");
-					}
-				})
 			});
 
 			//========================================================================================================================================================
 
-			const menuList = menu.querySelector('.menu__block .menu__body .menu__list')
-			const menuItem = [...menu.querySelectorAll('.menu__block .menu__body .menu__list > li')];
+			const menuList = menu.querySelector('.menu__block .menu__body > .menu__list')
+			const menuItem = [...menu.querySelectorAll('.menu__block .menu__body > .menu__list > li')];
 			// На случай обратной переброски пунктов при ивенте ресайза с декстопа на мобильную версию
 			const breakpoint = window.matchMedia('(min-width: 991.98px)');
 
