@@ -192,15 +192,18 @@
     margin: 8px 0px;
   }
 }
-.rs-article__text > img {
-  -o-object-fit: contain;
-     object-fit: contain;
+.rs-article__text > img, .rs-article__text > video {
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 15px;
   margin: 30px 0px;
+  height: 463px;
+  width: 100%;
 }
 @media (max-width: 991.98px) {
-  .rs-article__text > img {
+  .rs-article__text > img, .rs-article__text > video {
     margin: 16px 0px;
+    height: 300px;
   }
 }
 .rs-article__share {

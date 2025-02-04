@@ -191,13 +191,17 @@
 			}
 		}
 
-		& > img {
-			object-fit: contain;
+		& > img,
+		& > video {
+			object-fit: cover;
 			border-radius: 15px;
 			margin: 30px 0px;
+			height: 463px;
+			width: 100%;
 
 			@media (max-width: 991.98px) {
 				margin: 16px 0px;
+				height: 300px;
 			}
 		}
 	}
