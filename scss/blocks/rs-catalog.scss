@@ -1,5 +1,7 @@
 .rs-catalog {
-	overflow: hidden;
+	@media (max-width: 991.98px) {
+		overflow: hidden;
+	}
 
 	// .rs-catalog__container
 	&__container {

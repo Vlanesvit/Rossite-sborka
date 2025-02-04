@@ -1,5 +1,7 @@
-.rs-catalog {
-  overflow: hidden;
+@media (max-width: 991.98px) {
+  .rs-catalog {
+    overflow: hidden;
+  }
 }
 .rs-catalog__slider {
   overflow: visible;

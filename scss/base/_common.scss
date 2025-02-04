@@ -255,6 +255,12 @@ p {
 		padding: 12px 16px;
 	}
 
+	svg {
+		path {
+			transition: stroke 0.3s ease 0s;
+		}
+	}
+
 	&._btn-primary {
 		color: #fff;
 		background-color: var(--primary-color);
@@ -263,6 +269,12 @@ p {
 			&:hover {
 				background-color: #fff;
 				color: var(--font-color);
+
+				svg {
+					path {
+						stroke: var(--primary-color);
+					}
+				}
 			}
 		}
 	}
@@ -275,6 +287,12 @@ p {
 			&:hover {
 				color: #fff;
 				background-color: var(--primary-color);
+
+				svg {
+					path {
+						stroke: #fff;
+					}
+				}
 			}
 		}
 	}
@@ -287,6 +305,12 @@ p {
 			&:hover {
 				color: #fff;
 				background-color: var(--primary-color);
+
+				svg {
+					path {
+						stroke: #fff;
+					}
+				}
 			}
 		}
 	}
@@ -301,6 +325,12 @@ p {
 				color: #fff;
 				background-color: var(--primary-color);
 				border-color: var(--primary-color);
+
+				svg {
+					path {
+						stroke: #fff;
+					}
+				}
 			}
 		}
 	}
@@ -315,6 +345,12 @@ p {
 				color: #fff;
 				background-color: var(--primary-color);
 				border-color: var(--primary-color);
+
+				svg {
+					path {
+						stroke: #fff;
+					}
+				}
 			}
 		}
 	}
@@ -329,6 +365,12 @@ p {
 				color: #fff;
 				background-color: var(--primary-color);
 				border-color: var(--primary-color);
+
+				svg {
+					path {
+						stroke: #fff;
+					}
+				}
 			}
 		}
 	}
@@ -560,7 +602,6 @@ p {
 		line-height: 120%;
 		color: var(--text-color);
 		margin-top: 25px;
-		text-align: center;
 
 		@media (max-width: 991.98px) {
 			margin-top: 16px;

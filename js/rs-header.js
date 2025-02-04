@@ -236,10 +236,11 @@ function menuFunction() {
 					e.preventDefault();
 					e.stopPropagation();
 
-					// Даем классы с открытым меню
 					if (document.documentElement.classList.contains(classesOpen)) {
 						document.documentElement.classList.remove(classesOpen);
 					} else {
+						// Убираем все другие классы перед добавлением нового
+						document.documentElement.classList.remove('language-menu-open', 'search-open', 'menu-open');
 						document.documentElement.classList.add(classesOpen);
 					}
 				});
@@ -294,9 +295,11 @@ function menuFunction() {
 
 					// При фокусе показать блок с результатами поиска
 					searchInput.addEventListener('focus', function () {
+						search.classList.add('_open-search');
 						_slideDown(searchResult, 500);
 					})
 					searchInput.addEventListener('blur', function () {
+						search.classList.remove('_open-search');
 						_slideUp(searchResult, 500);
 					})
 
