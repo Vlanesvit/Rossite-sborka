@@ -44,6 +44,7 @@
 	border: 1px solid #d6dbe0;
 	border-radius: 15px;
 	background: #fff;
+	width: 100%;
 
 	@media (max-width: 991.98px) {
 		padding: 12px;
@@ -56,6 +57,7 @@
 		position: relative;
 		overflow: hidden;
 		background: #f3f6ff;
+		width: 100%;
 
 		// .rs-product__img_slider
 		&_slider {

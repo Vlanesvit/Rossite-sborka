@@ -109,3 +109,250 @@ window.addEventListener("load", function (e) {
 	// Запуск инициализации слайдеров
 	initCatalogSliders();
 });
+
+/* ====================================
+Инициализация range-input в сайдбаре
+==================================== */
+function rangePrice() {
+	const rangePriceSlider = document.querySelector('#range-price-slider');
+
+	if (rangePriceSlider) {
+		noUiSlider.create(rangePriceSlider, {
+			start: [1000, 100000],
+			step: 1000,
+			behaviour: 'drag-tap',
+			connect: [false, true, false],
+			range: {
+				'min': [1000],
+				'max': [100000]
+			}
+		});
+
+		const inputPriceMin = document.querySelector('#input-price-min');
+		const inputPriceMax = document.querySelector('#input-price-max');
+
+		const inputsPrice = [inputPriceMin, inputPriceMax]
+
+		rangePriceSlider.noUiSlider.on('update', function (values, handle) {
+			inputsPrice[handle].value = Math.round(values[handle])
+		});
+
+		inputsPrice.forEach(input => {
+			input.addEventListener('change', function () {
+				rangePriceSlider.noUiSlider.set([this.value]);
+			});
+		});
+	}
+}
+rangePrice()
+
+/* ====================================
+Меню категорий
+==================================== */
+function categorySlideMenu() {
+	const menuWrapper = document.querySelector(".category__wrapper");
+	const menuBlocks = document.querySelectorAll(".category__block");
+
+	if (!menuWrapper || menuBlocks.length === 0) return;
+
+	// Функция для показа нужного меню
+	function showMenu(targetMenu) {
+		menuBlocks.forEach(block => block.classList.remove("_show"));
+		targetMenu.classList.add("_show");
+	}
+
+	// Обработчик кликов по ссылкам с вложенным меню
+	menuWrapper.addEventListener("click", function (event) {
+		const link = event.target.closest("[data-submenu]");
+		if (link) {
+			event.preventDefault();
+			const submenuName = link.getAttribute("data-submenu");
+			const submenu = document.querySelector(`.category__block[data-submenu="${submenuName}"]`);
+			if (submenu) {
+				showMenu(submenu);
+			}
+		}
+	});
+
+	// Обработчик кликов по кнопкам возврата
+	menuWrapper.addEventListener("click", function (event) {
+		const backBtn = event.target.closest(".category-back");
+		if (backBtn) {
+			event.preventDefault();
+			const parentMenuName = backBtn.getAttribute("data-submenu");
+			const parentMenu = document.querySelector(`.category__block[data-submenu="${parentMenuName}"]`);
+			if (parentMenu) {
+				showMenu(parentMenu);
+			}
+		}
+	});
+
+	// Обработчик кликов по кнопке "Все категории"
+	menuWrapper.addEventListener("click", function (event) {
+		const closeAllBtn = event.target.closest(".category-close-all");
+		if (closeAllBtn) {
+			event.preventDefault();
+			showMenu(menuBlocks[0]); // Возвращаемся в начальное меню
+		}
+	});
+
+	// Инициализация: показать первое меню
+	showMenu(menuBlocks[0]);
+}
+categorySlideMenu()
+
+/* ====================================
+Открыть/закрыть доп.меню (в моб.версии)
+==================================== */
+function openSort() {
+	const btnShow = document.getElementById('sort-show');
+	const BtnClose = document.getElementById('sort-close');
+
+	if (btnShow) {
+		btnShow.addEventListener('click', function () {
+			if (document.documentElement.classList.contains('sort-open')) {
+				document.documentElement.classList.remove('sort-open');
+				bodyUnlock();
+			} else {
+				// Убираем все другие классы перед добавлением нового
+				document.documentElement.classList.add('sort-open');
+				bodyLock();
+			}
+		})
+	}
+
+	if (BtnClose) {
+		BtnClose.addEventListener('click', function () {
+			if (document.documentElement.classList.contains('sort-open')) {
+				document.documentElement.classList.remove('sort-open');
+				bodyUnlock();
+			}
+		})
+	}
+}
+openSort();
+
+function openFilter() {
+	const btnShow = document.getElementById('filter-show');
+
+	const spollers = document.querySelectorAll('.rs-catalog__spollers');
+
+	spollers.forEach(spoller => {
+		const spollerItems = spoller.querySelectorAll('.rs-catalog__spollers_item');
+
+		const spollerLinks = spoller.querySelectorAll('.rs-catalog__spollers_link ul li a');
+
+		spollerItems.forEach(spollerItem => {
+			const spollerClose = spollerItem.querySelector('.rs-catalog__spollers_title');
+
+			btnShow.addEventListener('click', function () {
+				Array.from(spollerItems).slice(0, 1).forEach(item => item.classList.add('filter-open'));
+				bodyLock();
+			})
+
+			spollerClose.addEventListener('click', function () {
+				spollerClose.closest('.rs-catalog__spollers_item').classList.remove('filter-open')
+
+				if (document.querySelectorAll('filter-open').length === 0) {
+					bodyUnlock();
+				}
+			})
+
+			spollerLinks.forEach(spollerLink => {
+				spollerLink.addEventListener("click", function (event) {
+					const link = event.target.closest("[data-filtermenu]");
+					if (link) {
+						event.preventDefault();
+						const filterName = link.getAttribute("data-filtermenu");
+						const filter = document.querySelector(`.rs-catalog__spollers_item[data-filtermenu="${filterName}"]`);
+						if (filter) {
+							filter.classList.add('filter-open')
+						}
+					}
+				});
+			});
+		});
+	});
+}
+openFilter();
+
+function initCatalogFilters() {
+	document.querySelectorAll('.rs-catalog__showmore').forEach(showMoreButton => {
+		const filterItem = showMoreButton.closest('.category__block') || showMoreButton.closest('.rs-catalog__spollers_item');
+		const showMoreBadge = showMoreButton.querySelector('.rs-catalog__showmore-badge');
+		const clearButton = filterItem?.querySelector('.rs-catalog__spollers_clear');
+
+		let сategoryList = [...filterItem?.querySelectorAll('.category__list')].find(list => !list.closest('.category__nav'));;
+		let checkboxList = filterItem?.querySelector('.checkbox__list');
+
+		// Используем checkboxList только если ширина экрана больше 991.98px
+		if (window.innerWidth <= 991.98) {
+			checkboxList = null;
+		}
+
+		// Используем либо categoryList (если найден), либо checkboxList (если он есть)
+		const filterList = сategoryList || checkboxList;
+
+		if (filterList) {
+			const filterItems = [...filterList.children];
+			const hiddenItems = filterItems.slice(6); // Все элементы после 6-го
+			const hiddenCount = hiddenItems.length; // Количество скрытых элементов
+
+			// console.log(filterItems);
+
+			// Если элементов больше 6, скрываем лишние
+			if (hiddenCount > 0) {
+				hiddenItems.forEach(item => item.style.display = 'none'); // Скрываем лишние
+				showMoreButton.style.display = 'block';
+
+				// Если есть showMoreBadge, заполняем его количеством скрытых элементов
+				if (showMoreBadge) {
+					showMoreBadge.textContent = hiddenCount;
+				}
+			} else {
+				showMoreButton.style.display = 'none';
+			}
+
+			// Функция переключения отображения скрытых элементов
+			function toggleShowMore() {
+				const isExpanded = showMoreButton.classList.toggle('_showmore-active');
+				hiddenItems.forEach(item => item.style.display = isExpanded ? 'block' : 'none');
+			}
+
+			showMoreButton.addEventListener('click', toggleShowMore);
+		}
+
+		// Очистка чекбоксов внутри родительского фильтра
+		clearButton?.addEventListener('click', () => {
+			filterItem.querySelectorAll('input[type=checkbox]').forEach(input => input.checked = false);
+		});
+	});
+
+	// Глобальная очистка всех фильтров
+	document.querySelector('.rs-catalog__filter-clear')?.addEventListener('click', () => {
+		document.querySelectorAll('input[type=checkbox]').forEach(input => input.checked = false);
+	});
+}
+initCatalogFilters();
+
+document.addEventListener("DOMContentLoaded", function () {
+	const searchInput = document.querySelector(".checkbox__filter--search .checkbox__search input");
+	const listItems = document.querySelectorAll(".checkbox__list li");
+
+	if (searchInput) {
+		searchInput.addEventListener("input", function () {
+			const filterText = searchInput.value.trim().toLowerCase();
+
+			listItems.forEach(item => {
+				const labelText = item.querySelector(".checkbox__label")?.textContent.toLowerCase() || "";
+
+				if (labelText.includes(filterText)) {
+					item.style.display = "";
+				} else {
+					item.style.display = "none";
+				}
+			});
+		});
+	}
+});
+

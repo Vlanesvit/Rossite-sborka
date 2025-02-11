@@ -9,10 +9,49 @@ function initProductSliderSliders() {
 		sliderBlocks.forEach(sliderBlock => {
 			const sliders = sliderBlock.querySelectorAll('.rs-product-slider__slider');
 
+
 			sliders.forEach(slider => {
 				const arrowPrev = sliderBlock.querySelector('.rs-product-slider__button-prev');
 				const arrowNext = sliderBlock.querySelector('.rs-product-slider__button-next');
 				const pagination = sliderBlock.querySelector('.rs-product-slider__pagination');
+
+				// Получаем значение data-slidesPerView
+				const slidesPerView = slider.hasAttribute('data-slidesperview')
+					? parseFloat(slider.getAttribute('data-slidesperview'))
+					: null;
+
+				// Определяем breakpoints
+				const breakpoints = {
+					320: {
+						slidesPerView: 1.57,
+						spaceBetween: 7,
+					},
+					539.98: slidesPerView ? {
+						slidesPerView: 2.565,
+						spaceBetween: 12,
+					} : {
+						slidesPerView: 2.5,
+						spaceBetween: 25,
+					},
+					767.98: {
+						slidesPerView: 3,
+						spaceBetween: 12,
+					},
+					991.98: slidesPerView ? {
+						slidesPerView: 3,
+						spaceBetween: 24,
+					} : {
+						slidesPerView: 4,
+						spaceBetween: 24,
+					},
+					1439.98: slidesPerView ? {
+						slidesPerView: slidesPerView,
+						spaceBetween: 25,
+					} : {
+						slidesPerView: 5,
+						spaceBetween: 25,
+					}
+				};
 
 				const swiperMain = new Swiper(slider, {
 					// // Автопрокрутка
@@ -66,28 +105,7 @@ function initProductSliderSliders() {
 						clickable: true,
 					},
 
-					slidesPerView: 4,
-					spaceBetween: 30,
-
-					// Брекпоинты (адаптив)
-					breakpoints: {
-						320: {
-							slidesPerView: 1.57,
-							spaceBetween: 7,
-						},
-						767.98: {
-							slidesPerView: 2.5,
-							spaceBetween: 12,
-						},
-						991.98: {
-							slidesPerView: 4,
-							spaceBetween: 24,
-						},
-						1439.98: {
-							slidesPerView: 5,
-							spaceBetween: 25,
-						}
-					},
+					breakpoints: breakpoints
 				});
 			});
 

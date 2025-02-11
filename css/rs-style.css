@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Manrope:regular,500,600&display=swap);
 :root {
   --bg-color: #fff;
@@ -225,6 +226,9 @@ section {
   section {
     margin: 50px 0px;
   }
+}
+section section {
+  margin: 0;
 }
 
 ._blue-block {
@@ -484,6 +488,7 @@ p {
   line-height: 160%; /* 25.6px */
   padding: 12px 24px;
   border-radius: var(--page-border-radius);
+  gap: 6px;
 }
 @media (max-width: 1569.98px) {
   .rs-btn {
@@ -598,15 +603,6 @@ p {
             transform: translateY(-0.375rem);
   }
 }
-.rs-btn svg,
-.rs-btn img {
-  margin-right: 7px;
-  min-width: 24px;
-  max-width: 24px;
-  height: 24px;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
 
 .back-link {
   display: -webkit-inline-box;
@@ -652,6 +648,14 @@ p {
   }
 }
 
+.wpcf7 form:not(.sent) .wpcf7-response-output {
+  display: none;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+  border-radius: 20px;
+}
+
 @media (min-width: 991.98px) {
   .form__row {
     display: -webkit-box;
@@ -682,39 +686,69 @@ p {
   position: relative;
   margin-bottom: 7.2px;
 }
-.form__line._form-error .form__right {
+.form__line._form-error .rs-input-placeholder, .form__line.wpcf7-not-valid .rs-input-placeholder {
+  font-size: 12px;
+  padding-top: 10px;
+}
+@media (max-width: 767.98px) {
+  .form__line._form-error .rs-input-placeholder, .form__line.wpcf7-not-valid .rs-input-placeholder {
+    padding-top: 8.5px;
+    font-size: 11px;
+  }
+}
+.form__line._form-error .form__right,
+.form__line._form-error .wpcf7-valid-tip, .form__line.wpcf7-not-valid .form__right,
+.form__line.wpcf7-not-valid .wpcf7-valid-tip {
   opacity: 0;
   visibility: hidden;
 }
-.form__line._form-right .form__right {
+.form__line._form-right .rs-input-placeholder, .form__line.wpcf7-valid .rs-input-placeholder {
+  font-size: 12px;
+  padding-top: 10px;
+}
+@media (max-width: 767.98px) {
+  .form__line._form-right .rs-input-placeholder, .form__line.wpcf7-valid .rs-input-placeholder {
+    padding-top: 8.5px;
+    font-size: 11px;
+  }
+}
+.form__line._form-right .form__right,
+.form__line._form-right .wpcf7-valid-tip, .form__line.wpcf7-valid .form__right,
+.form__line.wpcf7-valid .wpcf7-valid-tip {
   opacity: 1;
   visibility: visible;
 }
-.form__line._form-valid .rs-input-placeholder {
+.form__line._form-valid .rs-input-placeholder, .form__line.wpcf7-content .rs-input-placeholder {
   font-size: 12px;
   padding-top: 10px;
 }
 @media (max-width: 767.98px) {
-  .form__line._form-valid .rs-input-placeholder {
+  .form__line._form-valid .rs-input-placeholder, .form__line.wpcf7-content .rs-input-placeholder {
     padding-top: 8.5px;
     font-size: 11px;
   }
 }
-.form__line._form-focus .rs-input-placeholder {
+.form__line._form-focus .rs-input-placeholder, .form__line.wpcf7-focus .rs-input-placeholder {
   font-size: 12px;
   padding-top: 10px;
 }
 @media (max-width: 767.98px) {
-  .form__line._form-focus .rs-input-placeholder {
+  .form__line._form-focus .rs-input-placeholder, .form__line.wpcf7-focus .rs-input-placeholder {
     padding-top: 8.5px;
     font-size: 11px;
   }
 }
-.form__line._form-focus .form__right {
+.form__line._form-focus .form__right,
+.form__line._form-focus .wpcf7-valid-tip, .form__line.wpcf7-focus .form__right,
+.form__line.wpcf7-focus .wpcf7-valid-tip {
   opacity: 0;
   visibility: hidden;
 }
 .form__error {
+  display: none;
+}
+.form__error,
+.form .wpcf7-not-valid-tip {
   margin: 5px;
   margin-left: 20px;
   color: #ff0000;
@@ -723,13 +757,26 @@ p {
   font-weight: 400;
   line-height: 120%;
   text-align: left;
+  position: absolute;
+  top: -15px;
+  background-color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  left: 0;
+  width: auto;
+  border: none;
 }
 @media (max-width: 991.98px) {
-  .form__error {
+  .form__error,
+  .form .wpcf7-not-valid-tip {
     font-size: 10px;
   }
 }
-.form__right {
+.form .wpcf7-form-control-wrap {
+  position: static !important;
+}
+.form__right,
+.form .wpcf7-valid-tip {
   position: absolute;
   right: 39px;
   top: 27px;
@@ -750,7 +797,8 @@ p {
   transition: all 0.3s ease 0s;
 }
 @media (max-width: 991.98px) {
-  .form__right {
+  .form__right,
+  .form .wpcf7-valid-tip {
     top: 20px;
   }
 }
@@ -964,6 +1012,197 @@ p {
   color: var(--text-color);
   background-color: #fff;
 }
+.form__upload .codedropz-upload-wrapper {
+  position: relative;
+}
+.form__upload .codedropz-upload-wrapper > input {
+  height: 100%;
+  max-height: 133px;
+  width: 100%;
+  z-index: 10;
+  display: block;
+  visibility: visible;
+}
+.form__upload .codedropz-upload-handler {
+  border: 1px dashed #d6dbe0;
+  border-radius: 28px;
+  position: relative;
+}
+.form__upload .codedropz-upload-container {
+  padding: 20px;
+}
+.form__upload .codedropz-upload-inner {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.form__upload .codedropz-upload-inner::before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 43px;
+  height: 43px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='43' height='43' viewBox='0 0 43 43' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0_5001_999)'%3e%3cpath d='M27.5556 27.125H27.5667M28 23.75H28.6667C29.7021 23.75 30.2198 23.75 30.6282 23.9213C31.1727 24.1496 31.6053 24.5876 31.8308 25.139C32 25.5524 32 26.0766 32 27.125C32 28.1734 32 28.6976 31.8308 29.111C31.6053 29.6624 31.1727 30.1004 30.6282 30.3287C30.2198 30.5 29.7021 30.5 28.6667 30.5H15.3333C14.2979 30.5 13.7802 30.5 13.3718 30.3287C12.8273 30.1004 12.3947 29.6624 12.1692 29.111C12 28.6976 12 28.1734 12 27.125C12 26.0766 12 25.5524 12.1692 25.139C12.3947 24.5876 12.8273 24.1496 13.3718 23.9213C13.7802 23.75 14.2979 23.75 15.3333 23.75H16M22 24.875V12.5M22 24.875L18.6667 21.5M22 24.875L25.3333 21.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0_5001_999'%3e%3crect width='43' height='43' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e ");
+  background-color: var(--primary-color);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+@media (max-width: 1439.98px) {
+  .form__upload .codedropz-upload-inner::before {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .form__upload .codedropz-upload-inner::before {
+    width: 36px;
+    height: 36px;
+  }
+}
+.form__upload .codedropz-upload-inner h5 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  color: #383b56;
+}
+@media (max-width: 1439.98px) {
+  .form__upload .codedropz-upload-inner h5 {
+    font-size: 14px;
+  }
+}
+.form__upload .codedropz-upload-inner > h3,
+.form__upload .codedropz-upload-inner > span,
+.form__upload .dnd-upload-counter {
+  display: none;
+}
+.form__upload .codedropz-btn-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+.form__upload .codedropz-btn-wrap::after {
+  content: "Общий вес файлов не более 14 Мб Форматы файлов: jpeg, png, svg ";
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 140%;
+  text-align: center;
+  color: #73757b;
+  margin-top: 1px;
+}
+@media (max-width: 1439.98px) {
+  .form__upload .codedropz-btn-wrap::after {
+    font-size: 11px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .form__upload .codedropz-btn-wrap::after {
+    font-size: 10px;
+  }
+}
+.form__upload .cd-upload-btn {
+  display: none;
+}
+.form__upload .dnd-upload-status {
+  padding: 12px 20px;
+}
+.form__upload .dnd-upload-status .dnd-upload-image {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+}
+.form__upload .dnd-upload-status .dnd-upload-image span.file {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0_3888_1528)'%3e%3cpath d='M15.5999 6.53328V14.3555C15.5999 15.3512 15.5999 15.849 15.4006 16.2293C15.2253 16.5638 14.9456 16.8357 14.6015 17.0062C14.2104 17.2 13.6983 17.2 12.6742 17.2H5.72564C4.70154 17.2 4.1895 17.2 3.79834 17.0062C3.45428 16.8357 3.17454 16.5638 2.99923 16.2293C2.79993 15.849 2.79993 15.3512 2.79993 14.3555V4.0444C2.79993 3.04875 2.79993 2.55092 2.99923 2.17063C3.17454 1.83612 3.45428 1.56416 3.79834 1.39372C4.1895 1.19995 4.70155 1.19995 5.72564 1.19995H10.1142M15.5999 6.53328L10.1142 1.19995M15.5999 6.53328H11.0285C10.5236 6.53328 10.1142 6.13532 10.1142 5.6444V1.19995' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0_3888_1528'%3e%3crect width='17.6' height='17.6' fill='white' transform='translate(0.199951 0.199951)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e ");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 18px;
+  height: 18px;
+}
+.form__upload .dnd-upload-status .dnd-upload-details {
+  padding-left: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.form__upload .dnd-upload-status .dnd-upload-details > span:last-child {
+  display: none;
+}
+.form__upload .dnd-upload-status .dnd-upload-details > .has-error {
+  display: block !important;
+  margin-left: 10px;
+}
+.form__upload .dnd-upload-status .dnd-upload-details .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-right: 45px !important;
+}
+.form__upload .dnd-upload-status .dnd-upload-details .name span {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  color: #141517;
+}
+@media (max-width: 1439.98px) {
+  .form__upload .dnd-upload-status .dnd-upload-details .name span {
+    font-size: 14px;
+  }
+}
+.form__upload .dnd-upload-status .dnd-upload-details .name em {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+  color: #3a3b40;
+  margin-top: 2px;
+  display: block;
+}
+.form__upload .dnd-upload-status .dnd-upload-details .dnd-progress-bar {
+  display: none;
+}
+.form__upload .dnd-upload-status .dnd-upload-details .remove-file {
+  position: relative;
+  top: 0;
+  right: 0;
+  margin: 0px 0px 0px auto;
+}
 
 .rs-input-placeholder {
   position: absolute;
@@ -1057,7 +1296,7 @@ p {
     top: 20px;
   }
 }
-.rs-input-clear._clear-active {
+.rs-input-clear._clear {
   opacity: 1;
   visibility: visible;
   pointer-events: unset;
@@ -2369,6 +2608,24 @@ blockquote .rs-btn {
 @media (max-width: 1439.98px) {
   .rs-breadcrumbs {
     margin: 20px 0px;
+  }
+}
+.rs-breadcrumbs__container > h1 {
+  margin-top: 24px;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 140%;
+}
+@media (max-width: 1439.98px) {
+  .rs-breadcrumbs__container > h1 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-breadcrumbs__container > h1 {
+    font-size: 20px;
+    margin-top: 16px;
   }
 }
 .rs-breadcrumbs__list {

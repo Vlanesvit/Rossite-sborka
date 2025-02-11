@@ -1389,7 +1389,7 @@
 
 					@media (max-width: 767.98px) {
 						position: absolute;
-						top: 100%;
+						top: calc(100% + 10px);
 						left: 16px;
 						right: 16px;
 						width: calc(100% - 32px);
@@ -1399,7 +1399,7 @@
 						transition: all 0.3s ease 0s;
 					}
 
-					.search-open .rs-header-catalog & {
+					.search-open & {
 						opacity: 1;
 						visibility: visible;
 						transform: translateY(0px);
@@ -2105,12 +2105,6 @@
 
 			@media (max-width: 1439.98px) {
 				margin-right: 25px;
-			}
-
-			svg {
-				min-width: 18px;
-				max-width: 18px;
-				height: 24px;
 			}
 
 			.rs-btn {
