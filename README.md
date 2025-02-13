@@ -18,3 +18,5 @@
 18. [404 №2](https://vlanesvit.github.io/Rossite-sborka/404-2.html)
 19. [404 №3](https://vlanesvit.github.io/Rossite-sborka/404-3.html)
 20. [Главная магазин](https://vlanesvit.github.io/Rossite-sborka/home-store.html)
+21. [Каталог](https://vlanesvit.github.io/Rossite-sborka/catalog.html)
+22. [Страница продукта](https://vlanesvit.github.io/Rossite-sborka/product.html)
