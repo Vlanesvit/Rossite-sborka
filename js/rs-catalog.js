@@ -282,54 +282,47 @@ function initCatalogFilters() {
 		const showMoreBadge = showMoreButton.querySelector('.rs-catalog__showmore-badge');
 		const clearButton = filterItem?.querySelector('.rs-catalog__spollers_clear');
 
-		let сategoryList = [...filterItem?.querySelectorAll('.category__list')].find(list => !list.closest('.category__nav'));;
+		let сategoryList = [...filterItem?.querySelectorAll('.category__list')].find(list => !list.closest('.category__nav'));
 		let checkboxList = filterItem?.querySelector('.checkbox__list');
 
-		// Используем checkboxList только если ширина экрана больше 991.98px
-		if (window.innerWidth <= 991.98) {
-			checkboxList = null;
-		}
-
-		// Используем либо categoryList (если найден), либо checkboxList (если он есть)
 		const filterList = сategoryList || checkboxList;
 
 		if (filterList) {
 			const filterItems = [...filterList.children];
-			const hiddenItems = filterItems.slice(6); // Все элементы после 6-го
-			const hiddenCount = hiddenItems.length; // Количество скрытых элементов
+			const hiddenItems = filterItems.slice(6);
 
-			// console.log(filterItems);
-
-			// Если элементов больше 6, скрываем лишние
-			if (hiddenCount > 0) {
-				hiddenItems.forEach(item => item.style.display = 'none'); // Скрываем лишние
-				showMoreButton.style.display = 'block';
-
-				// Если есть showMoreBadge, заполняем его количеством скрытых элементов
-				if (showMoreBadge) {
-					showMoreBadge.textContent = hiddenCount;
+			// Функция управления скрытыми элементами
+			function updateHiddenItems() {
+				if (window.innerWidth > 991.98) {
+					hiddenItems.forEach(item => item.classList.add('hidden'));
+					showMoreButton.classList.remove('hidden');
+					if (showMoreBadge) showMoreBadge.textContent = hiddenItems.length;
+				} else {
+					if (checkboxList) {
+						// Только в checkboxList убираем hidden на узком экране
+						hiddenItems.forEach(item => item.classList.remove('hidden'));
+					}
 				}
-			} else {
-				showMoreButton.style.display = 'none';
 			}
 
-			// Функция переключения отображения скрытых элементов
+			updateHiddenItems(); // Вызываем при загрузке
+			window.addEventListener("resize", updateHiddenItems); // Вызываем при изменении ширины
+
 			function toggleShowMore() {
 				const isExpanded = showMoreButton.classList.toggle('_showmore-active');
-				hiddenItems.forEach(item => item.style.display = isExpanded ? 'block' : 'none');
+				hiddenItems.forEach(item => item.classList.toggle('hidden', !isExpanded));
 			}
 
 			showMoreButton.addEventListener('click', toggleShowMore);
 		}
 
-		// Очистка чекбоксов внутри родительского фильтра
 		clearButton?.addEventListener('click', () => {
 			filterItem.querySelectorAll('input[type=checkbox]').forEach(input => input.checked = false);
 		});
 	});
 
-	// Глобальная очистка всех фильтров
-	document.querySelector('.rs-catalog__filter-clear')?.addEventListener('click', () => {
+	document.querySelector('.rs-catalog__filter-clear')?.addEventListener('click', (e) => {
+		e.preventDefault();
 		document.querySelectorAll('input[type=checkbox]').forEach(input => input.checked = false);
 	});
 }
@@ -342,17 +335,16 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (searchInput) {
 		searchInput.addEventListener("input", function () {
 			const filterText = searchInput.value.trim().toLowerCase();
-
 			listItems.forEach(item => {
 				const labelText = item.querySelector(".checkbox__label")?.textContent.toLowerCase() || "";
-
-				if (labelText.includes(filterText)) {
-					item.style.display = "";
+				if (window.innerWidth <= 991.98) {
+					// На маленьких экранах скрываем только несоответствующие запросу элементы
+					item.classList.toggle('hidden', !labelText.includes(filterText));
 				} else {
-					item.style.display = "none";
+					// На больших экранах применяем обычную логику
+					item.classList.toggle('hidden', !labelText.includes(filterText));
 				}
 			});
 		});
 	}
 });
-

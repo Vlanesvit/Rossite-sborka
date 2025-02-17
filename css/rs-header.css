@@ -1412,6 +1412,7 @@
     -webkit-transform: translateY(10px);
         -ms-transform: translateY(10px);
             transform: translateY(10px);
+    pointer-events: none;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
   }
@@ -1422,6 +1423,7 @@
   -webkit-transform: translateY(0px);
       -ms-transform: translateY(0px);
           transform: translateY(0px);
+  pointer-events: all;
 }
 .rs-header__search .search__form {
   width: 100%;
@@ -2089,4 +2091,96 @@
     padding-top: 8px;
     padding-bottom: 8px;
   }
+}
+@media (min-width: 991.98px) {
+  .rs-header__footer {
+    display: none;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-header__footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px 36px;
+    border-top: 1px solid #d6dbe0;
+    border-radius: 15px 15px 0 0;
+    background: #fff;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-header__footer {
+    padding: 5px 16px;
+  }
+}
+.rs-header__links {
+  width: 100%;
+}
+.rs-header__links ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.rs-header__links ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px;
+  border-radius: 7px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 160%;
+  position: relative;
+}
+@media (max-width: 767.98px) {
+  .rs-header__links ul li a {
+    font-weight: 600;
+    font-size: 11px;
+    padding: 6px;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-header__links ul li svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+.rs-header__links ul li .badge {
+  top: 1px;
+  right: 6.5px;
+  position: absolute;
+  padding: 0px 5px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 140%;
+  color: #fff;
+  background: #ff6565;
+  border-radius: 50px;
+}
+@media (max-width: 767.98px) {
+  .rs-header__links ul li .badge {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 100%;
+    padding: 1.5px 3.5px;
+    color: #fff;
+  }
+}
+.rs-header__links ul li.current_menu_item > a {
+  background-color: #f3f6ff;
 }

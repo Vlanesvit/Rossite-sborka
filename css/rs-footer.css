@@ -1,6 +1,9 @@
 .rs-footer {
   border-top: 1px solid #e2e5f1;
 }
+.rs-footer.rs-footer-catalog {
+  padding-bottom: 158px;
+}
 .rs-footer__wrapper {
   padding: 68px 0px 68px;
 }

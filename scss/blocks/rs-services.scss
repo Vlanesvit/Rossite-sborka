@@ -362,6 +362,20 @@
 					margin-bottom: 0px !important;
 				}
 			}
+
+			opacity: 0;
+			display: none;
+			transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+			transition-behavior: allow-discrete;
+
+			&._tab-active {
+				display: block;
+				opacity: 1;
+
+				@starting-style {
+					opacity: 0;
+				}
+			}
 		}
 	}
 }

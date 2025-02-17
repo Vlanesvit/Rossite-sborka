@@ -146,6 +146,11 @@
 }
 .rs-tabs .tabs__body {
   width: 100%;
+  opacity: 0;
+  display: none;
+  -webkit-transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-behavior: allow-discrete;
 }
 @media (max-width: 991.98px) {
   .rs-tabs .tabs__body {
@@ -167,6 +172,15 @@
 @media (max-width: 991.98px) {
   .rs-tabs .tabs__body > .rs-btn {
     margin-top: 16px;
+  }
+}
+.rs-tabs .tabs__body._tab-active {
+  display: block;
+  opacity: 1;
+}
+@starting-style {
+  .rs-tabs .tabs__body._tab-active {
+    opacity: 0;
   }
 }
 .rs-tabs .tabs__map {

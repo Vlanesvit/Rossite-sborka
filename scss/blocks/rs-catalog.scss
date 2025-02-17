@@ -303,7 +303,7 @@
 				content: "";
 				flex: 0 0 10px;
 				height: 10px;
-				background-image: url("../../img/icons/caret-arrow-down--bold.svg");
+				background-image: url("../img/icons/caret-arrow-down--bold.svg");
 				background-repeat: no-repeat;
 				background-position: center;
 				background-size: contain;
@@ -341,7 +341,7 @@
 				font-size: 14px;
 				// line-height: 17px;
 				line-height: 120%;
-				color: #6366f1;
+				color: var(--primary-color);
 				padding-bottom: 3px;
 				border-bottom: 1px solid currentColor;
 			}
@@ -703,6 +703,7 @@
 			&__item {
 				display: flex;
 				align-items: center;
+				cursor: pointer;
 
 				@media (max-width: 991.98px) {
 					flex-direction: row-reverse;
@@ -738,7 +739,7 @@
 					z-index: 1;
 					transform: translate(-50%, -50%) scale(1.5);
 					transition: ease-out 0.15s;
-					background-image: url("../../img/icons/check-filter.svg");
+					background-image: url("../img/icons/check-filter.svg");
 					background-repeat: no-repeat;
 					background-position: center;
 					background-size: contain;
@@ -882,7 +883,7 @@
 								display: block;
 								width: 10px;
 								height: 10px;
-								background-image: url("../../img/icons/caret-arrow-down--bold.svg");
+								background-image: url("../img/icons/caret-arrow-down--bold.svg");
 								background-repeat: no-repeat;
 								background-position: center;
 								background-size: contain;

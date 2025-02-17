@@ -488,127 +488,148 @@ function tabs() {
 	const tabs = document.querySelectorAll('[data-tabs]');
 	let tabsActiveHash = [];
 
+	// Получаем хэш из URL
+	const hash = getHash();
+	if (hash && hash.startsWith('tab-')) {
+		tabsActiveHash = hash.replace('tab-', '').split('-');
+	}
+
 	if (tabs.length > 0) {
-		// const hash = getHash();
-		// if (hash && hash.startsWith('tab-')) {
-		// 	tabsActiveHash = hash.replace('tab-', '').split('-');
-		// }
+		resetTabs();
+		handleHashChange();
+
+		// Отслеживание изменения хэша
+		window.addEventListener('hashchange', handleHashChange);
+
 		tabs.forEach((tabsBlock, index) => {
 			tabsBlock.classList.add('_tab-init');
 			tabsBlock.setAttribute('data-tabs-index', index);
 			tabsBlock.addEventListener("click", setTabsAction);
 			initTabs(tabsBlock);
 		});
+	}
 
-		// Получение слойлеров с медиа запросами
-		let mdQueriesArray = dataMediaQueries(tabs, "tabs");
-		if (mdQueriesArray && mdQueriesArray.length) {
-			mdQueriesArray.forEach(mdQueriesItem => {
-				// Событие
-				mdQueriesItem.matchMedia.addEventListener("change", function () {
-					setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-				});
+	// Инициализация медиа-запросов
+	let mdQueriesArray = dataMediaQueries(tabs, "tabs");
+	if (mdQueriesArray && mdQueriesArray.length) {
+		mdQueriesArray.forEach(mdQueriesItem => {
+			mdQueriesItem.matchMedia.addEventListener("change", () => {
 				setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 			});
-		}
-	}
-	// Установка позиций заголовков
-	function setTitlePosition(tabsMediaArray, matchMedia) {
-		tabsMediaArray.forEach(tabsMediaItem => {
-			tabsMediaItem = tabsMediaItem.item;
-			let tabsTitles = tabsMediaItem.querySelector('[data-tabs-titles]');
-			let tabsTitleItems = tabsMediaItem.querySelectorAll('[data-tabs-title]');
-			let tabsContent = tabsMediaItem.querySelector('[data-tabs-body]');
-			let tabsContentItems = tabsMediaItem.querySelectorAll('[data-tabs-item]');
-			tabsTitleItems = Array.from(tabsTitleItems).filter(item => item.closest('[data-tabs]') === tabsMediaItem);
-			tabsContentItems = Array.from(tabsContentItems).filter(item => item.closest('[data-tabs]') === tabsMediaItem);
-			tabsContentItems.forEach((tabsContentItem, index) => {
-				if (matchMedia.matches) {
-					tabsContent.append(tabsTitleItems[index]);
-					tabsContent.append(tabsContentItem);
-					tabsMediaItem.classList.add('_tab-spoller');
-				} else {
-					tabsTitles.append(tabsTitleItems[index]);
-					tabsMediaItem.classList.remove('_tab-spoller');
-				}
-			});
+			setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
 		});
 	}
-	// Работа с контентом
+
+	// Сброс вкладок
+	function resetTabs() {
+		document.querySelectorAll('._tab-active').forEach(el => el.classList.remove('_tab-active'));
+	}
+
+	// Функция обработки изменения хэша
+	function handleHashChange() {
+		const hash = getHash();
+		if (hash && hash.startsWith('tab-')) {
+			tabsActiveHash = hash.replace('tab-', '').split('-');
+			const tabsBlockIndex = tabsActiveHash[0];
+			const tabsTabIndex = tabsActiveHash[1];
+
+			const tabsBlock = document.querySelector(`[data-tabs-index="${tabsBlockIndex}"]`);
+			if (tabsBlock) {
+				const tabTitles = tabsBlock.querySelectorAll('[data-tabs-title]');
+				const tabItems = tabsBlock.querySelectorAll('[data-tabs-item]');
+
+				if (tabTitles[tabsTabIndex] && tabItems[tabsTabIndex]) {
+					tabsBlock.querySelectorAll('._tab-active').forEach(el => el.classList.remove('_tab-active'));
+					tabItems[tabsTabIndex].querySelectorAll('._tab-active').forEach(el => el.classList.remove('_tab-active'));
+					tabTitles[tabsTabIndex].classList.add('_tab-active');
+					tabItems[tabsTabIndex].classList.add('_tab-active');
+					// Плавный скролл к верху блока табов
+					tabsBlock.scrollIntoView({ behavior: "smooth", block: "start" });
+				}
+			}
+		}
+	}
+
+	// Инициализация табов
 	function initTabs(tabsBlock) {
-		let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-titles] .tabs__title');
-		let tabsContent = tabsBlock.querySelectorAll('[data-tabs-body] .tabs__body');
+		const tabsTitles = tabsBlock.querySelectorAll('[data-tabs-titles] button');
+		const tabsContent = tabsBlock.querySelectorAll('[data-tabs-body]>*');
 		const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
 		const tabsActiveHashBlock = tabsActiveHash[0] == tabsBlockIndex;
 
-		if (tabsActiveHashBlock) {
-			const tabsActiveTitle = tabsBlock.querySelector('[data-tabs-titles]>._tab-active');
-			tabsActiveTitle ? tabsActiveTitle.classList.remove('_tab-active') : null;
-		}
-		if (tabsContent.length) {
-			tabsContent = Array.from(tabsContent).filter(item => item.closest('[data-tabs]') === tabsBlock);
-			tabsTitles = Array.from(tabsTitles).filter(item => item.closest('[data-tabs]') === tabsBlock);
-			tabsContent.forEach((tabsContentItem, index) => {
-				tabsTitles[index].setAttribute('data-tabs-title', '');
-				tabsContentItem.setAttribute('data-tabs-item', '');
+		if (tabsTitles.length > 0 && tabsContent.length > 0) {
+			tabsContent.forEach((content, index) => {
+				if (tabsTitles[index]) {
+					tabsTitles[index].setAttribute('data-tabs-title', '');
+					content.setAttribute('data-tabs-item', '');
 
-				if (tabsActiveHashBlock && index == tabsActiveHash[1]) {
-					tabsTitles[index].classList.toggle('_tab-active');
+					// Если хэш блока не совпадает, добавляем активный класс
+					if (!tabsActiveHashBlock && index === 0) {
+						tabsTitles[index].classList.add('_tab-active');
+						content.classList.add('_tab-active');
+					}
+
+					if (tabsActiveHashBlock && index == tabsActiveHash[1]) {
+						tabsTitles[index].classList.add('_tab-active');
+						content.classList.add('_tab-active');
+					}
 				}
-				tabsContentItem.hidden = !tabsTitles[index].classList.contains('_tab-active');
 			});
 		}
 	}
-	function setTabsStatus(tabsBlock) {
-		let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-title]');
-		let tabsContent = tabsBlock.querySelectorAll('[data-tabs-item]');
-		const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
-		function isTabsAnamate(tabsBlock) {
-			if (tabsBlock.hasAttribute('data-tabs-animate')) {
-				return tabsBlock.dataset.tabsAnimate > 0 ? Number(tabsBlock.dataset.tabsAnimate) : 500;
+
+	// Расстановка заголовков по медиа-запросам
+	function setTitlePosition(tabsMediaArray, matchMedia) {
+		tabsMediaArray.forEach(tabsMediaItem => {
+			const tabsTitles = tabsMediaItem.item.querySelector('[data-tabs-titles]');
+			const tabsContent = tabsMediaItem.item.querySelector('[data-tabs-body]');
+			const tabTitles = Array.from(tabsMediaItem.item.querySelectorAll('[data-tabs-title]'));
+			const tabItems = Array.from(tabsMediaItem.item.querySelectorAll('[data-tabs-item]'));
+
+			if (matchMedia.matches) {
+				tabItems.forEach((content, index) => {
+					tabsContent.append(tabTitles[index]);
+					tabsContent.append(content);
+					tabsMediaItem.item.classList.add('_tab-spoller');
+				});
+			} else {
+				tabTitles.forEach((title, index) => {
+					tabsTitles.append(title);
+					tabsMediaItem.item.classList.remove('_tab-spoller');
+				});
 			}
-		}
-		const tabsBlockAnimate = isTabsAnamate(tabsBlock);
-		if (tabsContent.length > 0) {
-			const isHash = tabsBlock.hasAttribute('data-tabs-hash');
-			tabsContent = Array.from(tabsContent).filter(item => item.closest('[data-tabs]') === tabsBlock);
-			tabsTitles = Array.from(tabsTitles).filter(item => item.closest('[data-tabs]') === tabsBlock);
-			tabsContent.forEach((tabsContentItem, index) => {
-				if (tabsTitles[index].classList.contains('_tab-active')) {
-					if (tabsBlockAnimate) {
-						_slideDown(tabsContentItem, tabsBlockAnimate);
-					} else {
-						tabsContentItem.hidden = false;
-					}
-					// if (isHash && !tabsContentItem.closest('.popup')) {
-					// 	setHash(`tab-${tabsBlockIndex}-${index}`);
-					// }
-				} else {
-					if (tabsBlockAnimate) {
-						_slideUp(tabsContentItem, tabsBlockAnimate);
-					} else {
-						tabsContentItem.hidden = true;
-					}
-				}
-			});
-		}
+		});
 	}
+
+	// Обновление состояния табов
+	function setTabsStatus(tabsBlock) {
+		const tabsTitles = tabsBlock.querySelectorAll('[data-tabs-title]');
+		const tabsContent = tabsBlock.querySelectorAll('[data-tabs-item]');
+		const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
+
+		tabsContent.forEach((content, index) => {
+			if (tabsTitles[index].classList.contains('_tab-active')) {
+				content.classList.add('_tab-active');
+				setHash(`tab-${tabsBlockIndex}-${index}`);
+			} else {
+				tabsTitles[index].classList.remove('_tab-active')
+				content.classList.remove('_tab-active');
+			}
+		});
+	}
+
+	// Обработка кликов по заголовкам табов
 	function setTabsAction(e) {
-		const el = e.target;
-		if (el.closest('[data-tabs-title]')) {
-			const tabTitle = el.closest('[data-tabs-title]');
+		const tabTitle = e.target.closest('[data-tabs-title]');
+		if (tabTitle) {
 			const tabsBlock = tabTitle.closest('[data-tabs]');
 			if (!tabTitle.classList.contains('_tab-active') && !tabsBlock.querySelector('._slide')) {
-				let tabActiveTitle = tabsBlock.querySelectorAll('[data-tabs-title]._tab-active');
-				tabActiveTitle.length ? tabActiveTitle = Array.from(tabActiveTitle).filter(item => item.closest('[data-tabs]') === tabsBlock) : null;
-				tabActiveTitle.length ? tabActiveTitle[0].classList.remove('_tab-active') : null;
+				tabsBlock.querySelectorAll('[data-tabs-title]._tab-active').forEach(item => item.classList.remove('_tab-active'));
 				tabTitle.classList.add('_tab-active');
-				setTabsStatus(tabsBlock);
-			} else if (tabsBlock.classList.contains('_tab-spoller')) {
-				tabTitle.classList.remove('_tab-active');
 				setTabsStatus(tabsBlock);
 			}
 			e.preventDefault();
+			AOS.refresh()
 		}
 	}
 }
@@ -1135,8 +1156,10 @@ if (document.querySelector('.select_one-select')) {
 				window.addEventListener('hashchange', function () {
 					if (window.location.hash) {
 						this._openToHash();
+
 					} else {
 						this.close(this.targetOpen.selector);
+
 					}
 				}.bind(this))
 
@@ -1293,8 +1316,8 @@ if (document.querySelector('.select_one-select')) {
 				document.querySelector(`${window.location.hash}`) ? `${window.location.hash}` :
 					null;
 
-			const buttons = document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) ? document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) : document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash.replace('.', "#")}"]`);
-			if (buttons && classInHash) this.open(classInHash);
+			// const buttons = document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) ? document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash}"]`) : document.querySelector(`[${this.options.attributeOpenButton} = "${classInHash.replace('.', "#")}"]`);
+			if (classInHash) this.open(classInHash);
 		}
 		// Утсановка хэша
 		_setHash() {
@@ -1532,6 +1555,17 @@ function uniqArray(array) {
 	return array.filter(function (item, index, self) {
 		return self.indexOf(item) === index;
 	});
+}
+
+// Получение хеша в адресе сайта
+function getHash() {
+	if (location.hash) { return location.hash.replace('#', ''); }
+}
+
+// Указание хеша в адресе сайта
+function setHash(hash) {
+	hash = hash ? `#${hash}` : window.location.href.split('#')[0];
+	history.pushState('', '', hash);
 }
 
 //========================================================================================================================================================
