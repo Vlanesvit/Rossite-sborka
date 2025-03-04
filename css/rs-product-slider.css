@@ -1,5 +1,19 @@
-.rs-product-slider {
-  overflow: hidden;
+@media (max-width: 991.98px) {
+  .rs-product-slider {
+    overflow: hidden;
+  }
+}
+@media (max-width: 991.98px) and (min-width: 767.98px) {
+  .rs-product-slider .section-header > .rs-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+@media (max-width: 991.98px) and (min-width: 767.98px) {
+  .rs-product-slider .section-footer {
+    display: none;
+  }
 }
 @media (max-width: 991.98px) {
   .rs-product-slider__slider {

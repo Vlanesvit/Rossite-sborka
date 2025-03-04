@@ -291,6 +291,12 @@ function initCatalogFilters() {
 			const filterItems = [...filterList.children];
 			const hiddenItems = filterItems.slice(6);
 
+			// Если скрываемых элементов нет, убираем кнопку
+			if (hiddenItems.length === 0) {
+				showMoreButton.style.display = 'none';
+				return;
+			}
+
 			// Функция управления скрытыми элементами
 			function updateHiddenItems() {
 				if (window.innerWidth > 991.98) {

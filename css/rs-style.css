@@ -1031,6 +1031,7 @@ p {
   border: 1px dashed #d6dbe0;
   border-radius: 28px;
   position: relative;
+  background-color: #fff;
 }
 .form__upload .codedropz-upload-container {
   padding: 20px;
@@ -1785,7 +1786,7 @@ blockquote .rs-btn {
   z-index: 10;
   border-radius: 15px;
   padding: 25px 20px;
-  background-color: #f3f6ff;
+  background-color: #fff;
 }
 @media (max-width: 1439.98px) {
   .rs-news__desc {
@@ -3088,7 +3089,9 @@ blockquote .rs-btn {
     margin-top: 16px;
   }
 }
-.pagging__arrow {
+.pagging__arrow,
+.pagging .paginationjs-prev,
+.pagging .paginationjs-next {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3105,30 +3108,41 @@ blockquote .rs-btn {
   border-radius: 50%;
   background-color: #f2f4f9;
 }
-.pagging__arrow.disabled {
+.pagging__arrow.disabled,
+.pagging .paginationjs-prev.disabled,
+.pagging .paginationjs-next.disabled {
   opacity: 0.5;
   pointer-events: none;
 }
-.pagging__arrow svg path {
+.pagging__arrow svg path,
+.pagging .paginationjs-prev svg path,
+.pagging .paginationjs-next svg path {
   -webkit-transition: stroke 0.3s ease 0s;
   transition: stroke 0.3s ease 0s;
 }
 @media (any-hover: hover) {
-  .pagging__arrow:hover {
+  .pagging__arrow:hover,
+  .pagging .paginationjs-prev:hover,
+  .pagging .paginationjs-next:hover {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
   }
-  .pagging__arrow:hover svg path {
+  .pagging__arrow:hover svg path,
+  .pagging .paginationjs-prev:hover svg path,
+  .pagging .paginationjs-next:hover svg path {
     stroke: #fff;
   }
 }
-.pagging__prev {
+.pagging__prev,
+.pagging .paginationjs-prev {
   margin-right: 10px;
 }
-.pagging__next {
+.pagging__next,
+.pagging .paginationjs-next {
   margin-left: 10px;
 }
-.pagging__list {
+.pagging__list,
+.pagging .paginationjs-pages > ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3136,10 +3150,12 @@ blockquote .rs-btn {
       -ms-flex-align: center;
           align-items: center;
 }
-.pagging__list li:not(:last-child) {
+.pagging__list li:not(:last-child),
+.pagging .paginationjs-pages > ul li:not(:last-child) {
   margin-right: 10px;
 }
-.pagging__item {
+.pagging__item,
+.pagging .paginationjs-page {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3163,12 +3179,15 @@ blockquote .rs-btn {
   transition: all 0.3s ease 0s;
 }
 @media (any-hover: hover) {
-  .pagging__item:hover {
+  .pagging__item:hover,
+  .pagging .paginationjs-page:hover {
     background-color: #cccdf1;
     border-color: #cccdf1;
   }
 }
-.pagging__item._active {
+.pagging__item._active, .pagging__item.active,
+.pagging .paginationjs-page._active,
+.pagging .paginationjs-page.active {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
   color: #fff;

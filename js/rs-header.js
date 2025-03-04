@@ -293,15 +293,20 @@ function menuFunction() {
 					const searchClear = search.querySelector('.search__clear');
 					const searchClose = search.querySelector('.search__close');
 
-					// При фокусе показать блок с результатами поиска
 					searchInput.addEventListener('focus', function () {
 						search.classList.add('_open-search');
-						_slideDown(searchResult, 500);
-					})
+						_slideDown(searchResult, 300);
+					});
+
 					searchInput.addEventListener('blur', function () {
-						search.classList.remove('_open-search');
-						_slideUp(searchResult, 500);
-					})
+						setTimeout(() => {
+							if (document.activeElement !== searchInput) {
+								search.classList.remove('_open-search');
+								_slideUp(searchResult, 300);
+							}
+						}, 500);
+					});
+
 
 					// Отправка формы
 					searchSubmit.addEventListener('click', function (e) {

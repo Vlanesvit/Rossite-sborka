@@ -51,7 +51,5 @@ function init() {
 			// Закрываем балун по клику по карте
 			map.events.add('click', e => e.get('target').balloon.close());
 		});
-
-
 	}
 }

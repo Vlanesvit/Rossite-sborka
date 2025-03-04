@@ -819,6 +819,7 @@ p {
 			border: 1px dashed #d6dbe0;
 			border-radius: 28px;
 			position: relative;
+			background-color: #fff;
 		}
 
 		.codedropz-upload-container {
@@ -1502,8 +1503,8 @@ blockquote {
 		z-index: 10;
 		border-radius: 15px;
 		padding: 25px 20px;
-		// background-color: #fff;
-		background-color: #f3f6ff;
+		background-color: #fff;
+		// background-color: #f3f6ff;
 
 		@media (max-width: 1439.98px) {
 			padding: 16px;

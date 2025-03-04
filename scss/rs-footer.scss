@@ -2,7 +2,13 @@
 	border-top: 1px solid #e2e5f1;
 
 	&.rs-footer-catalog {
-		padding-bottom: 158px;
+		@media (max-width: 991.98px) {
+			padding-bottom: 83px;
+		}
+
+		@media (max-width: 767.98px) {
+			padding-bottom: 56px;
+		}
 	}
 
 	// .rs-footer__container

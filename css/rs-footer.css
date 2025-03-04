@@ -1,8 +1,15 @@
 .rs-footer {
   border-top: 1px solid #e2e5f1;
 }
-.rs-footer.rs-footer-catalog {
-  padding-bottom: 158px;
+@media (max-width: 991.98px) {
+  .rs-footer.rs-footer-catalog {
+    padding-bottom: 83px;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-footer.rs-footer-catalog {
+    padding-bottom: 56px;
+  }
 }
 .rs-footer__wrapper {
   padding: 68px 0px 68px;

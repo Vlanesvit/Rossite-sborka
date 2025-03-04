@@ -13,7 +13,9 @@
 	}
 
 	// .pagging__arrow
-	&__arrow {
+	&__arrow,
+	.paginationjs-prev,
+	.paginationjs-next {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -49,17 +51,20 @@
 	}
 
 	// .pagging__prev
-	&__prev {
+	&__prev,
+	.paginationjs-prev {
 		margin-right: 10px;
 	}
 
 	// .pagging__next
-	&__next {
+	&__next,
+	.paginationjs-next {
 		margin-left: 10px;
 	}
 
 	// .pagging__list
-	&__list {
+	&__list,
+	.paginationjs-pages > ul {
 		display: flex;
 		align-items: center;
 
@@ -71,7 +76,8 @@
 	}
 
 	// .pagging__item
-	&__item {
+	&__item,
+	.paginationjs-page {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -95,7 +101,8 @@
 			}
 		}
 
-		&._active {
+		&._active,
+		&.active {
 			background-color: var(--primary-color);
 			border-color: var(--primary-color);
 			color: #fff;
