@@ -48,6 +48,10 @@
     height: calc(100vh - 56px);
   }
 }
+.rs-slider-catalog .rs-slider__slider {
+  height: 650px;
+  min-height: unset;
+}
 .rs-slider__swiper {
   height: 100%;
 }
@@ -76,6 +80,9 @@
   .rs-slider__slide {
     padding-top: 55px;
   }
+}
+.rs-slider-catalog .rs-slider__slide {
+  padding-top: 0px;
 }
 .rs-slider__slide .rs-slider__body h1 {
   opacity: 0;
