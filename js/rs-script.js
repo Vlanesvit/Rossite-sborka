@@ -433,7 +433,7 @@ function spollers() {
 					spollerTitle.classList.toggle('_spoller-active');
 					_slideToggle(spollerTitle.closest('.spollers__item').querySelector('.spollers__body'), spollerSpeed);
 				}
-				e.preventDefault();
+				// e.preventDefault();
 			}
 		}
 		function hideSpollersBody(spollersBlock) {

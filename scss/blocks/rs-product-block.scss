@@ -264,12 +264,12 @@
 		& > a {
 			display: inline-block;
 			margin-top: 10px;
-			border-bottom: 1px solid #6366f1;
+			border-bottom: 1px solid var(--primary-color);
 			font-weight: 400;
 			font-size: 16px;
 			// line-height: 26px;
 			line-height: 160%;
-			color: #6366f1;
+			color: var(--primary-color);
 
 			@media (max-width: 991.98px) {
 				font-size: 14px;
@@ -439,7 +439,7 @@
 
 					&._tab-active {
 						color: #fff;
-						background-color: #6366f1;
+						background-color: var(--primary-color);
 					}
 				}
 
@@ -528,12 +528,12 @@
 				& > a {
 					margin-top: 20px;
 					display: inline-block;
-					border-bottom: 1px solid #6366f1;
+					border-bottom: 1px solid var(--primary-color);
 					font-weight: 400;
 					font-size: 16px;
 					// line-height: 26px;
 					line-height: 160%;
-					color: #6366f1;
+					color: var(--primary-color);
 
 					@media (max-width: 991.98px) {
 						font-size: 14px;
@@ -581,12 +581,12 @@
 
 									a {
 										display: inline-block;
-										border-bottom: 1px solid #6366f1;
+										border-bottom: 1px solid var(--primary-color);
 										font-weight: 400;
 										font-size: 16px;
 										// line-height: 26px;
 										line-height: 160%;
-										color: #6366f1;
+										color: var(--primary-color);
 
 										@media (max-width: 991.98px) {
 											font-size: 14px;
