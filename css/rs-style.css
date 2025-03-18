@@ -3042,6 +3042,9 @@ body::after {
 .lock .popup__content {
   visibility: visible;
 }
+.popup-user-agreement .popup__content {
+  max-width: 800px;
+}
 
 .popup__text h3,
 .popup__text p {

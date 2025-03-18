@@ -95,6 +95,10 @@ body {
 	.lock & {
 		visibility: visible;
 	}
+
+	.popup-user-agreement & {
+		max-width: 800px;
+	}
 }
 
 .popup__text {
