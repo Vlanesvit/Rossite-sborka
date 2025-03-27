@@ -75,9 +75,7 @@
 				}
 
 				.rs-features__desc {
-					h4 {
-						color: var(--font-hover-color, --font-color, #000);
-					}
+					color: var(--font-hover-color, --font-color, #000);
 				}
 			}
 		}
@@ -151,6 +149,7 @@
 	&__desc {
 		position: relative;
 		z-index: 2;
+		transition: color 1s ease 0s;
 
 		p {
 			margin-top: 7px;

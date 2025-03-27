@@ -143,8 +143,8 @@
   max-width: 449px;
   position: relative;
   z-index: 10;
-  -webkit-transition: color 0.3s ease 0.15s;
-  transition: color 0.3s ease 0.15s;
+  -webkit-transition: color 0.3s ease 0.3s;
+  transition: color 0.3s ease 0.3s;
 }
 @media (max-width: 1439.98px) {
   .rs-features-img__item {
@@ -173,9 +173,13 @@
 @media (any-hover: hover) {
   .rs-features-img__item:hover {
     color: #fff;
+    -webkit-transition: color 0.3s ease 0.15s;
+    transition: color 0.3s ease 0.15s;
   }
   .rs-features-img__item:hover .rs-features-img__num {
     color: #fff;
+    -webkit-transition: color 0.3s ease 0.15s;
+    transition: color 0.3s ease 0.15s;
   }
 }
 .rs-features-img__num {
@@ -186,8 +190,8 @@
   color: var(--primary-color);
   position: relative;
   z-index: 2;
-  -webkit-transition: color 0.3s ease 0.15s;
-  transition: color 0.3s ease 0.15s;
+  -webkit-transition: color 0.3s ease 0.3s;
+  transition: color 0.3s ease 0.3s;
 }
 @media (max-width: 1439.98px) {
   .rs-features-img__num {

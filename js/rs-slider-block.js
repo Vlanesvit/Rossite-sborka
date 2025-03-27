@@ -89,14 +89,14 @@ function initSliderBlockSliders() {
 						}
 					},
 
-					on: {
-						init: function () {
-							addAnimText(); // Запускаем расчет высоты после инициализации слайдера
-						},
-						resize: function () {
-							addAnimText(); // Пересчитываем высоту при изменении размера окна
-						}
-					}
+					// on: {
+					// 	init: function () {
+					// 		addAnimText(); // Запускаем расчет высоты после инициализации слайдера
+					// 	},
+					// 	resize: function () {
+					// 		addAnimText(); // Пересчитываем высоту при изменении размера окна
+					// 	}
+					// }
 				});
 			});
 

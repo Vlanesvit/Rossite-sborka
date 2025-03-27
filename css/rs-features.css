@@ -74,7 +74,7 @@
         -ms-transform: scale(20);
             transform: scale(20);
   }
-  .rs-features__slide:hover .rs-features__desc h4 {
+  .rs-features__slide:hover .rs-features__desc {
     color: var(--font-hover-color, --font-color, #000);
   }
 }
@@ -159,6 +159,8 @@
 .rs-features__desc {
   position: relative;
   z-index: 2;
+  -webkit-transition: color 1s ease 0s;
+  transition: color 1s ease 0s;
 }
 .rs-features__desc p {
   margin-top: 7px;

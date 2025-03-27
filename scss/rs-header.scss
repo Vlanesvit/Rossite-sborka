@@ -401,7 +401,7 @@
 							right: 0;
 							width: 0%;
 							height: 1px;
-							background-color: #fff;
+							background-color: currentColor;
 							transition: width 0.3s ease 0s;
 						}
 					}
@@ -447,9 +447,23 @@
 
 					svg,
 					img {
-						width: 24px;
-						height: 24px;
+						// width: 24px;
+						// height: 24px;
 						object-fit: contain;
+					}
+
+					img {
+						transition: filter 0.3s ease 0s;
+
+						@media (min-width: 991.98px) {
+							._header-white & {
+								filter: brightness(0) invert(1);
+							}
+
+							._header-scroll & {
+								filter: brightness(0) invert(1);
+							}
+						}
 					}
 
 					svg {

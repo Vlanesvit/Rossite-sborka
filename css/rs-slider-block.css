@@ -14,3 +14,102 @@
   height: auto;
   max-height: 415px;
 }
+
+.rs-slider-block__item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: 415px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+@media (any-hover: hover) {
+  .rs-slider-block__item:hover .rs-slider-block__img img {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+.rs-slider-block__item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  display: block;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(18.23%, rgba(11, 15, 25, 0.8)), to(rgba(11, 15, 25, 0)));
+  background: linear-gradient(0deg, rgba(11, 15, 25, 0.8) 18.23%, rgba(11, 15, 25, 0) 100%);
+  z-index: 1;
+}
+@media (any-hover: hover) {
+  .rs-slider-block__item:hover .rs-slider-block__desc-text {
+    margin-bottom: 0;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 0.3s ease 0.3s;
+    transition: all 0.3s ease 0.3s;
+  }
+}
+.rs-slider-block__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.rs-slider-block__img {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  width: 100%;
+  max-height: 415px;
+  height: 100%;
+  overflow: hidden;
+}
+@media (min-width: 991.98px) {
+  .rs-slider-block__img {
+    padding-bottom: 115.28%;
+  }
+}
+.rs-slider-block__img img {
+  width: 100%;
+  height: 100%;
+  max-height: 415px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: -webkit-transform 1s ease 0s;
+  transition: -webkit-transform 1s ease 0s;
+  transition: transform 1s ease 0s;
+  transition: transform 1s ease 0s, -webkit-transform 1s ease 0s;
+}
+@media (min-width: 991.98px) {
+  .rs-slider-block__img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+.rs-slider-block__desc {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  padding: 20px 30px;
+  color: #fff;
+  bottom: 0;
+  left: 0;
+}
+.rs-slider-block__desc-text {
+  margin-bottom: var(--h);
+  -webkit-transition: margin 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: margin 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.rs-slider-block__desc p {
+  margin-top: 8px;
+}
+.rs-slider-block__desc .rs-btn {
+  margin-top: 20px;
+}

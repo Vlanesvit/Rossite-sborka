@@ -280,8 +280,6 @@
 }
 .rs-footer__social .social__list li svg,
 .rs-footer__social .social__list li img {
-  width: 24px;
-  height: 24px;
   -o-object-fit: contain;
      object-fit: contain;
 }

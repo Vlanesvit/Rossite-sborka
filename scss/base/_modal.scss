@@ -30,6 +30,10 @@ body {
 	visibility: hidden;
 	pointer-events: none;
 	z-index: 1000;
+
+	.lock & {
+		padding-right: 21px;
+	}
 }
 
 .popup_show {
