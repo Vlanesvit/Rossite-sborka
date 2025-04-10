@@ -1,0 +1,385 @@
+.rs-contacts {
+  padding: 80px 0px;
+  margin: 0;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.rs-contacts .section-header {
+  margin-bottom: 66px;
+}
+}
+@media (max-width: 1439.98px) {
+  .rs-contacts {
+    padding: 80px 0px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-contacts {
+    padding: 50px 0px;
+  }
+}
+.rs-contacts__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.rs-contacts__bg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.rs-contacts__block {
+  position: relative;
+  height: 722px;
+}
+@media (max-width: 1439.98px) {
+  .rs-contacts__block {
+    height: 650px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__block {
+    height: 100%;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-contacts__map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__map {
+    height: 328px;
+    margin-bottom: -9px;
+    position: relative;
+    z-index: 1;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-contacts__map {
+    height: 300px;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-contacts__wrapper {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 85px 0px 91px 84px;
+    z-index: 100;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1439.98px) {
+  .rs-contacts__wrapper {
+    padding: 50px 0px 50px 50px;
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1169.98px) {
+  .rs-contacts__wrapper {
+    padding: 20px 0px 20px 20px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__wrapper {
+    position: relative;
+    z-index: 2;
+  }
+}
+.rs-contacts__body {
+  width: 100%;
+  /* height: 100%; */
+  max-width: 475px;
+  padding: 53px 51px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+@media (max-width: 1439.98px) {
+  .rs-contacts__body {
+    padding: 30px;
+    max-width: 400px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__body {
+    max-width: 100%;
+    padding: 24px;
+    -webkit-box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
+            box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-contacts__body {
+    padding: 24px 16px;
+  }
+}
+.rs-contacts__body p {
+  margin-top: 10px;
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__body p {
+    margin-top: 8px;
+  }
+}
+.rs-contacts__body > .rs-btn {
+  margin-top: 16px;
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__body > .rs-btn {
+    margin-top: 16px;
+    width: 100%;
+  }
+}
+.rs-contacts__contact {
+  /* margin-top: 38px; */
+  margin-top: 16px;
+}
+.rs-contacts__contact li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  color: var(--text-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 25.6px */
+}
+/* .rs-contacts__contact li:last-child{
+  margin-top: 50px;
+} */
+@media (max-width: 1439.98px) {
+  .rs-contacts__contact li {
+    font-size: 15px;
+    line-height: 130%;
+    font-weight: 500;
+  }
+}
+.rs-contacts__contact li svg {
+  min-width: 16px;
+  max-width: 16px;
+  margin-top: 4px;
+  margin-right: 5px;
+}
+@media (max-width: 1439.98px) {
+  .rs-contacts__contact li svg {
+    min-width: 15px;
+    max-width: 15px;
+  }
+}
+.rs-contacts__contact li:not(:last-child) {
+  margin-bottom: 12.5px;
+}
+@media (max-width: 1439.98px) {
+  .rs-contacts__contact li:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+.rs-contacts__contact li a {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+@media (any-hover: hover) {
+  .rs-contacts__contact li a:hover {
+    color: var(--primary-color);
+  }
+}
+.rs-contacts__social {
+  /* margin-top: 38px; */
+  margin-top: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 767.98px) {
+  .rs-contacts__social {
+    max-width: 350px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+.rs-contacts__social li:not(:last-child) {
+  margin-right: 16px;
+}
+@media (max-width: 767.98px) {
+  .rs-contacts__social li:not(:last-child) {
+    margin-right: 7px;
+  }
+}
+.rs-contacts__social li svg,
+.rs-contacts__social li img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.rs-contacts__social li svg path {
+  -webkit-transition: fill 0.3s ease 0s;
+  transition: fill 0.3s ease 0s;
+  fill: #1C3177;
+}
+.rs-contacts__social li a {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 46px;
+  height: 46px;
+  background-color: #f2f4f9;
+  border-radius: 50%;
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__social li a {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-contacts__social li a {
+    width: 30px;
+    height: 30px;
+  }
+  .rs-contacts__social li a svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (any-hover: hover) {
+  .rs-contacts__social li a:hover {
+    background-color: var(--primary-color);
+  }
+  .rs-contacts__social li a:hover svg path {
+    fill: #fff;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-contacts__top {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+}
+.rs-contacts__top .rs-contacts__body {
+  padding: 50px;
+  max-width: 100%;
+  width: 100%;
+  -webkit-box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
+          box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
+  background: #fff;
+  border-radius: 15px;
+}
+@media (max-width: 1439.98px) {
+  .rs-contacts__top .rs-contacts__body {
+    padding: 30px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-contacts__top .rs-contacts__body {
+    padding: 20px 15px;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-contacts__top .rs-contacts__body:first-child {
+    grid-column: 1/6;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-contacts__top .rs-contacts__body:last-child {
+    grid-column: 6/13;
+  }
+}
+.rs-contacts__top .rs-contacts__body > h3 {
+  margin-bottom: 8px;
+}
+.rs-contacts__top .rs-contacts__body .rs-contacts__contact {
+  margin-top: 15px;
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__top .rs-contacts__body .rs-contacts__contact {
+    margin-top: 10px;
+  }
+}
+.rs-contacts__top .rs-contacts__body > h5 {
+  margin-top: 25px;
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__top .rs-contacts__body > h5 {
+    margin-top: 15px;
+  }
+}
+.rs-contacts__top .rs-contacts__body .rs-contacts__social {
+  margin-top: 15px;
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__top .rs-contacts__body .rs-contacts__social {
+    margin-top: 10px;
+  }
+}
+.rs-contacts__top .rs-contacts__body .form {
+  margin-top: 20px;
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__top .rs-contacts__body .form {
+    margin-top: 15px;
+  }
+}
+.rs-contacts__top .rs-contacts__body .rs-input {
+  background-color: #f3f6ff;
+}
+.rs-contacts__top .rs-contacts__body textarea.rs-input {
+  min-height: 147px;
+}
+.rs-contacts__bottom {
+  position: relative;
+  height: 520px;
+  border-radius: 15px;
+  overflow: hidden;
+  -webkit-box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
+          box-shadow: 9px 11px 29px 0 rgba(125, 138, 152, 0.15);
+  background: rgba(255, 255, 255, 0);
+  margin-top: 80px;
+}
+@media (max-width: 991.98px) {
+  .rs-contacts__bottom {
+    margin: 50px 0px;
+    height: 300px;
+  }
+}
+.rs-contacts .rs-btn._btn-primary{
+  background-color: #1C3177;
+}
+@media (any-hover: hover) {
+  .rs-contacts .rs-btn._btn-primary:hover {
+    background-color: #fff;
+    color: var(--font-color);
+  }
+}

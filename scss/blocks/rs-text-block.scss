@@ -124,13 +124,15 @@
 			}
 
 			li {
-				display: inline-flex;
-				align-items: flex-start;
+				// display: inline-flex;
+				// align-items: flex-start;
 				font-weight: 400;
 				font-size: 16px;
 				// line-height: 26px;
 				line-height: 160%;
 				color: #383b56;
+				position: relative;
+				padding-left: 24px;
 
 				@media (max-width: 1439.98px) {
 					font-size: 14px;
@@ -138,6 +140,7 @@
 
 				@media (max-width: 767.98px) {
 					font-size: 13px;
+					padding-left: 22px;
 				}
 
 				&:not(:last-child) {
@@ -150,7 +153,10 @@
 
 				&::before {
 					content: "";
-					position: relative;
+					// position: relative;
+					position: absolute;
+					top: 0;
+					left: 0;
 					display: block;
 					// background-image: url("../img/icons/check.svg")
 					// background-color: transparent;

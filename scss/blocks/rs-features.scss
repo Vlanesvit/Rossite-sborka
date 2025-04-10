@@ -42,24 +42,19 @@
 				padding: 7.5px;
 			}
 
-			&:nth-child(1),
-			&:nth-child(2),
-			&:nth-child(3),
-			&:nth-child(4) {
-				flex: 0 0 25%;
+			&.rs-features__slide-2 {
+				flex: 0 0 50%;
 			}
 
-			&:nth-child(5),
-			&:nth-child(6),
-			&:nth-child(7) {
+			&.rs-features__slide-3 {
 				flex: 0 0 33.33333%;
 			}
 
-			&:nth-child(8),
-			&:nth-child(9),
-			&:nth-child(10),
-			&:nth-child(11),
-			&:nth-child(12) {
+			&.rs-features__slide-4 {
+				flex: 0 0 25%;
+			}
+
+			&.rs-features__slide-5 {
 				flex: 0 0 20%;
 			}
 		}

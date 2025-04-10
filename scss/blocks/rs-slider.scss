@@ -69,6 +69,7 @@
 		height: 100%;
 		transition: all 0.3s ease 0s;
 		padding-top: 112px;
+		padding-bottom: 30px;
 
 		@media (max-width: 1569.98px) {
 			padding-top: 108px;
@@ -173,7 +174,7 @@
 		}
 
 		@media (max-width: 767.98px) {
-			padding: 20px 0px 30px;
+			padding: 20px 0px 0px;
 		}
 
 		&._text-left {
@@ -215,7 +216,8 @@
 		}
 	}
 
-	&__body h1 {
+	&__body h1,
+	&__body h2 {
 		color: var(--title-color);
 		margin-bottom: 16px;
 
@@ -225,6 +227,23 @@
 
 		@media (max-width: 991.98px) {
 			margin-bottom: 8px;
+		}
+
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 110%; /* 44px */
+
+		@media (max-width: 1439.98px) {
+			font-size: 30px;
+		}
+
+		@media (max-width: 991.98px) {
+			font-size: 24px;
+		}
+
+		@media (max-width: 767.98px) {
+			font-size: 22px;
 		}
 
 		._white-block & {

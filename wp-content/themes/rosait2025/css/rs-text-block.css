@@ -178,7 +178,7 @@
   top: 0;
   left: 0;
   display: block;
-  background-color: var(--primary-color);
+  background-color: #1C3177;
   -webkit-mask-image: url("../img/icons/check.svg");
           mask-image: url("../img/icons/check.svg");
   -webkit-mask-repeat: no-repeat;
@@ -215,6 +215,9 @@
 }
 .rs-text-block__desc .rs-btn {
   margin-top: 12px;
+}
+.rs-text-block__desc .rs-btn._btn-primary:not(:hover){
+  background-color: #1C3177;
 }
 @media (max-width: 991.98px) {
   .rs-text-block__desc .rs-btn {

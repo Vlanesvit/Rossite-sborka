@@ -1,0 +1,21 @@
+/*
+Theme Name: Rosait - Info 2025
+Author: the Rosait team
+Author URI: https://rosait.ru
+Description: Тема для информационного сайта Россайт
+Requires at least: 6.4
+Tested up to: 6.5
+Requires PHP: 8.2
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: Rosait2025
+*/
+@media not all and (min-resolution: 0.001dpcm) {
+	@supports (-webkit-touch-callout: none) {
+		body {
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+}
