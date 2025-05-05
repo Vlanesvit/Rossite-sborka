@@ -1,4 +1,3 @@
-
 .rs-reviews {
 	// .rs-reviews__item
 	&__item {
@@ -22,6 +21,8 @@
 
 	// .rs-reviews__desc
 	&__desc {
+		margin-bottom: 23px;
+
 		p {
 			margin-top: 10px;
 
@@ -58,7 +59,7 @@
 	&__footer {
 		display: flex;
 		align-items: center;
-		margin-top: 23px;
+		margin-top: auto;
 	}
 
 	// .rs-reviews__img

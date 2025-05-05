@@ -49,6 +49,7 @@ function menuFunction() {
 			// Блоки, которые копируются во вкладки
 			const contactBlock = menu.querySelector('.menu__contact');
 			const searchBlock = menu.querySelector('.rs-header__search');
+			const socialBlock = menu.querySelector('.rs-header__social');
 			menuItemDropdownsMenu.forEach(menuDropdown => {
 				if (contactBlock) {
 					const contactClone = contactBlock.cloneNode(true);
@@ -58,6 +59,11 @@ function menuFunction() {
 				if (searchBlock) {
 					const searchClone = searchBlock.cloneNode(true);
 					menuDropdown.appendChild(searchClone);
+				}
+
+				if (socialBlock) {
+					const socialClone = socialBlock.cloneNode(true);
+					menuDropdown.appendChild(socialClone);
 				}
 			});
 
@@ -498,8 +504,12 @@ const modalAddress = () => {
 	const locationBlock = document.querySelector('.rs-header__location');
 	if (locationBlock) {
 		const locationBlockText = locationBlock.querySelector('.rs-header__location_text');
-		const locationBlockTextContent = locationBlockText.textContent.length;
+		const locationBlockTextContent = locationBlockText.textContent.trim().length;
 		const locationBlockTextQuantity = locationBlockText.dataset.quantitySymbol;
+
+		console.log("Текст: " + locationBlockText.textContent);
+		console.log("Количество букв: " + locationBlockTextContent);
+		console.log("Ограничение: " + locationBlockTextQuantity);
 
 		if (locationBlockTextContent >= locationBlockTextQuantity) {
 			// Если блок превыщает допустимую ширину, то даем ему класс скрытия текста с добавлением многоточия

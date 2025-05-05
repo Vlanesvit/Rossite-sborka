@@ -3,6 +3,12 @@
 	&__container {
 	}
 
+	&__bg {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+
 	// .rs-steps__wrapper
 	&__wrapper {
 		@media (min-width: 991.98px) {
@@ -128,6 +134,8 @@
 		margin-right: 40px;
 		max-width: 188px;
 		width: 100%;
+		border-radius: 15px;
+		overflow: hidden;
 
 		@media (max-width: 1439.98px) {
 			max-width: 164px;

@@ -24,24 +24,20 @@
 
 	// .rs-slider__slider
 	&__slider {
-		// height: 100vh;
-		// min-height: 760px;
 		border-radius: 0px 0px 30px 30px;
 		overflow: hidden;
-
-		height: 650px;
-		min-height: unset;
+		height: 780px;
 
 		@media (max-width: 1439.98px) {
-			min-height: 700px;
+			height: 700px;
 		}
 
 		@media (max-width: 991.98px) {
 			border-radius: 0px 0px 15px 15px;
-			min-height: 648px;
+			height: 648px;
 
 			.rs-slider-catalog & {
-				min-height: 580px;
+				height: 580px;
 
 				@media (max-width: 991.98px) {
 					height: calc(100vh - 83px);
@@ -68,27 +64,15 @@
 	&__slide {
 		height: 100%;
 		transition: all 0.3s ease 0s;
-		padding-top: 112px;
-		padding-bottom: 30px;
-
-		@media (max-width: 1569.98px) {
-			padding-top: 108px;
-		}
-
-		@media (max-width: 1439.98px) {
-			padding-top: 104px;
-		}
-
-		@media (max-width: 991.98px) {
-			padding-top: 74px;
-		}
+		padding: 55px 0px;
 
 		@media (max-width: 767.98px) {
-			padding-top: 55px;
+			padding-bottom: 30px;
 		}
 
 		.rs-slider {
-			&__body h1 {
+			&__body h1,
+			&__body h2 {
 				opacity: 0;
 				transform: translateY(50px);
 				transition:
@@ -124,7 +108,8 @@
 
 		&.swiper-slide-active {
 			.rs-slider {
-				&__body h1 {
+				&__body h1,
+				&__body h2 {
 					opacity: 1;
 					transform: translateY(0px);
 				}
@@ -195,7 +180,7 @@
 		width: 100%;
 
 		@media (min-width: 991.98px) {
-			max-width: 645px;
+			max-width: 750px;
 			margin: 0;
 		}
 

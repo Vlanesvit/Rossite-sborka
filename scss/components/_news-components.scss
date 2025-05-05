@@ -23,7 +23,8 @@
 	&__link {
 		width: 100%;
 		height: 100%;
-		display: block;
+		display: flex;
+		flex-direction: column;
 	}
 
 	// .rs-news__img
@@ -52,6 +53,7 @@
 		margin-top: -27px;
 		position: relative;
 		z-index: 10;
+		flex-grow: 1;
 		border-radius: 15px;
 		padding: 25px 20px;
 		background-color: #f3f6ff;
@@ -64,8 +66,21 @@
 			background-color: #fff;
 		}
 
+		h3,
 		h4 {
+			font-weight: 600;
+			font-size: 20px;
+			// line-height: 28px;
+			line-height: 140%;
 			color: var(--text-color);
+
+			@media (max-width: 1439.98px) {
+				font-size: 18px;
+			}
+
+			@media (max-width: 767.98px) {
+				font-size: 16px;
+			}
 		}
 	}
 

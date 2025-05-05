@@ -1,3 +1,8 @@
+.rs-steps__bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 @media (min-width: 991.98px) {
   .rs-steps__wrapper {
     display: grid;
@@ -131,6 +136,8 @@
   margin-right: 40px;
   max-width: 188px;
   width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
 }
 @media (max-width: 1439.98px) {
   .rs-steps__img {

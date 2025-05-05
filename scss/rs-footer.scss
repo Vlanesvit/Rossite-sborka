@@ -1,6 +1,4 @@
 .rs-footer {
-	border-top: 1px solid #e2e5f1;
-
 	&.rs-footer-catalog {
 		@media (max-width: 991.98px) {
 			padding-bottom: 83px;
@@ -191,16 +189,16 @@
 				}
 
 				svg {
-					min-width: 20px;
-					max-width: 20px;
-					height: 26px;
+					// min-width: 20px;
+					// max-width: 20px;
+					// height: 26px;
 					margin-right: 5px;
 
-					@media (max-width: 1439.98px) {
-						min-width: 15px;
-						max-width: 15px;
-						height: 19px;
-					}
+					// @media (max-width: 1439.98px) {
+					// 	min-width: 15px;
+					// 	max-width: 15px;
+					// 	height: 19px;
+					// }
 				}
 
 				&:not(:last-child) {

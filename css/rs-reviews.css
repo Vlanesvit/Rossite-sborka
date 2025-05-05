@@ -1,5 +1,7 @@
 .rs-reviews {
   overflow: hidden;
+  margin-top: -10px;
+  padding-top: 10px;
 }
 @media (max-width: 991.98px) {
   .rs-reviews__container .section-footer {
@@ -46,6 +48,9 @@
     padding: 16px;
   }
 }
+.rs-reviews__desc {
+  margin-bottom: 23px;
+}
 .rs-reviews__desc p {
   margin-top: 10px;
 }
@@ -83,7 +88,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 23px;
+  margin-top: auto;
 }
 .rs-reviews__img {
   -webkit-box-flex: 0;

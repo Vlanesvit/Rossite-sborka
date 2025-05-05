@@ -95,60 +95,12 @@
 		}
 
 		ul {
-			margin: 3px 0px;
-
-			&[data-column="2"] {
-				display: flex;
-				flex-wrap: wrap;
-				margin: -1.5px -15px;
-
-				@media (max-width: 991.98px) {
-					flex-direction: column;
-					margin: 0;
-				}
-
-				li {
-					flex: 0 0 50%;
-					margin: 0;
-					padding: 1.5px 15px;
-
-					@media (max-width: 991.98px) {
-						flex: 0 0 100%;
-						padding: 0;
-
-						&:not(:last-child) {
-							margin-bottom: 3px;
-						}
-					}
-				}
-			}
-
 			li {
-				// display: inline-flex;
-				// align-items: flex-start;
-				font-weight: 400;
-				font-size: 16px;
-				// line-height: 26px;
-				line-height: 160%;
-				color: #383b56;
 				position: relative;
 				padding-left: 24px;
 
-				@media (max-width: 1439.98px) {
-					font-size: 14px;
-				}
-
 				@media (max-width: 767.98px) {
-					font-size: 13px;
 					padding-left: 22px;
-				}
-
-				&:not(:last-child) {
-					margin-bottom: 3px;
-
-					@media (max-width: 767.98px) {
-						margin-bottom: 4px;
-					}
 				}
 
 				&::before {
@@ -184,6 +136,78 @@
 						min-width: 14px;
 						max-width: 14px;
 						height: 14px;
+					}
+				}
+			}
+		}
+
+		ol {
+			counter-reset: li;
+
+			li {
+				list-style: none;
+				padding-left: 0px;
+
+				&::before {
+					counter-increment: li;
+					content: counter(li, decimal-leading-zero) ". ";
+					color: var(--primary-color);
+					font-weight: 500;
+					margin-right: 5px;
+				}
+			}
+		}
+
+		ul,
+		ol {
+			margin: 3px 0px;
+
+			&[data-column="2"] {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 3px 30px;
+
+				@media (max-width: 991.98px) {
+					flex-direction: column;
+					margin: 0;
+				}
+
+				li {
+					flex: 0 0 calc(50% - 15px);
+					margin: 0;
+
+					@media (max-width: 991.98px) {
+						flex: 0 0 100%;
+
+						&:not(:last-child) {
+							margin-bottom: 3px;
+						}
+					}
+				}
+			}
+
+			li {
+				// display: inline-flex;
+				// align-items: flex-start;
+				font-weight: 400;
+				font-size: 16px;
+				// line-height: 26px;
+				line-height: 160%;
+				color: #383b56;
+
+				@media (max-width: 1439.98px) {
+					font-size: 14px;
+				}
+
+				@media (max-width: 767.98px) {
+					font-size: 13px;
+				}
+
+				&:not(:last-child) {
+					margin-bottom: 3px;
+
+					@media (max-width: 767.98px) {
+						margin-bottom: 4px;
 					}
 				}
 			}

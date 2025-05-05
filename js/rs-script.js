@@ -123,21 +123,29 @@ function formFieldsInit(options = { viewPass: false, autoHeight: false }) {
 		const formInput = formLine.querySelector('.rs-input')
 		const formClear = formLine.querySelector('.rs-input-clear')
 		if (formInput) {
-			formInput.addEventListener('input', function () {
-				if (formInput.value != '') {
-					formClear.classList.add('_clear-active');
-					formInput.parentElement.classList.add('_form-valid')
+			formInput.addEventListener('focus', function () {
+				formInput.closest('.form__line').classList.add('_form-focus');
+			});
+			formInput.addEventListener('blur', function () {
+				if (formInput.value.trim() !== '') {
+					formInput.closest('.form__line').classList.add('_form-focus');
 				} else {
-					formClear.classList.remove('_clear-active');
-					formInput.parentElement.classList.remove('_form-valid')
+					formInput.closest('.form__line').classList.remove('_form-focus');
+				}
+			});
+			formInput.addEventListener('input', function () {
+				if (formInput.value.trim() !== '') {
+					formClear.classList.add('_clear');
+				} else {
+					formClear.classList.remove('_clear');
 				}
 			})
 		}
 		if (formClear) {
 			formClear.addEventListener('click', function () {
 				formInput.value = '';
-				formClear.classList.remove('_clear-active');
-				formInput.parentElement.classList.remove('_form-valid')
+				formClear.classList.remove('_clear');
+				formInput.closest('.form__line').classList.remove('_form-valid')
 				formInput.focus()
 			})
 		}
@@ -187,32 +195,32 @@ let formValidate = {
 	},
 	addError(formRequiredItem) {
 		formRequiredItem.classList.add('_form-error');
-		formRequiredItem.parentElement.classList.add('_form-error');
-		let inputError = formRequiredItem.parentElement.querySelector('.form__error');
-		if (inputError) formRequiredItem.parentElement.removeChild(inputError);
+		formRequiredItem.closest('.form__line').classList.add('_form-error');
+		let inputError = formRequiredItem.closest('.form__line').querySelector('.form__error');
+		if (inputError) formRequiredItem.closest('.form__line').removeChild(inputError);
 		if (formRequiredItem.dataset.error) {
-			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
+			formRequiredItem.closest('.form__line').insertAdjacentHTML('beforeend', `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
 		}
 	},
 	removeError(formRequiredItem) {
 		formRequiredItem.classList.remove('_form-error');
-		formRequiredItem.parentElement.classList.remove('_form-error');
-		if (formRequiredItem.parentElement.querySelector('.form__error')) {
-			formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector('.form__error'));
+		formRequiredItem.closest('.form__line').classList.remove('_form-error');
+		if (formRequiredItem.closest('.form__line').querySelector('.form__error')) {
+			formRequiredItem.closest('.form__line').removeChild(formRequiredItem.closest('.form__line').querySelector('.form__error'));
 		}
 	},
 	addRight(formRequiredItem) {
 		formRequiredItem.classList.add('_form-right');
-		formRequiredItem.parentElement.classList.add('_form-right');
-		let inputRight = formRequiredItem.parentElement.querySelector('.form__right');
-		if (inputRight) formRequiredItem.parentElement.removeChild(inputRight);
-		formRequiredItem.parentElement.insertAdjacentHTML('beforeend', `<div class="form__right"></div>`);
+		formRequiredItem.closest('.form__line').classList.add('_form-right');
+		let inputRight = formRequiredItem.closest('.form__line').querySelector('.form__right');
+		if (inputRight) formRequiredItem.closest('.form__line').removeChild(inputRight);
+		formRequiredItem.closest('.form__line').insertAdjacentHTML('beforeend', `<div class="form__right"></div>`);
 	},
 	removeRight(formRequiredItem) {
 		formRequiredItem.classList.remove('_form-right');
-		formRequiredItem.parentElement.classList.remove('_form-right');
-		if (formRequiredItem.parentElement.querySelector('.form__right')) {
-			formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector('.form__right'));
+		formRequiredItem.closest('.form__line').classList.remove('_form-right');
+		if (formRequiredItem.closest('.form__line').querySelector('.form__right')) {
+			formRequiredItem.closest('.form__line').removeChild(formRequiredItem.closest('.form__line').querySelector('.form__right'));
 		}
 	},
 	formClean(form) {
