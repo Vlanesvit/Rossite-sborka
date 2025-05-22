@@ -209,7 +209,6 @@ p {
 	}
 }
 
-
 // Button ========================================================================================================================================================
 ._fill-point {
 	background-color: var(--primary-color);
@@ -1550,3 +1549,99 @@ blockquote {
 // .is-classic .is-nav-selected .f-thumbs__slide__button {
 // 	border-color: var(--primary-color);
 // }
+
+.checkbox__item,
+.wpcf7-list-item > label {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+
+	@media (max-width: 991.98px) {
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
+}
+
+.wpcf7-list-item > label > input {
+	margin-right: 10px;
+}
+
+.checkbox__emulator {
+	display: block;
+	height: 20px;
+	flex: 0 0 20px;
+	position: relative;
+	background-color: transparent;
+	border: 1px solid #d6dbe0;
+	border-radius: 4px;
+	margin-right: 8px;
+	transition: all 0.3s ease 0s;
+
+	@media (max-width: 991.98px) {
+		margin-right: 0px;
+		margin-left: 8px;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 50%;
+		left: 50%;
+		opacity: 0;
+		z-index: 1;
+		transform: translate(-50%, -50%) scale(1.5);
+		transition: ease-out 0.15s;
+		background-image: url("../img/icons/check-filter.svg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+	}
+}
+
+.checkbox__label,
+.wpcf7-list-item-label {
+	font-weight: 400;
+	font-size: 16px;
+	// line-height: 22px;
+	line-height: 140%;
+	color: #383b56;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+
+	@media (max-width: 1439.98px) {
+		font-weight: 500;
+		font-size: 14px;
+		// line-height: 17px;
+		line-height: 120%;
+	}
+}
+
+// .checkbox__color
+.checkbox__color {
+	flex: 0 0 13px;
+	height: 13px;
+	background-color: var(--color);
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	margin-right: 4px;
+}
+
+.checkbox__input {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	font-size: 0px;
+
+	&:checked ~ .checkbox__emulator {
+		background-color: var(--primary-color);
+		border-color: var(--primary-color);
+	}
+
+	&:checked ~ .checkbox__emulator::before {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+}

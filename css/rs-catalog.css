@@ -693,7 +693,7 @@
     padding: 6px 0px;
   }
 }
-.rs-catalog__filters .checkbox__item {
+.rs-catalog__filters .checkbox__item, .rs-catalog__filters .checkbox .wpcf7-list-item > label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -703,7 +703,7 @@
   cursor: pointer;
 }
 @media (max-width: 991.98px) {
-  .rs-catalog__filters .checkbox__item {
+  .rs-catalog__filters .checkbox__item, .rs-catalog__filters .checkbox .wpcf7-list-item > label {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
@@ -712,6 +712,9 @@
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+}
+.rs-catalog__filters .checkbox .wpcf7-list-item > label > input {
+  margin-right: 10px;
 }
 .rs-catalog__filters .checkbox__emulator {
   display: block;
@@ -752,7 +755,7 @@
   background-position: center;
   background-size: contain;
 }
-.rs-catalog__filters .checkbox__label {
+.rs-catalog__filters .checkbox__label, .rs-catalog__filters .checkbox .wpcf7-list-item-label {
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
@@ -766,7 +769,7 @@
   cursor: pointer;
 }
 @media (max-width: 1439.98px) {
-  .rs-catalog__filters .checkbox__label {
+  .rs-catalog__filters .checkbox__label, .rs-catalog__filters .checkbox .wpcf7-list-item-label {
     font-weight: 500;
     font-size: 14px;
     line-height: 120%;

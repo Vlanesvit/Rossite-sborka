@@ -713,7 +713,7 @@
 				}
 			}
 
-			&__item {
+			&__item, .wpcf7-list-item > label {
 				display: flex;
 				align-items: center;
 				cursor: pointer;
@@ -722,6 +722,10 @@
 					flex-direction: row-reverse;
 					justify-content: space-between;
 				}
+			}
+
+			.wpcf7-list-item > label > input {
+				margin-right: 10px;
 			}
 
 			// .checkbox__emulator
@@ -760,7 +764,7 @@
 			}
 
 			// .checkbox__label
-			&__label {
+			&__label, .wpcf7-list-item-label {
 				font-weight: 400;
 				font-size: 16px;
 				// line-height: 22px;
